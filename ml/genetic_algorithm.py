@@ -14,11 +14,11 @@ class Optimizer:
 
     @staticmethod
     def get_p_size(population_size):
-        return int(0.5 + isqrt(1 + 8 * population_size) / 2)
+        return int(-0.5 + isqrt(1 + 8 * population_size) / 2)
 
     @staticmethod
     def get_population_size(p_size):
-        return int(-0.5 * p_size * (p_size - 1))
+        return int(0.5 * p_size * (p_size - 1))
 
     def define_sizes(self, population_size, p_size):
         if population_size is None and p_size is None:
