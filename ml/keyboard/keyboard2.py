@@ -108,7 +108,7 @@ class Keyboard:
         return cls(keys)
 
     @classmethod
-    def merge(cls, a, b, swaps=True):
+    def merge_c(cls, a, b, swaps=True):
         def swap(dictionary):
             items = list(dictionary.items())
             (l0, e0), (l1, e1) = choice(items), choice(items)
@@ -131,9 +131,9 @@ class Keyboard:
                 keys[letter] = (x, y)
                 remaining_letters.remove(letter)
 
-        for x, y in missing:
+        for xy in missing:
             letter = choice(remaining_letters)
-            keys[letter] = (x, y)
+            keys[letter] = xy
             remaining_letters.remove(letter)
 
         if swaps:
@@ -187,6 +187,37 @@ class Keyboard:
             for _ in range(choice(choices)):
                 swap()
             keys = {v: k for k, v in k.items()}
+
+        return cls(keys)
+
+    @classmethod
+    def merge(cls, a, b, swaps=True):
+        def swap(dictionary):
+            items = list(dictionary.items())
+            (l0, e0), (l1, e1) = choice(items), choice(items)
+            dictionary[l1] = e0
+            dictionary[l0] = e1
+
+        ml = []
+        mc = [(x, y) for x in range(10) for y in range(3)]
+        keys = {}
+        for letter in Keyboard.letters:
+            ak = a.keys(letter)
+            if ak == b.keys(letter):
+                keys[letter] = ak
+                mc.remove(ak)
+                continue
+            ml.append(letter)
+
+        for letter in ml:
+            c = choice(mc)  # todo: weight choices someone so the key is more likely to stay where it was
+            mc.remove(c)
+            keys[letter] = c
+
+        if swaps:
+            choices = [0, 0] + list(range(randint(0, 3)))
+            for _ in range(choice(choices)):
+                swap(keys)
 
         return cls(keys)
 
@@ -290,7 +321,7 @@ if __name__ == '__main__':
                best.fitness_score(t)]
 
     current_best = Graph(Keyboard, t, size=len(t), comparisons=heights,
-                         minimize=True, text_output=True, full_refresh=0).run()
+                         minimize=True, text_output=True, full_refresh=1).run()
     # if current_best.fitness_score(test) < best.fitness_score(test):
     #     open('best.txt', 'w').write(current_best.get_format())
     #     print('new best:\n' + str(current_best))

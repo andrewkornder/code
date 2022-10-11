@@ -127,7 +127,7 @@ class Graph:
         self.x_padding, self.y_padding = self.w // 50, self.h // 50
 
         self.root = Tk()
-        self.root.geometry(f'{self.w + 2 * self.x_padding}x{self.h + 2 * self.y_padding}+50+30')
+        self.root.geometry(f'{self.w + 2 * self.x_padding}x{self.h + 2 * self.y_padding}+0+0')
 
         self.root.lift()
         self.root.attributes('-topmost', True)
@@ -147,7 +147,8 @@ class Graph:
         self.y_scale = scale * self.h / size
         self.y_floor = floor if floor else (0.15 * size)
 
-        self.line_width = 1
+        self.line_width = 5
+        self.font = ('Niagara Bold', 15)
 
         self.comparisons = comparisons
         if comparisons:
@@ -186,6 +187,7 @@ class Graph:
         scale, size, floor = self.user_pref
         self.y_scale = (scale * self.h) / size
         self.y_floor = floor if floor else (0.15 * size)
+        self.line_width = 5
 
         self.canvas.delete('comparisons')
         self.add_comparisons(self.comparisons)
@@ -237,6 +239,8 @@ class Graph:
         self.canvas.delete('to delete')
         if args:
             self.points.append([self.calc_height(value) for value in args])
+            if len(self.points) % 20 == 0 and self.line_width > 0.2:
+                self.line_width -= 0.1
 
         n = len(self.points) - 1
         x_scale = (self.w - self.x_padding) / (n if n else 1)
@@ -247,7 +251,15 @@ class Graph:
             lasts, last_x = points, x
             x += x_scale
 
-        self.add_tick(self.optimizer.record.score)
+        self.add_info(self.optimizer.round, self.optimizer.record.score)
+
+    def add_info(self, rnd, score):
+        x, y = self.w - 150, 80
+        self.add_text(f'round: {rnd}', x, y)
+        self.add_tick(score)
+
+    def add_text(self, text, x, y):
+        self.canvas.create_text(x, y, text=text, font=self.font, fill='black', tags=('to delete',))
 
     def add_tick(self, point):
         y = self.calc_height(point)
