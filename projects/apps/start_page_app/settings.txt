@@ -1,0 +1,4 @@
+items.txt
+800,800,0,100,80,Times New Roman, 20,"C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+"C:/Users/Administrator/AppData/Local/Programs/Opera GX/launcher.exe"

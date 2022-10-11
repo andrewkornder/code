@@ -1,0 +1,4635 @@
+SOLVED
+====================================
+1. cigar
+	solved cigar in 3 turns
+2. rebut
+	solved rebut in 4 turns
+3. sissy
+	solved sissy in 4 turns
+4. humph
+	solved humph in 4 turns
+5. awake
+	solved awake in 5 turns
+6. blush
+	solved blush in 2 turns
+7. focal
+	solved focal in 3 turns
+8. evade
+	solved evade in 3 turns
+9. naval
+	solved naval in 3 turns
+10. serve
+	solved serve in 5 turns
+11. heath
+	solved heath in 4 turns
+12. dwarf
+	solved dwarf in 3 turns
+13. model
+	solved model in 4 turns
+14. karma
+	solved karma in 4 turns
+15. stink
+	solved stink in 3 turns
+16. grade
+	solved grade in 4 turns
+17. quiet
+	solved quiet in 3 turns
+18. bench
+	solved bench in 4 turns
+19. abate
+	solved abate in 4 turns
+20. feign
+	solved feign in 4 turns
+21. major
+	solved major in 4 turns
+22. death
+	solved death in 3 turns
+23. fresh
+	solved fresh in 3 turns
+24. crust
+	solved crust in 3 turns
+25. stool
+	solved stool in 3 turns
+26. colon
+	solved colon in 3 turns
+27. abase
+	solved abase in 4 turns
+28. marry
+	solved marry in 5 turns
+29. react
+	solved react in 3 turns
+30. batty
+	solved batty in 4 turns
+31. pride
+	solved pride in 3 turns
+32. floss
+	solved floss in 3 turns
+33. helix
+	solved helix in 4 turns
+34. croak
+	solved croak in 4 turns
+35. staff
+	solved staff in 6 turns
+36. paper
+	solved paper in 4 turns
+37. unfed
+	solved unfed in 3 turns
+38. whelp
+	solved whelp in 3 turns
+39. trawl
+	solved trawl in 3 turns
+40. outdo
+	solved outdo in 3 turns
+41. adobe
+	solved adobe in 4 turns
+42. crazy
+	solved crazy in 4 turns
+43. sower
+	solved sower in 3 turns
+44. repay
+	solved repay in 4 turns
+45. digit
+	solved digit in 4 turns
+46. crate
+	solved crate in 3 turns
+47. cluck
+	solved cluck in 5 turns
+48. spike
+	solved spike in 5 turns
+49. mimic
+	solved mimic in 5 turns
+50. pound
+	solved pound in 3 turns
+51. maxim
+	solved maxim in 5 turns
+52. linen
+	solved linen in 4 turns
+53. unmet
+	solved unmet in 3 turns
+54. flesh
+	solved flesh in 2 turns
+55. booby
+	solved booby in 5 turns
+56. forth
+	solved forth in 4 turns
+57. first
+	solved first in 3 turns
+58. stand
+	solved stand in 3 turns
+59. belly
+	solved belly in 5 turns
+60. ivory
+	solved ivory in 4 turns
+61. seedy
+	solved seedy in 4 turns
+62. print
+	solved print in 3 turns
+63. yearn
+	solved yearn in 3 turns
+64. drain
+	solved drain in 2 turns
+65. bribe
+	solved bribe in 5 turns
+66. stout
+	solved stout in 6 turns
+67. panel
+	solved panel in 3 turns
+68. crass
+	solved crass in 4 turns
+69. flume
+	solved flume in 3 turns
+70. offal
+	solved offal in 4 turns
+71. agree
+	solved agree in 3 turns
+72. error
+	solved error in 3 turns
+73. swirl
+	solved swirl in 3 turns
+74. argue
+	solved argue in 4 turns
+75. bleed
+	solved bleed in 4 turns
+76. delta
+	solved delta in 2 turns
+77. flick
+	solved flick in 3 turns
+78. totem
+	solved totem in 3 turns
+79. wooer
+	solved wooer in 3 turns
+80. front
+	solved front in 4 turns
+81. shrub
+	solved shrub in 4 turns
+82. parry
+	solved parry in 4 turns
+83. biome
+	solved biome in 3 turns
+84. lapel
+	solved lapel in 4 turns
+85. start
+	solved start in 3 turns
+86. greet
+	solved greet in 4 turns
+87. goner
+	solved goner in 5 turns
+88. golem
+	solved golem in 3 turns
+89. lusty
+	solved lusty in 2 turns
+90. loopy
+	solved loopy in 4 turns
+91. round
+	solved round in 2 turns
+92. audit
+	solved audit in 3 turns
+93. lying
+	solved lying in 4 turns
+94. gamma
+	solved gamma in 4 turns
+95. labor
+	solved labor in 3 turns
+96. islet
+	solved islet in 2 turns
+97. civic
+	solved civic in 4 turns
+98. forge
+	solved forge in 3 turns
+99. corny
+	solved corny in 3 turns
+100. moult
+	solved moult in 3 turns
+101. basic
+	solved basic in 3 turns
+102. salad
+	solved salad in 3 turns
+103. agate
+	solved agate in 3 turns
+104. spicy
+	solved spicy in 3 turns
+105. spray
+	solved spray in 3 turns
+106. essay
+	solved essay in 3 turns
+107. fjord
+	solved fjord in 4 turns
+108. spend
+	solved spend in 3 turns
+109. kebab
+	solved kebab in 3 turns
+110. guild
+	solved guild in 3 turns
+111. aback
+	solved aback in 5 turns
+112. motor
+	solved motor in 3 turns
+113. alone
+	solved alone in 4 turns
+114. hatch
+	solved hatch in 6 turns
+115. hyper
+	solved hyper in 4 turns
+116. thumb
+	solved thumb in 4 turns
+117. dowry
+	solved dowry in 4 turns
+118. ought
+	solved ought in 3 turns
+119. belch
+	solved belch in 2 turns
+120. dutch
+	solved dutch in 4 turns
+121. pilot
+	solved pilot in 2 turns
+122. tweed
+	solved tweed in 4 turns
+123. comet
+	solved comet in 4 turns
+124. jaunt
+	solved jaunt in 4 turns
+125. enema
+	solved enema in 4 turns
+126. steed
+	solved steed in 2 turns
+127. abyss
+	solved abyss in 3 turns
+128. growl
+	solved growl in 4 turns
+129. fling
+	solved fling in 3 turns
+130. dozen
+	solved dozen in 4 turns
+131. boozy
+	solved boozy in 3 turns
+132. erode
+	solved erode in 3 turns
+133. world
+	solved world in 3 turns
+134. gouge
+	solved gouge in 4 turns
+135. click
+	solved click in 4 turns
+136. briar
+	solved briar in 3 turns
+137. great
+	solved great in 3 turns
+138. altar
+	solved altar in 3 turns
+139. pulpy
+	solved pulpy in 6 turns
+140. blurt
+	solved blurt in 2 turns
+141. coast
+	solved coast in 2 turns
+142. duchy
+	solved duchy in 4 turns
+143. groin
+	solved groin in 3 turns
+144. fixer
+	solved fixer in 5 turns
+145. group
+	solved group in 4 turns
+146. rogue
+	solved rogue in 4 turns
+147. badly
+	solved badly in 3 turns
+148. smart
+	solved smart in 2 turns
+149. pithy
+	solved pithy in 3 turns
+150. gaudy
+	solved gaudy in 4 turns
+151. chill
+	solved chill in 4 turns
+152. heron
+	solved heron in 3 turns
+153. vodka
+	solved vodka in 3 turns
+154. finer
+	solved finer in 3 turns
+155. surer
+	solved surer in 6 turns
+156. radio
+	solved radio in 3 turns
+157. rouge
+	solved rouge in 4 turns
+158. perch
+	solved perch in 4 turns
+159. retch
+	solved retch in 3 turns
+160. wrote
+	solved wrote in 3 turns
+161. clock
+	solved clock in 4 turns
+162. tilde
+	solved tilde in 2 turns
+163. store
+	solved store in 2 turns
+164. prove
+	solved prove in 4 turns
+165. bring
+	solved bring in 4 turns
+166. solve
+	solved solve in 2 turns
+167. cheat
+	solved cheat in 3 turns
+168. grime
+	solved grime in 4 turns
+169. exult
+	solved exult in 2 turns
+170. usher
+	solved usher in 3 turns
+171. epoch
+	solved epoch in 3 turns
+172. triad
+	solved triad in 3 turns
+173. break
+	solved break in 3 turns
+174. rhino
+	solved rhino in 3 turns
+175. viral
+	solved viral in 4 turns
+176. conic
+	solved conic in 4 turns
+177. masse
+	solved masse in 4 turns
+178. sonic
+	solved sonic in 3 turns
+179. vital
+	solved vital in 2 turns
+180. trace
+	solved trace in 3 turns
+181. using
+	solved using in 3 turns
+182. peach
+	solved peach in 4 turns
+183. champ
+	solved champ in 3 turns
+184. baton
+	solved baton in 4 turns
+185. brake
+	solved brake in 5 turns
+186. pluck
+	solved pluck in 3 turns
+187. craze
+	solved craze in 4 turns
+188. gripe
+	solved gripe in 4 turns
+189. weary
+	solved weary in 4 turns
+190. picky
+	solved picky in 3 turns
+191. acute
+	solved acute in 3 turns
+192. ferry
+	solved ferry in 4 turns
+193. aside
+	solved aside in 3 turns
+194. tapir
+	solved tapir in 3 turns
+195. troll
+	solved troll in 3 turns
+196. unify
+	solved unify in 4 turns
+197. rebus
+	solved rebus in 3 turns
+198. boost
+	solved boost in 4 turns
+199. truss
+	solved truss in 3 turns
+200. siege
+	solved siege in 3 turns
+201. tiger
+	solved tiger in 4 turns
+202. banal
+	solved banal in 3 turns
+203. slump
+	solved slump in 3 turns
+204. crank
+	solved crank in 3 turns
+205. gorge
+	solved gorge in 4 turns
+206. query
+	solved query in 4 turns
+207. drink
+	solved drink in 3 turns
+208. favor
+	solved favor in 5 turns
+209. abbey
+	solved abbey in 3 turns
+210. tangy
+	solved tangy in 4 turns
+211. panic
+	solved panic in 4 turns
+212. solar
+	solved solar in 2 turns
+213. shire
+	solved shire in 3 turns
+214. proxy
+	solved proxy in 5 turns
+215. point
+	solved point in 3 turns
+216. robot
+	solved robot in 3 turns
+217. prick
+	solved prick in 4 turns
+218. wince
+	solved wince in 5 turns
+219. crimp
+	solved crimp in 3 turns
+220. knoll
+	solved knoll in 4 turns
+221. sugar
+	solved sugar in 4 turns
+222. whack
+	solved whack in 4 turns
+223. mount
+	solved mount in 4 turns
+224. perky
+	solved perky in 4 turns
+225. could
+	solved could in 3 turns
+226. wrung
+	solved wrung in 3 turns
+227. light
+	solved light in 3 turns
+228. those
+	solved those in 2 turns
+229. moist
+	solved moist in 4 turns
+230. shard
+	solved shard in 5 turns
+231. pleat
+	solved pleat in 3 turns
+232. aloft
+	solved aloft in 2 turns
+233. skill
+	solved skill in 3 turns
+234. elder
+	solved elder in 5 turns
+235. frame
+	solved frame in 5 turns
+236. humor
+	solved humor in 4 turns
+237. pause
+	solved pause in 2 turns
+238. ulcer
+	solved ulcer in 5 turns
+239. ultra
+	solved ultra in 3 turns
+240. robin
+	solved robin in 3 turns
+241. cynic
+	solved cynic in 4 turns
+242. agora
+	solved agora in 4 turns
+243. aroma
+	solved aroma in 3 turns
+244. caulk
+	solved caulk in 3 turns
+245. shake
+	solved shake in 3 turns
+246. pupal
+	solved pupal in 4 turns
+247. dodge
+	solved dodge in 3 turns
+248. swill
+	solved swill in 4 turns
+249. tacit
+	solved tacit in 3 turns
+250. other
+	solved other in 3 turns
+251. thorn
+	solved thorn in 3 turns
+252. trove
+	solved trove in 4 turns
+253. bloke
+	solved bloke in 4 turns
+254. vivid
+	solved vivid in 3 turns
+255. spill
+	solved spill in 4 turns
+256. chant
+	solved chant in 4 turns
+257. choke
+	solved choke in 4 turns
+258. rupee
+	solved rupee in 4 turns
+259. nasty
+	solved nasty in 2 turns
+260. mourn
+	solved mourn in 3 turns
+261. ahead
+	solved ahead in 4 turns
+262. brine
+	solved brine in 4 turns
+263. cloth
+	solved cloth in 3 turns
+264. hoard
+	solved hoard in 3 turns
+265. sweet
+	solved sweet in 2 turns
+266. month
+	solved month in 3 turns
+267. lapse
+	solved lapse in 2 turns
+268. watch
+	solved watch in 5 turns
+269. today
+	solved today in 3 turns
+270. focus
+	solved focus in 4 turns
+271. smelt
+	solved smelt in 2 turns
+272. tease
+	solved tease in 2 turns
+273. cater
+	solved cater in 2 turns
+274. movie
+	solved movie in 4 turns
+275. lynch
+	solved lynch in 4 turns
+276. saute
+	solved saute in 2 turns
+277. allow
+	solved allow in 4 turns
+278. renew
+	solved renew in 3 turns
+279. their
+	solved their in 3 turns
+280. slosh
+	solved slosh in 4 turns
+281. purge
+	solved purge in 4 turns
+282. chest
+	solved chest in 3 turns
+283. depot
+	solved depot in 3 turns
+284. epoxy
+	solved epoxy in 4 turns
+285. nymph
+	solved nymph in 3 turns
+286. found
+	solved found in 7 turns
+287. shall
+	solved shall in 4 turns
+288. harry
+	solved harry in 4 turns
+289. stove
+	solved stove in 3 turns
+290. lowly
+	solved lowly in 4 turns
+291. snout
+	solved snout in 3 turns
+292. trope
+	solved trope in 3 turns
+293. fewer
+	solved fewer in 5 turns
+294. shawl
+	solved shawl in 3 turns
+295. natal
+	solved natal in 2 turns
+296. fibre
+	solved fibre in 5 turns
+297. comma
+	solved comma in 4 turns
+298. foray
+	solved foray in 4 turns
+299. scare
+	solved scare in 5 turns
+300. stair
+	solved stair in 3 turns
+301. black
+	solved black in 4 turns
+302. squad
+	solved squad in 4 turns
+303. royal
+	solved royal in 3 turns
+304. chunk
+	solved chunk in 3 turns
+305. mince
+	solved mince in 4 turns
+306. slave
+	solved slave in 3 turns
+307. shame
+	solved shame in 6 turns
+308. cheek
+	solved cheek in 4 turns
+309. ample
+	solved ample in 3 turns
+310. flair
+	solved flair in 3 turns
+311. foyer
+	solved foyer in 6 turns
+312. cargo
+	solved cargo in 4 turns
+313. oxide
+	solved oxide in 3 turns
+314. plant
+	solved plant in 3 turns
+315. olive
+	solved olive in 3 turns
+316. inert
+	solved inert in 3 turns
+317. askew
+	solved askew in 2 turns
+318. heist
+	solved heist in 3 turns
+319. shown
+	solved shown in 4 turns
+320. zesty
+	solved zesty in 3 turns
+321. hasty
+	solved hasty in 3 turns
+322. trash
+	solved trash in 2 turns
+323. fella
+	solved fella in 3 turns
+324. larva
+	solved larva in 4 turns
+325. forgo
+	solved forgo in 5 turns
+326. story
+	solved story in 3 turns
+327. hairy
+	solved hairy in 4 turns
+328. train
+	solved train in 2 turns
+329. homer
+	solved homer in 4 turns
+330. badge
+	solved badge in 3 turns
+331. midst
+	solved midst in 4 turns
+332. canny
+	solved canny in 4 turns
+333. fetus
+	solved fetus in 4 turns
+334. butch
+	solved butch in 4 turns
+335. farce
+	solved farce in 4 turns
+336. slung
+	solved slung in 3 turns
+337. tipsy
+	solved tipsy in 3 turns
+338. metal
+	solved metal in 3 turns
+339. yield
+	solved yield in 3 turns
+340. delve
+	solved delve in 5 turns
+341. being
+	solved being in 4 turns
+342. scour
+	solved scour in 3 turns
+343. glass
+	solved glass in 4 turns
+344. gamer
+	solved gamer in 3 turns
+345. scrap
+	solved scrap in 3 turns
+346. money
+	solved money in 3 turns
+347. hinge
+	solved hinge in 4 turns
+348. album
+	solved album in 3 turns
+349. vouch
+	solved vouch in 5 turns
+350. asset
+	solved asset in 2 turns
+351. tiara
+	solved tiara in 3 turns
+352. crept
+	solved crept in 2 turns
+353. bayou
+	solved bayou in 3 turns
+354. atoll
+	solved atoll in 4 turns
+355. manor
+	solved manor in 3 turns
+356. creak
+	solved creak in 4 turns
+357. showy
+	solved showy in 4 turns
+358. phase
+	solved phase in 4 turns
+359. froth
+	solved froth in 4 turns
+360. depth
+	solved depth in 3 turns
+361. gloom
+	solved gloom in 4 turns
+362. flood
+	solved flood in 4 turns
+363. trait
+	solved trait in 3 turns
+364. girth
+	solved girth in 5 turns
+365. piety
+	solved piety in 3 turns
+366. payer
+	solved payer in 4 turns
+367. goose
+	solved goose in 5 turns
+368. float
+	solved float in 3 turns
+369. donor
+	solved donor in 3 turns
+370. atone
+	solved atone in 3 turns
+371. primo
+	solved primo in 5 turns
+372. apron
+	solved apron in 4 turns
+373. blown
+	solved blown in 4 turns
+374. cacao
+	solved cacao in 4 turns
+375. loser
+	solved loser in 2 turns
+376. input
+	solved input in 3 turns
+377. gloat
+	solved gloat in 3 turns
+378. awful
+	solved awful in 4 turns
+379. brink
+	solved brink in 5 turns
+380. smite
+	solved smite in 3 turns
+381. beady
+	solved beady in 3 turns
+382. rusty
+	solved rusty in 3 turns
+383. retro
+	solved retro in 4 turns
+384. droll
+	solved droll in 3 turns
+385. gawky
+	solved gawky in 4 turns
+386. hutch
+	solved hutch in 5 turns
+387. pinto
+	solved pinto in 3 turns
+388. gaily
+	solved gaily in 4 turns
+389. egret
+	solved egret in 3 turns
+390. lilac
+	solved lilac in 3 turns
+391. sever
+	solved sever in 6 turns
+392. field
+	solved field in 4 turns
+393. fluff
+	solved fluff in 4 turns
+394. hydro
+	solved hydro in 3 turns
+395. flack
+	solved flack in 3 turns
+396. agape
+	solved agape in 4 turns
+397. wench
+	solved wench in 4 turns
+398. voice
+	solved voice in 3 turns
+399. stead
+	solved stead in 3 turns
+400. stalk
+	solved stalk in 2 turns
+401. berth
+	solved berth in 4 turns
+402. madam
+	solved madam in 4 turns
+403. night
+	solved night in 3 turns
+404. bland
+	solved bland in 4 turns
+405. liver
+	solved liver in 3 turns
+406. wedge
+	solved wedge in 5 turns
+407. augur
+	solved augur in 4 turns
+408. roomy
+	solved roomy in 4 turns
+409. wacky
+	solved wacky in 3 turns
+410. flock
+	solved flock in 4 turns
+411. angry
+	solved angry in 3 turns
+412. bobby
+	solved bobby in 4 turns
+413. trite
+	solved trite in 5 turns
+414. aphid
+	solved aphid in 4 turns
+415. tryst
+	solved tryst in 5 turns
+416. midge
+	solved midge in 4 turns
+417. power
+	solved power in 3 turns
+418. elope
+	solved elope in 5 turns
+419. cinch
+	solved cinch in 6 turns
+420. motto
+	solved motto in 4 turns
+421. stomp
+	solved stomp in 3 turns
+422. upset
+	solved upset in 3 turns
+423. bluff
+	solved bluff in 4 turns
+424. cramp
+	solved cramp in 3 turns
+425. quart
+	solved quart in 4 turns
+426. coyly
+	solved coyly in 3 turns
+427. youth
+	solved youth in 4 turns
+428. rhyme
+	solved rhyme in 4 turns
+429. buggy
+	solved buggy in 5 turns
+430. alien
+	solved alien in 2 turns
+431. smear
+	solved smear in 4 turns
+432. unfit
+	solved unfit in 3 turns
+433. patty
+	solved patty in 3 turns
+434. cling
+	solved cling in 4 turns
+435. glean
+	solved glean in 4 turns
+436. label
+	solved label in 5 turns
+437. hunky
+	solved hunky in 3 turns
+438. khaki
+	solved khaki in 3 turns
+439. poker
+	solved poker in 4 turns
+440. gruel
+	solved gruel in 5 turns
+441. twice
+	solved twice in 3 turns
+442. twang
+	solved twang in 4 turns
+443. shrug
+	solved shrug in 3 turns
+444. treat
+	solved treat in 4 turns
+445. unlit
+	solved unlit in 3 turns
+446. waste
+	solved waste in 2 turns
+447. merit
+	solved merit in 4 turns
+448. woven
+	solved woven in 3 turns
+449. octal
+	solved octal in 3 turns
+450. needy
+	solved needy in 3 turns
+451. clown
+	solved clown in 3 turns
+452. widow
+	solved widow in 3 turns
+453. irony
+	solved irony in 3 turns
+454. ruder
+	solved ruder in 4 turns
+455. gauze
+	solved gauze in 4 turns
+456. chief
+	solved chief in 3 turns
+457. onset
+	solved onset in 3 turns
+458. prize
+	solved prize in 5 turns
+459. fungi
+	solved fungi in 4 turns
+460. charm
+	solved charm in 4 turns
+461. gully
+	solved gully in 5 turns
+462. inter
+	solved inter in 3 turns
+463. whoop
+	solved whoop in 4 turns
+464. taunt
+	solved taunt in 7 turns
+465. leery
+	solved leery in 4 turns
+466. class
+	solved class in 4 turns
+467. theme
+	solved theme in 4 turns
+468. lofty
+	solved lofty in 2 turns
+469. tibia
+	solved tibia in 3 turns
+470. booze
+	solved booze in 4 turns
+471. alpha
+	solved alpha in 4 turns
+472. thyme
+	solved thyme in 3 turns
+473. eclat
+	solved eclat in 2 turns
+474. doubt
+	solved doubt in 4 turns
+475. parer
+	solved parer in 5 turns
+476. chute
+	solved chute in 3 turns
+477. stick
+	solved stick in 4 turns
+478. trice
+	solved trice in 2 turns
+479. alike
+	solved alike in 3 turns
+480. sooth
+	solved sooth in 4 turns
+481. recap
+	solved recap in 3 turns
+482. saint
+	solved saint in 2 turns
+483. liege
+	solved liege in 3 turns
+484. glory
+	solved glory in 3 turns
+485. grate
+	solved grate in 2 turns
+486. admit
+	solved admit in 4 turns
+487. brisk
+	solved brisk in 3 turns
+488. soggy
+	solved soggy in 4 turns
+489. usurp
+	solved usurp in 3 turns
+490. scald
+	solved scald in 3 turns
+491. scorn
+	solved scorn in 3 turns
+492. leave
+	solved leave in 4 turns
+493. twine
+	solved twine in 3 turns
+494. sting
+	solved sting in 3 turns
+495. bough
+	solved bough in 4 turns
+496. marsh
+	solved marsh in 3 turns
+497. sloth
+	solved sloth in 2 turns
+498. dandy
+	solved dandy in 5 turns
+499. vigor
+	solved vigor in 4 turns
+500. howdy
+	solved howdy in 3 turns
+501. enjoy
+	solved enjoy in 4 turns
+502. valid
+	solved valid in 3 turns
+503. ionic
+	solved ionic in 3 turns
+504. equal
+	solved equal in 4 turns
+505. unset
+	solved unset in 2 turns
+506. floor
+	solved floor in 4 turns
+507. catch
+	solved catch in 7 turns
+508. spade
+	solved spade in 3 turns
+509. stein
+	solved stein in 3 turns
+510. exist
+	solved exist in 4 turns
+511. quirk
+	solved quirk in 4 turns
+512. denim
+	solved denim in 4 turns
+513. grove
+	solved grove in 4 turns
+514. spiel
+	solved spiel in 2 turns
+515. mummy
+	solved mummy in 5 turns
+516. fault
+	solved fault in 2 turns
+517. foggy
+	solved foggy in 5 turns
+518. flout
+	solved flout in 3 turns
+519. carry
+	solved carry in 4 turns
+520. sneak
+	solved sneak in 4 turns
+521. libel
+	solved libel in 4 turns
+522. waltz
+	solved waltz in 3 turns
+523. aptly
+	solved aptly in 4 turns
+524. piney
+	solved piney in 4 turns
+525. inept
+	solved inept in 3 turns
+526. aloud
+	solved aloud in 4 turns
+527. photo
+	solved photo in 3 turns
+528. dream
+	solved dream in 3 turns
+529. stale
+	solved stale in 2 turns
+530. vomit
+	solved vomit in 4 turns
+531. ombre
+	solved ombre in 4 turns
+532. fanny
+	solved fanny in 4 turns
+533. unite
+	solved unite in 3 turns
+534. snarl
+	solved snarl in 3 turns
+535. baker
+	solved baker in 5 turns
+536. there
+	solved there in 3 turns
+537. glyph
+	solved glyph in 4 turns
+538. pooch
+	solved pooch in 4 turns
+539. hippy
+	solved hippy in 5 turns
+540. spell
+	solved spell in 4 turns
+541. folly
+	solved folly in 3 turns
+542. louse
+	solved louse in 3 turns
+543. gulch
+	solved gulch in 3 turns
+544. vault
+	solved vault in 3 turns
+545. godly
+	solved godly in 3 turns
+546. threw
+	solved threw in 3 turns
+547. fleet
+	solved fleet in 2 turns
+548. grave
+	solved grave in 4 turns
+549. inane
+	solved inane in 4 turns
+550. shock
+	solved shock in 3 turns
+551. crave
+	solved crave in 3 turns
+552. spite
+	solved spite in 4 turns
+553. valve
+	solved valve in 3 turns
+554. skimp
+	solved skimp in 3 turns
+555. claim
+	solved claim in 2 turns
+556. rainy
+	solved rainy in 3 turns
+557. musty
+	solved musty in 4 turns
+558. pique
+	solved pique in 3 turns
+559. daddy
+	solved daddy in 7 turns
+560. quasi
+	solved quasi in 3 turns
+561. arise
+	solved arise in 2 turns
+562. aging
+	solved aging in 4 turns
+563. valet
+	solved valet in 2 turns
+564. opium
+	solved opium in 4 turns
+565. avert
+	solved avert in 3 turns
+566. stuck
+	solved stuck in 4 turns
+567. recut
+	solved recut in 3 turns
+568. mulch
+	solved mulch in 3 turns
+569. genre
+	solved genre in 3 turns
+570. plume
+	solved plume in 4 turns
+571. rifle
+	solved rifle in 3 turns
+572. count
+	solved count in 3 turns
+573. incur
+	solved incur in 3 turns
+574. total
+	solved total in 4 turns
+575. wrest
+	solved wrest in 3 turns
+576. mocha
+	solved mocha in 3 turns
+577. deter
+	solved deter in 5 turns
+578. study
+	solved study in 5 turns
+579. lover
+	solved lover in 2 turns
+580. safer
+	solved safer in 2 turns
+581. rivet
+	solved rivet in 2 turns
+582. funny
+	solved funny in 4 turns
+583. smoke
+	solved smoke in 4 turns
+584. mound
+	solved mound in 4 turns
+585. undue
+	solved undue in 4 turns
+586. sedan
+	solved sedan in 3 turns
+587. pagan
+	solved pagan in 4 turns
+588. swine
+	solved swine in 4 turns
+589. guile
+	solved guile in 2 turns
+590. gusty
+	solved gusty in 3 turns
+591. equip
+	solved equip in 4 turns
+592. tough
+	solved tough in 4 turns
+593. canoe
+	solved canoe in 4 turns
+594. chaos
+	solved chaos in 3 turns
+595. covet
+	solved covet in 3 turns
+596. human
+	solved human in 4 turns
+597. udder
+	solved udder in 4 turns
+598. lunch
+	solved lunch in 4 turns
+599. blast
+	solved blast in 2 turns
+600. stray
+	solved stray in 4 turns
+601. manga
+	solved manga in 5 turns
+602. melee
+	solved melee in 4 turns
+603. lefty
+	solved lefty in 3 turns
+604. quick
+	solved quick in 4 turns
+605. paste
+	solved paste in 3 turns
+606. given
+	solved given in 3 turns
+607. octet
+	solved octet in 4 turns
+608. risen
+	solved risen in 2 turns
+609. groan
+	solved groan in 3 turns
+610. leaky
+	solved leaky in 3 turns
+611. grind
+	solved grind in 3 turns
+612. carve
+	solved carve in 3 turns
+613. loose
+	solved loose in 4 turns
+614. sadly
+	solved sadly in 2 turns
+615. spilt
+	solved spilt in 2 turns
+616. apple
+	solved apple in 4 turns
+617. slack
+	solved slack in 4 turns
+618. honey
+	solved honey in 4 turns
+619. final
+	solved final in 4 turns
+620. sheen
+	solved sheen in 4 turns
+621. eerie
+	solved eerie in 5 turns
+622. minty
+	solved minty in 3 turns
+623. slick
+	solved slick in 3 turns
+624. derby
+	solved derby in 4 turns
+625. wharf
+	solved wharf in 4 turns
+626. spelt
+	solved spelt in 3 turns
+627. coach
+	solved coach in 4 turns
+628. erupt
+	solved erupt in 3 turns
+629. singe
+	solved singe in 4 turns
+630. price
+	solved price in 3 turns
+631. spawn
+	solved spawn in 3 turns
+632. fairy
+	solved fairy in 4 turns
+633. jiffy
+	solved jiffy in 5 turns
+634. filmy
+	solved filmy in 3 turns
+635. stack
+	solved stack in 4 turns
+636. chose
+	solved chose in 3 turns
+637. sleep
+	solved sleep in 3 turns
+638. ardor
+	solved ardor in 4 turns
+639. nanny
+	solved nanny in 5 turns
+640. niece
+	solved niece in 4 turns
+641. woozy
+	solved woozy in 4 turns
+642. handy
+	solved handy in 4 turns
+643. grace
+	solved grace in 4 turns
+644. ditto
+	solved ditto in 3 turns
+645. stank
+	solved stank in 2 turns
+646. cream
+	solved cream in 3 turns
+647. usual
+	solved usual in 3 turns
+648. diode
+	solved diode in 3 turns
+649. valor
+	solved valor in 3 turns
+650. angle
+	solved angle in 3 turns
+651. ninja
+	solved ninja in 4 turns
+652. muddy
+	solved muddy in 4 turns
+653. chase
+	solved chase in 3 turns
+654. reply
+	solved reply in 4 turns
+655. prone
+	solved prone in 4 turns
+656. spoil
+	solved spoil in 3 turns
+657. heart
+	solved heart in 2 turns
+658. shade
+	solved shade in 5 turns
+659. diner
+	solved diner in 3 turns
+660. arson
+	solved arson in 3 turns
+661. onion
+	solved onion in 4 turns
+662. sleet
+	solved sleet in 2 turns
+663. dowel
+	solved dowel in 4 turns
+664. couch
+	solved couch in 4 turns
+665. palsy
+	solved palsy in 2 turns
+666. bowel
+	solved bowel in 3 turns
+667. smile
+	solved smile in 2 turns
+668. evoke
+	solved evoke in 5 turns
+669. creek
+	solved creek in 4 turns
+670. lance
+	solved lance in 3 turns
+671. eagle
+	solved eagle in 4 turns
+672. idiot
+	solved idiot in 3 turns
+673. siren
+	solved siren in 3 turns
+674. built
+	solved built in 3 turns
+675. embed
+	solved embed in 4 turns
+676. award
+	solved award in 5 turns
+677. dross
+	solved dross in 5 turns
+678. annul
+	solved annul in 5 turns
+679. goody
+	solved goody in 5 turns
+680. frown
+	solved frown in 6 turns
+681. patio
+	solved patio in 4 turns
+682. laden
+	solved laden in 3 turns
+683. humid
+	solved humid in 3 turns
+684. elite
+	solved elite in 2 turns
+685. lymph
+	solved lymph in 4 turns
+686. edify
+	solved edify in 4 turns
+687. might
+	solved might in 5 turns
+688. reset
+	solved reset in 3 turns
+689. visit
+	solved visit in 3 turns
+690. gusto
+	solved gusto in 2 turns
+691. purse
+	solved purse in 3 turns
+692. vapor
+	solved vapor in 4 turns
+693. crock
+	solved crock in 4 turns
+694. write
+	solved write in 3 turns
+695. sunny
+	solved sunny in 4 turns
+696. loath
+	solved loath in 3 turns
+697. chaff
+	solved chaff in 4 turns
+698. slide
+	solved slide in 3 turns
+699. queer
+	solved queer in 6 turns
+700. venom
+	solved venom in 3 turns
+701. stamp
+	solved stamp in 4 turns
+702. sorry
+	solved sorry in 4 turns
+703. still
+	solved still in 3 turns
+704. acorn
+	solved acorn in 3 turns
+705. aping
+	solved aping in 3 turns
+706. pushy
+	solved pushy in 3 turns
+707. tamer
+	solved tamer in 3 turns
+708. hater
+	solved hater in 3 turns
+709. mania
+	solved mania in 4 turns
+710. awoke
+	solved awoke in 4 turns
+711. brawn
+	solved brawn in 3 turns
+712. swift
+	solved swift in 4 turns
+713. exile
+	solved exile in 4 turns
+714. birch
+	solved birch in 4 turns
+715. lucky
+	solved lucky in 4 turns
+716. freer
+	solved freer in 5 turns
+717. risky
+	solved risky in 3 turns
+718. ghost
+	solved ghost in 3 turns
+719. plier
+	solved plier in 4 turns
+720. lunar
+	solved lunar in 4 turns
+721. winch
+	solved winch in 5 turns
+722. snare
+	solved snare in 4 turns
+723. nurse
+	solved nurse in 4 turns
+724. house
+	solved house in 3 turns
+725. borax
+	solved borax in 4 turns
+726. nicer
+	solved nicer in 4 turns
+727. lurch
+	solved lurch in 3 turns
+728. exalt
+	solved exalt in 3 turns
+729. about
+	solved about in 3 turns
+730. savvy
+	solved savvy in 3 turns
+731. toxin
+	solved toxin in 4 turns
+732. tunic
+	solved tunic in 3 turns
+733. pried
+	solved pried in 3 turns
+734. inlay
+	solved inlay in 2 turns
+735. chump
+	solved chump in 3 turns
+736. lanky
+	solved lanky in 2 turns
+737. cress
+	solved cress in 5 turns
+738. eater
+	solved eater in 5 turns
+739. elude
+	solved elude in 4 turns
+740. cycle
+	solved cycle in 4 turns
+741. kitty
+	solved kitty in 5 turns
+742. boule
+	solved boule in 3 turns
+743. moron
+	solved moron in 4 turns
+744. tenet
+	solved tenet in 4 turns
+745. place
+	solved place in 5 turns
+746. lobby
+	solved lobby in 4 turns
+747. plush
+	solved plush in 4 turns
+748. vigil
+	solved vigil in 4 turns
+749. index
+	solved index in 3 turns
+750. blink
+	solved blink in 4 turns
+751. clung
+	solved clung in 3 turns
+752. qualm
+	solved qualm in 3 turns
+753. croup
+	solved croup in 4 turns
+754. clink
+	solved clink in 3 turns
+755. juicy
+	solved juicy in 4 turns
+756. stage
+	solved stage in 3 turns
+757. decay
+	solved decay in 3 turns
+758. nerve
+	solved nerve in 4 turns
+759. flier
+	solved flier in 3 turns
+760. shaft
+	solved shaft in 3 turns
+761. crook
+	solved crook in 4 turns
+762. clean
+	solved clean in 3 turns
+763. china
+	solved china in 4 turns
+764. ridge
+	solved ridge in 3 turns
+765. vowel
+	solved vowel in 3 turns
+766. gnome
+	solved gnome in 3 turns
+767. snuck
+	solved snuck in 3 turns
+768. icing
+	solved icing in 4 turns
+769. spiny
+	solved spiny in 4 turns
+770. rigor
+	solved rigor in 3 turns
+771. snail
+	solved snail in 2 turns
+772. flown
+	solved flown in 5 turns
+773. rabid
+	solved rabid in 4 turns
+774. prose
+	solved prose in 3 turns
+775. thank
+	solved thank in 3 turns
+776. poppy
+	solved poppy in 5 turns
+777. budge
+	solved budge in 4 turns
+778. fiber
+	solved fiber in 4 turns
+779. moldy
+	solved moldy in 2 turns
+780. dowdy
+	solved dowdy in 4 turns
+781. kneel
+	solved kneel in 6 turns
+782. track
+	solved track in 3 turns
+783. caddy
+	solved caddy in 5 turns
+784. quell
+	solved quell in 3 turns
+785. dumpy
+	solved dumpy in 3 turns
+786. paler
+	solved paler in 2 turns
+787. swore
+	solved swore in 5 turns
+788. rebar
+	solved rebar in 4 turns
+789. scuba
+	solved scuba in 4 turns
+790. splat
+	solved splat in 2 turns
+791. flyer
+	solved flyer in 4 turns
+792. horny
+	solved horny in 4 turns
+793. mason
+	solved mason in 3 turns
+794. doing
+	solved doing in 3 turns
+795. ozone
+	solved ozone in 4 turns
+796. amply
+	solved amply in 4 turns
+797. molar
+	solved molar in 3 turns
+798. ovary
+	solved ovary in 4 turns
+799. beset
+	solved beset in 4 turns
+800. queue
+	solved queue in 4 turns
+801. cliff
+	solved cliff in 5 turns
+802. magic
+	solved magic in 3 turns
+803. truce
+	solved truce in 3 turns
+804. sport
+	solved sport in 4 turns
+805. fritz
+	solved fritz in 3 turns
+806. edict
+	solved edict in 3 turns
+807. twirl
+	solved twirl in 4 turns
+808. verse
+	solved verse in 3 turns
+809. llama
+	solved llama in 3 turns
+810. eaten
+	solved eaten in 3 turns
+811. range
+	solved range in 2 turns
+812. whisk
+	solved whisk in 4 turns
+813. hovel
+	solved hovel in 4 turns
+814. rehab
+	solved rehab in 3 turns
+815. macaw
+	solved macaw in 5 turns
+816. sigma
+	solved sigma in 4 turns
+817. spout
+	solved spout in 4 turns
+818. verve
+	solved verve in 4 turns
+819. sushi
+	solved sushi in 4 turns
+820. dying
+	solved dying in 3 turns
+821. fetid
+	solved fetid in 4 turns
+822. brain
+	solved brain in 4 turns
+823. buddy
+	solved buddy in 4 turns
+824. thump
+	solved thump in 4 turns
+825. scion
+	solved scion in 2 turns
+826. candy
+	solved candy in 3 turns
+827. chord
+	solved chord in 3 turns
+828. basin
+	solved basin in 2 turns
+829. march
+	solved march in 4 turns
+830. crowd
+	solved crowd in 4 turns
+831. arbor
+	solved arbor in 4 turns
+832. gayly
+	solved gayly in 5 turns
+833. musky
+	solved musky in 4 turns
+834. stain
+	solved stain in 3 turns
+835. dally
+	solved dally in 3 turns
+836. bless
+	solved bless in 3 turns
+837. bravo
+	solved bravo in 5 turns
+838. stung
+	solved stung in 4 turns
+839. title
+	solved title in 3 turns
+840. ruler
+	solved ruler in 3 turns
+841. kiosk
+	solved kiosk in 3 turns
+842. blond
+	solved blond in 3 turns
+843. ennui
+	solved ennui in 4 turns
+844. layer
+	solved layer in 3 turns
+845. fluid
+	solved fluid in 3 turns
+846. tatty
+	solved tatty in 6 turns
+847. score
+	solved score in 4 turns
+848. cutie
+	solved cutie in 3 turns
+849. zebra
+	solved zebra in 3 turns
+850. barge
+	solved barge in 3 turns
+851. matey
+	solved matey in 4 turns
+852. bluer
+	solved bluer in 4 turns
+853. aider
+	solved aider in 4 turns
+854. shook
+	solved shook in 4 turns
+855. river
+	solved river in 5 turns
+856. privy
+	solved privy in 4 turns
+857. betel
+	solved betel in 3 turns
+858. frisk
+	solved frisk in 4 turns
+859. bongo
+	solved bongo in 4 turns
+860. begun
+	solved begun in 4 turns
+861. azure
+	solved azure in 4 turns
+862. weave
+	solved weave in 4 turns
+863. genie
+	solved genie in 4 turns
+864. sound
+	solved sound in 4 turns
+865. glove
+	solved glove in 3 turns
+866. braid
+	solved braid in 3 turns
+867. scope
+	solved scope in 3 turns
+868. wryly
+	solved wryly in 4 turns
+869. rover
+	solved rover in 6 turns
+870. assay
+	solved assay in 3 turns
+871. ocean
+	solved ocean in 4 turns
+872. bloom
+	solved bloom in 5 turns
+873. irate
+	solved irate in 4 turns
+874. later
+	solved later in 2 turns
+875. woken
+	solved woken in 5 turns
+876. silky
+	solved silky in 2 turns
+877. wreck
+	solved wreck in 3 turns
+878. dwelt
+	solved dwelt in 3 turns
+879. slate
+	solved slate in 3 turns
+880. smack
+	solved smack in 4 turns
+881. solid
+	solved solid in 3 turns
+882. amaze
+	solved amaze in 4 turns
+883. hazel
+	solved hazel in 4 turns
+884. wrist
+	solved wrist in 4 turns
+885. jolly
+	solved jolly in 6 turns
+886. globe
+	solved globe in 4 turns
+887. flint
+	solved flint in 4 turns
+888. rouse
+	solved rouse in 2 turns
+889. civil
+	solved civil in 3 turns
+890. vista
+	solved vista in 3 turns
+891. relax
+	solved relax in 2 turns
+892. cover
+	solved cover in 4 turns
+893. alive
+	solved alive in 4 turns
+894. beech
+	solved beech in 4 turns
+895. jetty
+	solved jetty in 4 turns
+896. bliss
+	solved bliss in 3 turns
+897. vocal
+	solved vocal in 4 turns
+898. often
+	solved often in 3 turns
+899. dolly
+	solved dolly in 3 turns
+900. eight
+	solved eight in 4 turns
+901. joker
+	solved joker in 5 turns
+902. since
+	solved since in 3 turns
+903. event
+	solved event in 4 turns
+904. ensue
+	solved ensue in 4 turns
+905. shunt
+	solved shunt in 3 turns
+906. diver
+	solved diver in 4 turns
+907. poser
+	solved poser in 3 turns
+908. worst
+	solved worst in 3 turns
+909. sweep
+	solved sweep in 3 turns
+910. alley
+	solved alley in 2 turns
+911. creed
+	solved creed in 4 turns
+912. anime
+	solved anime in 4 turns
+913. leafy
+	solved leafy in 4 turns
+914. bosom
+	solved bosom in 3 turns
+915. dunce
+	solved dunce in 3 turns
+916. stare
+	solved stare in 4 turns
+917. pudgy
+	solved pudgy in 4 turns
+918. waive
+	solved waive in 4 turns
+919. choir
+	solved choir in 4 turns
+920. stood
+	solved stood in 6 turns
+921. spoke
+	solved spoke in 4 turns
+922. outgo
+	solved outgo in 4 turns
+923. delay
+	solved delay in 3 turns
+924. bilge
+	solved bilge in 3 turns
+925. ideal
+	solved ideal in 4 turns
+926. clasp
+	solved clasp in 3 turns
+927. seize
+	solved seize in 4 turns
+928. hotly
+	solved hotly in 3 turns
+929. laugh
+	solved laugh in 4 turns
+930. sieve
+	solved sieve in 4 turns
+931. block
+	solved block in 3 turns
+932. meant
+	solved meant in 3 turns
+933. grape
+	solved grape in 5 turns
+934. noose
+	solved noose in 4 turns
+935. hardy
+	solved hardy in 3 turns
+936. shied
+	solved shied in 3 turns
+937. drawl
+	solved drawl in 3 turns
+938. daisy
+	solved daisy in 3 turns
+939. putty
+	solved putty in 4 turns
+940. strut
+	solved strut in 3 turns
+941. burnt
+	solved burnt in 4 turns
+942. tulip
+	solved tulip in 2 turns
+943. crick
+	solved crick in 4 turns
+944. idyll
+	solved idyll in 4 turns
+945. vixen
+	solved vixen in 4 turns
+946. furor
+	solved furor in 4 turns
+947. geeky
+	solved geeky in 4 turns
+948. cough
+	solved cough in 3 turns
+949. naive
+	solved naive in 3 turns
+950. shoal
+	solved shoal in 3 turns
+951. stork
+	solved stork in 2 turns
+952. bathe
+	solved bathe in 2 turns
+953. aunty
+	solved aunty in 3 turns
+954. check
+	solved check in 4 turns
+955. prime
+	solved prime in 4 turns
+956. brass
+	solved brass in 3 turns
+957. outer
+	solved outer in 2 turns
+958. furry
+	solved furry in 6 turns
+959. razor
+	solved razor in 5 turns
+960. elect
+	solved elect in 3 turns
+961. evict
+	solved evict in 4 turns
+962. imply
+	solved imply in 4 turns
+963. demur
+	solved demur in 4 turns
+964. quota
+	solved quota in 3 turns
+965. haven
+	solved haven in 4 turns
+966. cavil
+	solved cavil in 3 turns
+967. swear
+	solved swear in 5 turns
+968. crump
+	solved crump in 3 turns
+969. dough
+	solved dough in 3 turns
+970. gavel
+	solved gavel in 3 turns
+971. wagon
+	solved wagon in 4 turns
+972. salon
+	solved salon in 2 turns
+973. nudge
+	solved nudge in 3 turns
+974. harem
+	solved harem in 4 turns
+975. pitch
+	solved pitch in 4 turns
+976. sworn
+	solved sworn in 4 turns
+977. pupil
+	solved pupil in 4 turns
+978. excel
+	solved excel in 4 turns
+979. stony
+	solved stony in 5 turns
+980. cabin
+	solved cabin in 4 turns
+981. unzip
+	solved unzip in 4 turns
+982. queen
+	solved queen in 4 turns
+983. trout
+	solved trout in 4 turns
+984. polyp
+	solved polyp in 3 turns
+985. earth
+	solved earth in 3 turns
+986. storm
+	solved storm in 4 turns
+987. until
+	solved until in 3 turns
+988. taper
+	solved taper in 4 turns
+989. enter
+	solved enter in 4 turns
+990. child
+	solved child in 3 turns
+991. adopt
+	solved adopt in 4 turns
+992. minor
+	solved minor in 4 turns
+993. fatty
+	solved fatty in 5 turns
+994. husky
+	solved husky in 4 turns
+995. brave
+	solved brave in 4 turns
+996. filet
+	solved filet in 2 turns
+997. slime
+	solved slime in 3 turns
+998. glint
+	solved glint in 3 turns
+999. tread
+	solved tread in 3 turns
+1000. steal
+	solved steal in 3 turns
+1001. regal
+	solved regal in 3 turns
+1002. guest
+	solved guest in 3 turns
+1003. every
+	solved every in 5 turns
+1004. murky
+	solved murky in 4 turns
+1005. share
+	solved share in 3 turns
+1006. spore
+	solved spore in 3 turns
+1007. hoist
+	solved hoist in 5 turns
+1008. buxom
+	solved buxom in 4 turns
+1009. inner
+	solved inner in 4 turns
+1010. otter
+	solved otter in 3 turns
+1011. dimly
+	solved dimly in 3 turns
+1012. level
+	solved level in 3 turns
+1013. sumac
+	solved sumac in 3 turns
+1014. donut
+	solved donut in 4 turns
+1015. stilt
+	solved stilt in 3 turns
+1016. arena
+	solved arena in 4 turns
+1017. sheet
+	solved sheet in 3 turns
+1018. scrub
+	solved scrub in 4 turns
+1019. fancy
+	solved fancy in 3 turns
+1020. slimy
+	solved slimy in 3 turns
+1021. pearl
+	solved pearl in 3 turns
+1022. silly
+	solved silly in 3 turns
+1023. porch
+	solved porch in 3 turns
+1024. dingo
+	solved dingo in 3 turns
+1025. sepia
+	solved sepia in 3 turns
+1026. amble
+	solved amble in 4 turns
+1027. shady
+	solved shady in 4 turns
+1028. bread
+	solved bread in 3 turns
+1029. friar
+	solved friar in 4 turns
+1030. reign
+	solved reign in 3 turns
+1031. dairy
+	solved dairy in 3 turns
+1032. quill
+	solved quill in 4 turns
+1033. cross
+	solved cross in 4 turns
+1034. brood
+	solved brood in 4 turns
+1035. tuber
+	solved tuber in 3 turns
+1036. shear
+	solved shear in 3 turns
+1037. posit
+	solved posit in 3 turns
+1038. blank
+	solved blank in 3 turns
+1039. villa
+	solved villa in 3 turns
+1040. shank
+	solved shank in 3 turns
+1041. piggy
+	solved piggy in 4 turns
+1042. freak
+	solved freak in 5 turns
+1043. which
+	solved which in 4 turns
+1044. among
+	solved among in 3 turns
+1045. fecal
+	solved fecal in 4 turns
+1046. shell
+	solved shell in 4 turns
+1047. would
+	solved would in 3 turns
+1048. algae
+	solved algae in 3 turns
+1049. large
+	solved large in 3 turns
+1050. rabbi
+	solved rabbi in 3 turns
+1051. agony
+	solved agony in 4 turns
+1052. amuse
+	solved amuse in 4 turns
+1053. bushy
+	solved bushy in 3 turns
+1054. copse
+	solved copse in 4 turns
+1055. swoon
+	solved swoon in 4 turns
+1056. knife
+	solved knife in 5 turns
+1057. pouch
+	solved pouch in 4 turns
+1058. ascot
+	solved ascot in 3 turns
+1059. plane
+	solved plane in 4 turns
+1060. crown
+	solved crown in 4 turns
+1061. urban
+	solved urban in 4 turns
+1062. snide
+	solved snide in 3 turns
+1063. relay
+	solved relay in 3 turns
+1064. abide
+	solved abide in 4 turns
+1065. viola
+	solved viola in 4 turns
+1066. rajah
+	solved rajah in 4 turns
+1067. straw
+	solved straw in 5 turns
+1068. dilly
+	solved dilly in 3 turns
+1069. crash
+	solved crash in 3 turns
+1070. amass
+	solved amass in 4 turns
+1071. third
+	solved third in 3 turns
+1072. trick
+	solved trick in 3 turns
+1073. tutor
+	solved tutor in 4 turns
+1074. woody
+	solved woody in 4 turns
+1075. blurb
+	solved blurb in 5 turns
+1076. grief
+	solved grief in 4 turns
+1077. disco
+	solved disco in 3 turns
+1078. where
+	solved where in 5 turns
+1079. sassy
+	solved sassy in 5 turns
+1080. beach
+	solved beach in 3 turns
+1081. sauna
+	solved sauna in 3 turns
+1082. comic
+	solved comic in 5 turns
+1083. clued
+	solved clued in 5 turns
+1084. creep
+	solved creep in 4 turns
+1085. caste
+	solved caste in 4 turns
+1086. graze
+	solved graze in 4 turns
+1087. snuff
+	solved snuff in 4 turns
+1088. frock
+	solved frock in 3 turns
+1089. gonad
+	solved gonad in 3 turns
+1090. drunk
+	solved drunk in 3 turns
+1091. prong
+	solved prong in 4 turns
+1092. lurid
+	solved lurid in 4 turns
+1093. steel
+	solved steel in 2 turns
+1094. halve
+	solved halve in 2 turns
+1095. buyer
+	solved buyer in 4 turns
+1096. vinyl
+	solved vinyl in 4 turns
+1097. utile
+	solved utile in 3 turns
+1098. smell
+	solved smell in 3 turns
+1099. adage
+	solved adage in 4 turns
+1100. worry
+	solved worry in 4 turns
+1101. tasty
+	solved tasty in 5 turns
+1102. local
+	solved local in 5 turns
+1103. trade
+	solved trade in 4 turns
+1104. finch
+	solved finch in 4 turns
+1105. ashen
+	solved ashen in 3 turns
+1106. modal
+	solved modal in 4 turns
+1107. gaunt
+	solved gaunt in 3 turns
+1108. clove
+	solved clove in 4 turns
+1109. enact
+	solved enact in 3 turns
+1110. adorn
+	solved adorn in 3 turns
+1111. roast
+	solved roast in 3 turns
+1112. speck
+	solved speck in 4 turns
+1113. sheik
+	solved sheik in 3 turns
+1114. missy
+	solved missy in 3 turns
+1115. grunt
+	solved grunt in 3 turns
+1116. snoop
+	solved snoop in 4 turns
+1117. party
+	solved party in 2 turns
+1118. touch
+	solved touch in 3 turns
+1119. mafia
+	solved mafia in 4 turns
+1120. emcee
+	solved emcee in 4 turns
+1121. array
+	solved array in 4 turns
+1122. south
+	solved south in 3 turns
+1123. vapid
+	solved vapid in 3 turns
+1124. jelly
+	solved jelly in 4 turns
+1125. skulk
+	solved skulk in 3 turns
+1126. angst
+	solved angst in 3 turns
+1127. tubal
+	solved tubal in 4 turns
+1128. lower
+	solved lower in 3 turns
+1129. crest
+	solved crest in 2 turns
+1130. sweat
+	solved sweat in 2 turns
+1131. cyber
+	solved cyber in 5 turns
+1132. adore
+	solved adore in 3 turns
+1133. tardy
+	solved tardy in 3 turns
+1134. swami
+	solved swami in 4 turns
+1135. notch
+	solved notch in 3 turns
+1136. groom
+	solved groom in 5 turns
+1137. roach
+	solved roach in 3 turns
+1138. hitch
+	solved hitch in 6 turns
+1139. young
+	solved young in 3 turns
+1140. align
+	solved align in 3 turns
+1141. ready
+	solved ready in 3 turns
+1142. frond
+	solved frond in 3 turns
+1143. strap
+	solved strap in 3 turns
+1144. puree
+	solved puree in 4 turns
+1145. realm
+	solved realm in 3 turns
+1146. venue
+	solved venue in 4 turns
+1147. swarm
+	solved swarm in 4 turns
+1148. offer
+	solved offer in 4 turns
+1149. seven
+	solved seven in 4 turns
+1150. dryer
+	solved dryer in 4 turns
+1151. diary
+	solved diary in 3 turns
+1152. dryly
+	solved dryly in 4 turns
+1153. drank
+	solved drank in 3 turns
+1154. acrid
+	solved acrid in 3 turns
+1155. heady
+	solved heady in 3 turns
+1156. theta
+	solved theta in 3 turns
+1157. junto
+	solved junto in 4 turns
+1158. pixie
+	solved pixie in 5 turns
+1159. quoth
+	solved quoth in 3 turns
+1160. bonus
+	solved bonus in 4 turns
+1161. shalt
+	solved shalt in 2 turns
+1162. penne
+	solved penne in 4 turns
+1163. amend
+	solved amend in 3 turns
+1164. datum
+	solved datum in 4 turns
+1165. build
+	solved build in 4 turns
+1166. piano
+	solved piano in 3 turns
+1167. shelf
+	solved shelf in 3 turns
+1168. lodge
+	solved lodge in 3 turns
+1169. suing
+	solved suing in 4 turns
+1170. rearm
+	solved rearm in 4 turns
+1171. coral
+	solved coral in 3 turns
+1172. ramen
+	solved ramen in 3 turns
+1173. worth
+	solved worth in 3 turns
+1174. psalm
+	solved psalm in 3 turns
+1175. infer
+	solved infer in 3 turns
+1176. overt
+	solved overt in 4 turns
+1177. mayor
+	solved mayor in 3 turns
+1178. ovoid
+	solved ovoid in 3 turns
+1179. glide
+	solved glide in 3 turns
+1180. usage
+	solved usage in 3 turns
+1181. poise
+	solved poise in 3 turns
+1182. randy
+	solved randy in 2 turns
+1183. chuck
+	solved chuck in 4 turns
+1184. prank
+	solved prank in 5 turns
+1185. fishy
+	solved fishy in 4 turns
+1186. tooth
+	solved tooth in 5 turns
+1187. ether
+	solved ether in 4 turns
+1188. drove
+	solved drove in 3 turns
+1189. idler
+	solved idler in 2 turns
+1190. swath
+	solved swath in 3 turns
+1191. stint
+	solved stint in 4 turns
+1192. while
+	solved while in 3 turns
+1193. begat
+	solved begat in 3 turns
+1194. apply
+	solved apply in 4 turns
+1195. slang
+	solved slang in 3 turns
+1196. tarot
+	solved tarot in 4 turns
+1197. radar
+	solved radar in 4 turns
+1198. credo
+	solved credo in 3 turns
+1199. aware
+	solved aware in 3 turns
+1200. canon
+	solved canon in 4 turns
+1201. shift
+	solved shift in 4 turns
+1202. timer
+	solved timer in 3 turns
+1203. bylaw
+	solved bylaw in 3 turns
+1204. serum
+	solved serum in 3 turns
+1205. three
+	solved three in 4 turns
+1206. steak
+	solved steak in 3 turns
+1207. iliac
+	solved iliac in 3 turns
+1208. shirk
+	solved shirk in 4 turns
+1209. blunt
+	solved blunt in 3 turns
+1210. puppy
+	solved puppy in 5 turns
+1211. penal
+	solved penal in 4 turns
+1212. joist
+	solved joist in 3 turns
+1213. bunny
+	solved bunny in 3 turns
+1214. shape
+	solved shape in 3 turns
+1215. beget
+	solved beget in 5 turns
+1216. wheel
+	solved wheel in 4 turns
+1217. adept
+	solved adept in 4 turns
+1218. stunt
+	solved stunt in 3 turns
+1219. stole
+	solved stole in 2 turns
+1220. topaz
+	solved topaz in 4 turns
+1221. chore
+	solved chore in 3 turns
+1222. fluke
+	solved fluke in 4 turns
+1223. afoot
+	solved afoot in 3 turns
+1224. bloat
+	solved bloat in 4 turns
+1225. bully
+	solved bully in 4 turns
+1226. dense
+	solved dense in 3 turns
+1227. caper
+	solved caper in 3 turns
+1228. sneer
+	solved sneer in 4 turns
+1229. boxer
+	solved boxer in 8 turns
+1230. jumbo
+	solved jumbo in 4 turns
+1231. lunge
+	solved lunge in 3 turns
+1232. space
+	solved space in 4 turns
+1233. avail
+	solved avail in 5 turns
+1234. short
+	solved short in 2 turns
+1235. slurp
+	solved slurp in 4 turns
+1236. loyal
+	solved loyal in 4 turns
+1237. flirt
+	solved flirt in 3 turns
+1238. pizza
+	solved pizza in 4 turns
+1239. conch
+	solved conch in 4 turns
+1240. tempo
+	solved tempo in 4 turns
+1241. droop
+	solved droop in 4 turns
+1242. plate
+	solved plate in 2 turns
+1243. bible
+	solved bible in 4 turns
+1244. plunk
+	solved plunk in 4 turns
+1245. afoul
+	solved afoul in 4 turns
+1246. savoy
+	solved savoy in 2 turns
+1247. steep
+	solved steep in 3 turns
+1248. agile
+	solved agile in 4 turns
+1249. stake
+	solved stake in 3 turns
+1250. dwell
+	solved dwell in 4 turns
+1251. knave
+	solved knave in 5 turns
+1252. beard
+	solved beard in 2 turns
+1253. arose
+	solved arose in 3 turns
+1254. motif
+	solved motif in 4 turns
+1255. smash
+	solved smash in 3 turns
+1256. broil
+	solved broil in 4 turns
+1257. glare
+	solved glare in 2 turns
+1258. shove
+	solved shove in 4 turns
+1259. baggy
+	solved baggy in 4 turns
+1260. mammy
+	solved mammy in 7 turns
+1261. swamp
+	solved swamp in 4 turns
+1262. along
+	solved along in 3 turns
+1263. rugby
+	solved rugby in 3 turns
+1264. wager
+	solved wager in 2 turns
+1265. quack
+	solved quack in 4 turns
+1266. squat
+	solved squat in 3 turns
+1267. snaky
+	solved snaky in 4 turns
+1268. debit
+	solved debit in 4 turns
+1269. mange
+	solved mange in 3 turns
+1270. skate
+	solved skate in 2 turns
+1271. ninth
+	solved ninth in 3 turns
+1272. joust
+	solved joust in 4 turns
+1273. tramp
+	solved tramp in 4 turns
+1274. spurn
+	solved spurn in 3 turns
+1275. medal
+	solved medal in 4 turns
+1276. micro
+	solved micro in 4 turns
+1277. rebel
+	solved rebel in 3 turns
+1278. flank
+	solved flank in 4 turns
+1279. learn
+	solved learn in 4 turns
+1280. nadir
+	solved nadir in 3 turns
+1281. maple
+	solved maple in 3 turns
+1282. comfy
+	solved comfy in 4 turns
+1283. remit
+	solved remit in 4 turns
+1284. gruff
+	solved gruff in 4 turns
+1285. ester
+	solved ester in 2 turns
+1286. least
+	solved least in 2 turns
+1287. mogul
+	solved mogul in 3 turns
+1288. fetch
+	solved fetch in 3 turns
+1289. cause
+	solved cause in 3 turns
+1290. oaken
+	solved oaken in 3 turns
+1291. aglow
+	solved aglow in 3 turns
+1292. meaty
+	solved meaty in 4 turns
+1293. gaffe
+	solved gaffe in 4 turns
+1294. shyly
+	solved shyly in 4 turns
+1295. racer
+	solved racer in 4 turns
+1296. prowl
+	solved prowl in 3 turns
+1297. thief
+	solved thief in 3 turns
+1298. stern
+	solved stern in 3 turns
+1299. poesy
+	solved poesy in 3 turns
+1300. rocky
+	solved rocky in 3 turns
+1301. tweet
+	solved tweet in 6 turns
+1302. waist
+	solved waist in 2 turns
+1303. spire
+	solved spire in 3 turns
+1304. grope
+	solved grope in 4 turns
+1305. havoc
+	solved havoc in 4 turns
+1306. patsy
+	solved patsy in 3 turns
+1307. truly
+	solved truly in 3 turns
+1308. forty
+	solved forty in 3 turns
+1309. deity
+	solved deity in 3 turns
+1310. uncle
+	solved uncle in 4 turns
+1311. swish
+	solved swish in 4 turns
+1312. giver
+	solved giver in 4 turns
+1313. preen
+	solved preen in 3 turns
+1314. bevel
+	solved bevel in 3 turns
+1315. lemur
+	solved lemur in 3 turns
+1316. draft
+	solved draft in 2 turns
+1317. slope
+	solved slope in 3 turns
+1318. annoy
+	solved annoy in 4 turns
+1319. lingo
+	solved lingo in 4 turns
+1320. bleak
+	solved bleak in 5 turns
+1321. ditty
+	solved ditty in 4 turns
+1322. curly
+	solved curly in 3 turns
+1323. cedar
+	solved cedar in 3 turns
+1324. dirge
+	solved dirge in 3 turns
+1325. grown
+	solved grown in 4 turns
+1326. horde
+	solved horde in 3 turns
+1327. drool
+	solved drool in 4 turns
+1328. shuck
+	solved shuck in 3 turns
+1329. crypt
+	solved crypt in 3 turns
+1330. cumin
+	solved cumin in 4 turns
+1331. stock
+	solved stock in 3 turns
+1332. gravy
+	solved gravy in 4 turns
+1333. locus
+	solved locus in 3 turns
+1334. wider
+	solved wider in 2 turns
+1335. breed
+	solved breed in 5 turns
+1336. quite
+	solved quite in 4 turns
+1337. chafe
+	solved chafe in 5 turns
+1338. cache
+	solved cache in 4 turns
+1339. blimp
+	solved blimp in 4 turns
+1340. deign
+	solved deign in 3 turns
+1341. fiend
+	solved fiend in 3 turns
+1342. logic
+	solved logic in 3 turns
+1343. cheap
+	solved cheap in 4 turns
+1344. elide
+	solved elide in 4 turns
+1345. rigid
+	solved rigid in 3 turns
+1346. false
+	solved false in 2 turns
+1347. renal
+	solved renal in 3 turns
+1348. pence
+	solved pence in 4 turns
+1349. rowdy
+	solved rowdy in 3 turns
+1350. shoot
+	solved shoot in 4 turns
+1351. blaze
+	solved blaze in 5 turns
+1352. envoy
+	solved envoy in 4 turns
+1353. posse
+	solved posse in 4 turns
+1354. brief
+	solved brief in 3 turns
+1355. never
+	solved never in 5 turns
+1356. abort
+	solved abort in 3 turns
+1357. mouse
+	solved mouse in 4 turns
+1358. mucky
+	solved mucky in 4 turns
+1359. sulky
+	solved sulky in 3 turns
+1360. fiery
+	solved fiery in 3 turns
+1361. media
+	solved media in 4 turns
+1362. trunk
+	solved trunk in 3 turns
+1363. yeast
+	solved yeast in 2 turns
+1364. clear
+	solved clear in 3 turns
+1365. skunk
+	solved skunk in 4 turns
+1366. scalp
+	solved scalp in 4 turns
+1367. bitty
+	solved bitty in 3 turns
+1368. cider
+	solved cider in 3 turns
+1369. koala
+	solved koala in 4 turns
+1370. duvet
+	solved duvet in 4 turns
+1371. segue
+	solved segue in 4 turns
+1372. creme
+	solved creme in 4 turns
+1373. super
+	solved super in 3 turns
+1374. grill
+	solved grill in 4 turns
+1375. after
+	solved after in 2 turns
+1376. owner
+	solved owner in 4 turns
+1377. ember
+	solved ember in 5 turns
+1378. reach
+	solved reach in 3 turns
+1379. nobly
+	solved nobly in 3 turns
+1380. empty
+	solved empty in 4 turns
+1381. speed
+	solved speed in 4 turns
+1382. gipsy
+	solved gipsy in 3 turns
+1383. recur
+	solved recur in 5 turns
+1384. smock
+	solved smock in 4 turns
+1385. dread
+	solved dread in 3 turns
+1386. merge
+	solved merge in 4 turns
+1387. burst
+	solved burst in 3 turns
+1388. kappa
+	solved kappa in 4 turns
+1389. amity
+	solved amity in 3 turns
+1390. shaky
+	solved shaky in 3 turns
+1391. hover
+	solved hover in 3 turns
+1392. carol
+	solved carol in 5 turns
+1393. snort
+	solved snort in 3 turns
+1394. synod
+	solved synod in 3 turns
+1395. faint
+	solved faint in 4 turns
+1396. haunt
+	solved haunt in 2 turns
+1397. flour
+	solved flour in 3 turns
+1398. chair
+	solved chair in 3 turns
+1399. detox
+	solved detox in 4 turns
+1400. shrew
+	solved shrew in 2 turns
+1401. tense
+	solved tense in 3 turns
+1402. plied
+	solved plied in 4 turns
+1403. quark
+	solved quark in 4 turns
+1404. burly
+	solved burly in 3 turns
+1405. novel
+	solved novel in 3 turns
+1406. waxen
+	solved waxen in 3 turns
+1407. stoic
+	solved stoic in 4 turns
+1408. jerky
+	solved jerky in 5 turns
+1409. blitz
+	solved blitz in 3 turns
+1410. beefy
+	solved beefy in 4 turns
+1411. lyric
+	solved lyric in 3 turns
+1412. hussy
+	solved hussy in 3 turns
+1413. towel
+	solved towel in 3 turns
+1414. quilt
+	solved quilt in 4 turns
+1415. below
+	solved below in 3 turns
+1416. bingo
+	solved bingo in 3 turns
+1417. wispy
+	solved wispy in 3 turns
+1418. brash
+	solved brash in 2 turns
+1419. scone
+	solved scone in 3 turns
+1420. toast
+	solved toast in 5 turns
+1421. easel
+	solved easel in 2 turns
+1422. saucy
+	solved saucy in 3 turns
+1423. value
+	solved value in 3 turns
+1424. spice
+	solved spice in 4 turns
+1425. honor
+	solved honor in 3 turns
+1426. route
+	solved route in 3 turns
+1427. sharp
+	solved sharp in 3 turns
+1428. bawdy
+	solved bawdy in 3 turns
+1429. radii
+	solved radii in 4 turns
+1430. skull
+	solved skull in 3 turns
+1431. phony
+	solved phony in 3 turns
+1432. issue
+	solved issue in 3 turns
+1433. lager
+	solved lager in 2 turns
+1434. swell
+	solved swell in 5 turns
+1435. urine
+	solved urine in 3 turns
+1436. gassy
+	solved gassy in 4 turns
+1437. trial
+	solved trial in 3 turns
+1438. flora
+	solved flora in 4 turns
+1439. upper
+	solved upper in 5 turns
+1440. latch
+	solved latch in 3 turns
+1441. wight
+	solved wight in 6 turns
+1442. brick
+	solved brick in 4 turns
+1443. retry
+	solved retry in 4 turns
+1444. holly
+	solved holly in 5 turns
+1445. decal
+	solved decal in 4 turns
+1446. grass
+	solved grass in 4 turns
+1447. shack
+	solved shack in 4 turns
+1448. dogma
+	solved dogma in 3 turns
+1449. mover
+	solved mover in 5 turns
+1450. defer
+	solved defer in 3 turns
+1451. sober
+	solved sober in 7 turns
+1452. optic
+	solved optic in 4 turns
+1453. crier
+	solved crier in 4 turns
+1454. vying
+	solved vying in 4 turns
+1455. nomad
+	solved nomad in 4 turns
+1456. flute
+	solved flute in 3 turns
+1457. hippo
+	solved hippo in 4 turns
+1458. shark
+	solved shark in 3 turns
+1459. drier
+	solved drier in 3 turns
+1460. obese
+	solved obese in 4 turns
+1461. bugle
+	solved bugle in 3 turns
+1462. tawny
+	solved tawny in 3 turns
+1463. chalk
+	solved chalk in 4 turns
+1464. feast
+	solved feast in 3 turns
+1465. ruddy
+	solved ruddy in 3 turns
+1466. pedal
+	solved pedal in 3 turns
+1467. scarf
+	solved scarf in 4 turns
+1468. cruel
+	solved cruel in 4 turns
+1469. bleat
+	solved bleat in 3 turns
+1470. tidal
+	solved tidal in 3 turns
+1471. slush
+	solved slush in 4 turns
+1472. semen
+	solved semen in 5 turns
+1473. windy
+	solved windy in 4 turns
+1474. dusty
+	solved dusty in 5 turns
+1475. sally
+	solved sally in 4 turns
+1476. igloo
+	solved igloo in 3 turns
+1477. nerdy
+	solved nerdy in 3 turns
+1478. jewel
+	solved jewel in 5 turns
+1479. shone
+	solved shone in 4 turns
+1480. whale
+	solved whale in 3 turns
+1481. hymen
+	solved hymen in 4 turns
+1482. abuse
+	solved abuse in 3 turns
+1483. fugue
+	solved fugue in 4 turns
+1484. elbow
+	solved elbow in 4 turns
+1485. crumb
+	solved crumb in 4 turns
+1486. pansy
+	solved pansy in 3 turns
+1487. welsh
+	solved welsh in 2 turns
+1488. syrup
+	solved syrup in 4 turns
+1489. terse
+	solved terse in 4 turns
+1490. suave
+	solved suave in 4 turns
+1491. gamut
+	solved gamut in 4 turns
+1492. swung
+	solved swung in 4 turns
+1493. drake
+	solved drake in 3 turns
+1494. freed
+	solved freed in 3 turns
+1495. afire
+	solved afire in 3 turns
+1496. shirt
+	solved shirt in 3 turns
+1497. grout
+	solved grout in 3 turns
+1498. oddly
+	solved oddly in 4 turns
+1499. tithe
+	solved tithe in 3 turns
+1500. plaid
+	solved plaid in 5 turns
+1501. dummy
+	solved dummy in 4 turns
+1502. broom
+	solved broom in 4 turns
+1503. blind
+	solved blind in 3 turns
+1504. torch
+	solved torch in 3 turns
+1505. enemy
+	solved enemy in 4 turns
+1506. again
+	solved again in 4 turns
+1507. tying
+	solved tying in 4 turns
+1508. pesky
+	solved pesky in 3 turns
+1509. alter
+	solved alter in 2 turns
+1510. gazer
+	solved gazer in 5 turns
+1511. noble
+	solved noble in 3 turns
+1512. ethos
+	solved ethos in 3 turns
+1513. bride
+	solved bride in 4 turns
+1514. extol
+	solved extol in 3 turns
+1515. decor
+	solved decor in 3 turns
+1516. hobby
+	solved hobby in 4 turns
+1517. beast
+	solved beast in 4 turns
+1518. idiom
+	solved idiom in 4 turns
+1519. utter
+	solved utter in 3 turns
+1520. these
+	solved these in 3 turns
+1521. sixth
+	solved sixth in 4 turns
+1522. alarm
+	solved alarm in 3 turns
+1523. erase
+	solved erase in 3 turns
+1524. elegy
+	solved elegy in 3 turns
+1525. spunk
+	solved spunk in 3 turns
+1526. piper
+	solved piper in 6 turns
+1527. scaly
+	solved scaly in 5 turns
+1528. scold
+	solved scold in 4 turns
+1529. hefty
+	solved hefty in 4 turns
+1530. chick
+	solved chick in 4 turns
+1531. sooty
+	solved sooty in 3 turns
+1532. canal
+	solved canal in 4 turns
+1533. whiny
+	solved whiny in 3 turns
+1534. slash
+	solved slash in 4 turns
+1535. quake
+	solved quake in 4 turns
+1536. joint
+	solved joint in 4 turns
+1537. swept
+	solved swept in 2 turns
+1538. prude
+	solved prude in 4 turns
+1539. heavy
+	solved heavy in 3 turns
+1540. wield
+	solved wield in 5 turns
+1541. femme
+	solved femme in 4 turns
+1542. lasso
+	solved lasso in 3 turns
+1543. maize
+	solved maize in 4 turns
+1544. shale
+	solved shale in 2 turns
+1545. screw
+	solved screw in 3 turns
+1546. spree
+	solved spree in 4 turns
+1547. smoky
+	solved smoky in 4 turns
+1548. whiff
+	solved whiff in 4 turns
+1549. scent
+	solved scent in 3 turns
+1550. glade
+	solved glade in 3 turns
+1551. spent
+	solved spent in 3 turns
+1552. prism
+	solved prism in 2 turns
+1553. stoke
+	solved stoke in 4 turns
+1554. riper
+	solved riper in 5 turns
+1555. orbit
+	solved orbit in 3 turns
+1556. cocoa
+	solved cocoa in 4 turns
+1557. guilt
+	solved guilt in 3 turns
+1558. humus
+	solved humus in 4 turns
+1559. shush
+	solved shush in 4 turns
+1560. table
+	solved table in 3 turns
+1561. smirk
+	solved smirk in 4 turns
+1562. wrong
+	solved wrong in 5 turns
+1563. noisy
+	solved noisy in 3 turns
+1564. alert
+	solved alert in 4 turns
+1565. shiny
+	solved shiny in 3 turns
+1566. elate
+	solved elate in 3 turns
+1567. resin
+	solved resin in 3 turns
+1568. whole
+	solved whole in 4 turns
+1569. hunch
+	solved hunch in 4 turns
+1570. pixel
+	solved pixel in 3 turns
+1571. polar
+	solved polar in 4 turns
+1572. hotel
+	solved hotel in 2 turns
+1573. sword
+	solved sword in 3 turns
+1574. cleat
+	solved cleat in 4 turns
+1575. mango
+	solved mango in 4 turns
+1576. rumba
+	solved rumba in 4 turns
+1577. puffy
+	solved puffy in 4 turns
+1578. filly
+	solved filly in 4 turns
+1579. billy
+	solved billy in 4 turns
+1580. leash
+	solved leash in 2 turns
+1581. clout
+	solved clout in 4 turns
+1582. dance
+	solved dance in 3 turns
+1583. ovate
+	solved ovate in 3 turns
+1584. facet
+	solved facet in 2 turns
+1585. chili
+	solved chili in 4 turns
+1586. paint
+	solved paint in 3 turns
+1587. liner
+	solved liner in 3 turns
+1588. curio
+	solved curio in 3 turns
+1589. salty
+	solved salty in 2 turns
+1590. audio
+	solved audio in 4 turns
+1591. snake
+	solved snake in 4 turns
+1592. fable
+	solved fable in 3 turns
+1593. cloak
+	solved cloak in 3 turns
+1594. navel
+	solved navel in 4 turns
+1595. spurt
+	solved spurt in 3 turns
+1596. pesto
+	solved pesto in 3 turns
+1597. balmy
+	solved balmy in 4 turns
+1598. flash
+	solved flash in 3 turns
+1599. unwed
+	solved unwed in 3 turns
+1600. early
+	solved early in 3 turns
+1601. churn
+	solved churn in 3 turns
+1602. weedy
+	solved weedy in 4 turns
+1603. stump
+	solved stump in 4 turns
+1604. lease
+	solved lease in 3 turns
+1605. witty
+	solved witty in 6 turns
+1606. wimpy
+	solved wimpy in 4 turns
+1607. spoof
+	solved spoof in 4 turns
+1608. saner
+	solved saner in 3 turns
+1609. blend
+	solved blend in 4 turns
+1610. salsa
+	solved salsa in 5 turns
+1611. thick
+	solved thick in 4 turns
+1612. warty
+	solved warty in 3 turns
+1613. manic
+	solved manic in 3 turns
+1614. blare
+	solved blare in 3 turns
+1615. squib
+	solved squib in 3 turns
+1616. spoon
+	solved spoon in 3 turns
+1617. probe
+	solved probe in 3 turns
+1618. crepe
+	solved crepe in 4 turns
+1619. knack
+	solved knack in 3 turns
+1620. force
+	solved force in 4 turns
+1621. debut
+	solved debut in 4 turns
+1622. order
+	solved order in 5 turns
+1623. haste
+	solved haste in 5 turns
+1624. teeth
+	solved teeth in 4 turns
+1625. agent
+	solved agent in 3 turns
+1626. widen
+	solved widen in 3 turns
+1627. icily
+	solved icily in 4 turns
+1628. slice
+	solved slice in 4 turns
+1629. ingot
+	solved ingot in 2 turns
+1630. clash
+	solved clash in 2 turns
+1631. juror
+	solved juror in 5 turns
+1632. blood
+	solved blood in 4 turns
+1633. abode
+	solved abode in 3 turns
+1634. throw
+	solved throw in 4 turns
+1635. unity
+	solved unity in 4 turns
+1636. pivot
+	solved pivot in 3 turns
+1637. slept
+	solved slept in 3 turns
+1638. troop
+	solved troop in 4 turns
+1639. spare
+	solved spare in 2 turns
+1640. sewer
+	solved sewer in 4 turns
+1641. parse
+	solved parse in 3 turns
+1642. morph
+	solved morph in 4 turns
+1643. cacti
+	solved cacti in 4 turns
+1644. tacky
+	solved tacky in 4 turns
+1645. spool
+	solved spool in 5 turns
+1646. demon
+	solved demon in 3 turns
+1647. moody
+	solved moody in 4 turns
+1648. annex
+	solved annex in 3 turns
+1649. begin
+	solved begin in 3 turns
+1650. fuzzy
+	solved fuzzy in 4 turns
+1651. patch
+	solved patch in 3 turns
+1652. water
+	solved water in 4 turns
+1653. lumpy
+	solved lumpy in 4 turns
+1654. admin
+	solved admin in 3 turns
+1655. omega
+	solved omega in 4 turns
+1656. limit
+	solved limit in 4 turns
+1657. tabby
+	solved tabby in 5 turns
+1658. macho
+	solved macho in 4 turns
+1659. aisle
+	solved aisle in 3 turns
+1660. skiff
+	solved skiff in 4 turns
+1661. basis
+	solved basis in 4 turns
+1662. plank
+	solved plank in 5 turns
+1663. verge
+	solved verge in 4 turns
+1664. botch
+	solved botch in 4 turns
+1665. crawl
+	solved crawl in 3 turns
+1666. lousy
+	solved lousy in 3 turns
+1667. slain
+	solved slain in 3 turns
+1668. cubic
+	solved cubic in 5 turns
+1669. raise
+	solved raise in 3 turns
+1670. wrack
+	solved wrack in 4 turns
+1671. guide
+	solved guide in 3 turns
+1672. foist
+	solved foist in 3 turns
+1673. cameo
+	solved cameo in 4 turns
+1674. under
+	solved under in 3 turns
+1675. actor
+	solved actor in 3 turns
+1676. revue
+	solved revue in 4 turns
+1677. fraud
+	solved fraud in 3 turns
+1678. harpy
+	solved harpy in 3 turns
+1679. scoop
+	solved scoop in 3 turns
+1680. climb
+	solved climb in 4 turns
+1681. refer
+	solved refer in 6 turns
+1682. olden
+	solved olden in 3 turns
+1683. clerk
+	solved clerk in 3 turns
+1684. debar
+	solved debar in 3 turns
+1685. tally
+	solved tally in 2 turns
+1686. ethic
+	solved ethic in 3 turns
+1687. cairn
+	solved cairn in 3 turns
+1688. tulle
+	solved tulle in 3 turns
+1689. ghoul
+	solved ghoul in 3 turns
+1690. hilly
+	solved hilly in 5 turns
+1691. crude
+	solved crude in 4 turns
+1692. apart
+	solved apart in 5 turns
+1693. scale
+	solved scale in 3 turns
+1694. older
+	solved older in 3 turns
+1695. plain
+	solved plain in 4 turns
+1696. sperm
+	solved sperm in 3 turns
+1697. briny
+	solved briny in 3 turns
+1698. abbot
+	solved abbot in 4 turns
+1699. rerun
+	solved rerun in 4 turns
+1700. quest
+	solved quest in 4 turns
+1701. crisp
+	solved crisp in 3 turns
+1702. bound
+	solved bound in 6 turns
+1703. befit
+	solved befit in 3 turns
+1704. drawn
+	solved drawn in 3 turns
+1705. suite
+	solved suite in 5 turns
+1706. itchy
+	solved itchy in 4 turns
+1707. cheer
+	solved cheer in 4 turns
+1708. bagel
+	solved bagel in 3 turns
+1709. guess
+	solved guess in 3 turns
+1710. broad
+	solved broad in 3 turns
+1711. axiom
+	solved axiom in 3 turns
+1712. chard
+	solved chard in 4 turns
+1713. caput
+	solved caput in 3 turns
+1714. leant
+	solved leant in 3 turns
+1715. harsh
+	solved harsh in 4 turns
+1716. curse
+	solved curse in 5 turns
+1717. proud
+	solved proud in 3 turns
+1718. swing
+	solved swing in 5 turns
+1719. opine
+	solved opine in 3 turns
+1720. taste
+	solved taste in 7 turns
+1721. lupus
+	solved lupus in 4 turns
+1722. gumbo
+	solved gumbo in 3 turns
+1723. miner
+	solved miner in 4 turns
+1724. green
+	solved green in 4 turns
+1725. chasm
+	solved chasm in 3 turns
+1726. lipid
+	solved lipid in 3 turns
+1727. topic
+	solved topic in 3 turns
+1728. armor
+	solved armor in 4 turns
+1729. brush
+	solved brush in 4 turns
+1730. crane
+	solved crane in 5 turns
+1731. mural
+	solved mural in 4 turns
+1732. abled
+	solved abled in 3 turns
+1733. habit
+	solved habit in 3 turns
+1734. bossy
+	solved bossy in 4 turns
+1735. maker
+	solved maker in 4 turns
+1736. dusky
+	solved dusky in 4 turns
+1737. dizzy
+	solved dizzy in 3 turns
+1738. lithe
+	solved lithe in 4 turns
+1739. brook
+	solved brook in 4 turns
+1740. jazzy
+	solved jazzy in 6 turns
+1741. fifty
+	solved fifty in 7 turns
+1742. sense
+	solved sense in 4 turns
+1743. giant
+	solved giant in 3 turns
+1744. surly
+	solved surly in 3 turns
+1745. legal
+	solved legal in 3 turns
+1746. fatal
+	solved fatal in 3 turns
+1747. flunk
+	solved flunk in 4 turns
+1748. began
+	solved began in 3 turns
+1749. prune
+	solved prune in 4 turns
+1750. small
+	solved small in 4 turns
+1751. slant
+	solved slant in 3 turns
+1752. scoff
+	solved scoff in 4 turns
+1753. torus
+	solved torus in 3 turns
+1754. ninny
+	solved ninny in 4 turns
+1755. covey
+	solved covey in 4 turns
+1756. viper
+	solved viper in 5 turns
+1757. taken
+	solved taken in 3 turns
+1758. moral
+	solved moral in 3 turns
+1759. vogue
+	solved vogue in 4 turns
+1760. owing
+	solved owing in 4 turns
+1761. token
+	solved token in 3 turns
+1762. entry
+	solved entry in 4 turns
+1763. booth
+	solved booth in 4 turns
+1764. voter
+	solved voter in 3 turns
+1765. chide
+	solved chide in 4 turns
+1766. elfin
+	solved elfin in 4 turns
+1767. ebony
+	solved ebony in 3 turns
+1768. neigh
+	solved neigh in 4 turns
+1769. minim
+	solved minim in 4 turns
+1770. melon
+	solved melon in 3 turns
+1771. kneed
+	solved kneed in 4 turns
+1772. decoy
+	solved decoy in 3 turns
+1773. voila
+	solved voila in 4 turns
+1774. ankle
+	solved ankle in 4 turns
+1775. arrow
+	solved arrow in 5 turns
+1776. mushy
+	solved mushy in 3 turns
+1777. tribe
+	solved tribe in 4 turns
+1778. cease
+	solved cease in 4 turns
+1779. eager
+	solved eager in 3 turns
+1780. birth
+	solved birth in 4 turns
+1781. graph
+	solved graph in 4 turns
+1782. odder
+	solved odder in 4 turns
+1783. terra
+	solved terra in 3 turns
+1784. weird
+	solved weird in 3 turns
+1785. tried
+	solved tried in 4 turns
+1786. clack
+	solved clack in 4 turns
+1787. color
+	solved color in 4 turns
+1788. rough
+	solved rough in 3 turns
+1789. weigh
+	solved weigh in 3 turns
+1790. uncut
+	solved uncut in 3 turns
+1791. ladle
+	solved ladle in 5 turns
+1792. strip
+	solved strip in 3 turns
+1793. craft
+	solved craft in 3 turns
+1794. minus
+	solved minus in 4 turns
+1795. dicey
+	solved dicey in 3 turns
+1796. titan
+	solved titan in 3 turns
+1797. lucid
+	solved lucid in 3 turns
+1798. vicar
+	solved vicar in 4 turns
+1799. dress
+	solved dress in 6 turns
+1800. ditch
+	solved ditch in 3 turns
+1801. gypsy
+	solved gypsy in 3 turns
+1802. pasta
+	solved pasta in 3 turns
+1803. taffy
+	solved taffy in 6 turns
+1804. flame
+	solved flame in 4 turns
+1805. swoop
+	solved swoop in 4 turns
+1806. aloof
+	solved aloof in 5 turns
+1807. sight
+	solved sight in 3 turns
+1808. broke
+	solved broke in 4 turns
+1809. teary
+	solved teary in 3 turns
+1810. chart
+	solved chart in 3 turns
+1811. sixty
+	solved sixty in 4 turns
+1812. wordy
+	solved wordy in 3 turns
+1813. sheer
+	solved sheer in 3 turns
+1814. leper
+	solved leper in 4 turns
+1815. nosey
+	solved nosey in 3 turns
+1816. bulge
+	solved bulge in 4 turns
+1817. savor
+	solved savor in 3 turns
+1818. clamp
+	solved clamp in 3 turns
+1819. funky
+	solved funky in 4 turns
+1820. foamy
+	solved foamy in 4 turns
+1821. toxic
+	solved toxic in 4 turns
+1822. brand
+	solved brand in 3 turns
+1823. plumb
+	solved plumb in 4 turns
+1824. dingy
+	solved dingy in 3 turns
+1825. butte
+	solved butte in 4 turns
+1826. drill
+	solved drill in 4 turns
+1827. tripe
+	solved tripe in 3 turns
+1828. bicep
+	solved bicep in 4 turns
+1829. tenor
+	solved tenor in 3 turns
+1830. krill
+	solved krill in 4 turns
+1831. worse
+	solved worse in 4 turns
+1832. drama
+	solved drama in 3 turns
+1833. hyena
+	solved hyena in 3 turns
+1834. think
+	solved think in 4 turns
+1835. ratio
+	solved ratio in 3 turns
+1836. cobra
+	solved cobra in 3 turns
+1837. basil
+	solved basil in 2 turns
+1838. scrum
+	solved scrum in 3 turns
+1839. bused
+	solved bused in 3 turns
+1840. phone
+	solved phone in 3 turns
+1841. court
+	solved court in 3 turns
+1842. camel
+	solved camel in 5 turns
+1843. proof
+	solved proof in 4 turns
+1844. heard
+	solved heard in 3 turns
+1845. angel
+	solved angel in 3 turns
+1846. petal
+	solved petal in 3 turns
+1847. pouty
+	solved pouty in 3 turns
+1848. throb
+	solved throb in 3 turns
+1849. maybe
+	solved maybe in 5 turns
+1850. fetal
+	solved fetal in 4 turns
+1851. sprig
+	solved sprig in 4 turns
+1852. spine
+	solved spine in 2 turns
+1853. shout
+	solved shout in 3 turns
+1854. cadet
+	solved cadet in 3 turns
+1855. macro
+	solved macro in 3 turns
+1856. dodgy
+	solved dodgy in 4 turns
+1857. satyr
+	solved satyr in 2 turns
+1858. rarer
+	solved rarer in 5 turns
+1859. binge
+	solved binge in 4 turns
+1860. trend
+	solved trend in 3 turns
+1861. nutty
+	solved nutty in 3 turns
+1862. leapt
+	solved leapt in 2 turns
+1863. amiss
+	solved amiss in 3 turns
+1864. split
+	solved split in 2 turns
+1865. myrrh
+	solved myrrh in 4 turns
+1866. width
+	solved width in 3 turns
+1867. sonar
+	solved sonar in 3 turns
+1868. tower
+	solved tower in 3 turns
+1869. baron
+	solved baron in 4 turns
+1870. fever
+	solved fever in 4 turns
+1871. waver
+	solved waver in 3 turns
+1872. spark
+	solved spark in 2 turns
+1873. belie
+	solved belie in 4 turns
+1874. sloop
+	solved sloop in 4 turns
+1875. expel
+	solved expel in 4 turns
+1876. smote
+	solved smote in 3 turns
+1877. baler
+	solved baler in 3 turns
+1878. above
+	solved above in 3 turns
+1879. north
+	solved north in 2 turns
+1880. wafer
+	solved wafer in 4 turns
+1881. scant
+	solved scant in 4 turns
+1882. frill
+	solved frill in 5 turns
+1883. awash
+	solved awash in 5 turns
+1884. snack
+	solved snack in 4 turns
+1885. scowl
+	solved scowl in 4 turns
+1886. frail
+	solved frail in 3 turns
+1887. drift
+	solved drift in 3 turns
+1888. limbo
+	solved limbo in 4 turns
+1889. fence
+	solved fence in 5 turns
+1890. motel
+	solved motel in 3 turns
+1891. ounce
+	solved ounce in 3 turns
+1892. wreak
+	solved wreak in 4 turns
+1893. revel
+	solved revel in 3 turns
+1894. talon
+	solved talon in 3 turns
+1895. prior
+	solved prior in 4 turns
+1896. knelt
+	solved knelt in 4 turns
+1897. cello
+	solved cello in 3 turns
+1898. flake
+	solved flake in 5 turns
+1899. debug
+	solved debug in 3 turns
+1900. anode
+	solved anode in 3 turns
+1901. crime
+	solved crime in 4 turns
+1902. salve
+	solved salve in 2 turns
+1903. scout
+	solved scout in 5 turns
+1904. imbue
+	solved imbue in 4 turns
+1905. pinky
+	solved pinky in 4 turns
+1906. stave
+	solved stave in 5 turns
+1907. vague
+	solved vague in 3 turns
+1908. chock
+	solved chock in 3 turns
+1909. fight
+	solved fight in 4 turns
+1910. video
+	solved video in 3 turns
+1911. stone
+	solved stone in 5 turns
+1912. teach
+	solved teach in 3 turns
+1913. cleft
+	solved cleft in 3 turns
+1914. frost
+	solved frost in 2 turns
+1915. prawn
+	solved prawn in 4 turns
+1916. booty
+	solved booty in 4 turns
+1917. twist
+	solved twist in 3 turns
+1918. apnea
+	solved apnea in 3 turns
+1919. stiff
+	solved stiff in 4 turns
+1920. plaza
+	solved plaza in 4 turns
+1921. ledge
+	solved ledge in 4 turns
+1922. tweak
+	solved tweak in 3 turns
+1923. board
+	solved board in 4 turns
+1924. grant
+	solved grant in 4 turns
+1925. medic
+	solved medic in 3 turns
+1926. bacon
+	solved bacon in 3 turns
+1927. cable
+	solved cable in 2 turns
+1928. brawl
+	solved brawl in 4 turns
+1929. slunk
+	solved slunk in 3 turns
+1930. raspy
+	solved raspy in 3 turns
+1931. forum
+	solved forum in 3 turns
+1932. drone
+	solved drone in 2 turns
+1933. women
+	solved women in 4 turns
+1934. mucus
+	solved mucus in 4 turns
+1935. boast
+	solved boast in 4 turns
+1936. toddy
+	solved toddy in 4 turns
+1937. coven
+	solved coven in 4 turns
+1938. tumor
+	solved tumor in 3 turns
+1939. truer
+	solved truer in 3 turns
+1940. wrath
+	solved wrath in 3 turns
+1941. stall
+	solved stall in 3 turns
+1942. steam
+	solved steam in 4 turns
+1943. axial
+	solved axial in 4 turns
+1944. purer
+	solved purer in 5 turns
+1945. daily
+	solved daily in 4 turns
+1946. trail
+	solved trail in 3 turns
+1947. niche
+	solved niche in 3 turns
+1948. mealy
+	solved mealy in 4 turns
+1949. juice
+	solved juice in 4 turns
+1950. nylon
+	solved nylon in 3 turns
+1951. plump
+	solved plump in 5 turns
+1952. merry
+	solved merry in 4 turns
+1953. flail
+	solved flail in 4 turns
+1954. papal
+	solved papal in 4 turns
+1955. wheat
+	solved wheat in 4 turns
+1956. berry
+	solved berry in 5 turns
+1957. cower
+	solved cower in 4 turns
+1958. erect
+	solved erect in 3 turns
+1959. brute
+	solved brute in 4 turns
+1960. leggy
+	solved leggy in 4 turns
+1961. snipe
+	solved snipe in 3 turns
+1962. sinew
+	solved sinew in 3 turns
+1963. skier
+	solved skier in 5 turns
+1964. penny
+	solved penny in 4 turns
+1965. jumpy
+	solved jumpy in 3 turns
+1966. rally
+	solved rally in 2 turns
+1967. umbra
+	solved umbra in 4 turns
+1968. scary
+	solved scary in 3 turns
+1969. modem
+	solved modem in 3 turns
+1970. gross
+	solved gross in 4 turns
+1971. avian
+	solved avian in 4 turns
+1972. greed
+	solved greed in 6 turns
+1973. satin
+	solved satin in 3 turns
+1974. tonic
+	solved tonic in 3 turns
+1975. parka
+	solved parka in 4 turns
+1976. sniff
+	solved sniff in 4 turns
+1977. livid
+	solved livid in 4 turns
+1978. stark
+	solved stark in 3 turns
+1979. trump
+	solved trump in 4 turns
+1980. giddy
+	solved giddy in 4 turns
+1981. reuse
+	solved reuse in 3 turns
+1982. taboo
+	solved taboo in 4 turns
+1983. avoid
+	solved avoid in 3 turns
+1984. quote
+	solved quote in 3 turns
+1985. devil
+	solved devil in 3 turns
+1986. liken
+	solved liken in 3 turns
+1987. gloss
+	solved gloss in 4 turns
+1988. gayer
+	solved gayer in 4 turns
+1989. beret
+	solved beret in 4 turns
+1990. noise
+	solved noise in 4 turns
+1991. gland
+	solved gland in 4 turns
+1992. dealt
+	solved dealt in 3 turns
+1993. sling
+	solved sling in 3 turns
+1994. rumor
+	solved rumor in 3 turns
+1995. opera
+	solved opera in 4 turns
+1996. thigh
+	solved thigh in 4 turns
+1997. tonga
+	solved tonga in 3 turns
+1998. flare
+	solved flare in 4 turns
+1999. wound
+	solved wound in 8 turns
+2000. white
+	solved white in 4 turns
+2001. bulky
+	solved bulky in 3 turns
+2002. etude
+	solved etude in 4 turns
+2003. horse
+	solved horse in 3 turns
+2004. circa
+	solved circa in 4 turns
+2005. paddy
+	solved paddy in 6 turns
+2006. inbox
+	solved inbox in 4 turns
+2007. fizzy
+	solved fizzy in 4 turns
+2008. grain
+	solved grain in 3 turns
+2009. exert
+	solved exert in 5 turns
+2010. surge
+	solved surge in 4 turns
+2011. gleam
+	solved gleam in 3 turns
+2012. belle
+	solved belle in 6 turns
+2013. salvo
+	solved salvo in 3 turns
+2014. crush
+	solved crush in 3 turns
+2015. fruit
+	solved fruit in 4 turns
+2016. sappy
+	solved sappy in 6 turns
+2017. taker
+	solved taker in 5 turns
+2018. tract
+	solved tract in 5 turns
+2019. ovine
+	solved ovine in 4 turns
+2020. spiky
+	solved spiky in 4 turns
+2021. frank
+	solved frank in 4 turns
+2022. reedy
+	solved reedy in 4 turns
+2023. filth
+	solved filth in 3 turns
+2024. spasm
+	solved spasm in 4 turns
+2025. heave
+	solved heave in 4 turns
+2026. mambo
+	solved mambo in 4 turns
+2027. right
+	solved right in 3 turns
+2028. clank
+	solved clank in 3 turns
+2029. trust
+	solved trust in 4 turns
+2030. lumen
+	solved lumen in 4 turns
+2031. borne
+	solved borne in 3 turns
+2032. spook
+	solved spook in 3 turns
+2033. sauce
+	solved sauce in 2 turns
+2034. amber
+	solved amber in 3 turns
+2035. lathe
+	solved lathe in 2 turns
+2036. carat
+	solved carat in 4 turns
+2037. corer
+	solved corer in 7 turns
+2038. dirty
+	solved dirty in 3 turns
+2039. slyly
+	solved slyly in 5 turns
+2040. affix
+	solved affix in 3 turns
+2041. alloy
+	solved alloy in 3 turns
+2042. taint
+	solved taint in 5 turns
+2043. sheep
+	solved sheep in 5 turns
+2044. kinky
+	solved kinky in 4 turns
+2045. wooly
+	solved wooly in 4 turns
+2046. mauve
+	solved mauve in 3 turns
+2047. flung
+	solved flung in 3 turns
+2048. yacht
+	solved yacht in 3 turns
+2049. fried
+	solved fried in 5 turns
+2050. quail
+	solved quail in 4 turns
+2051. brunt
+	solved brunt in 3 turns
+2052. grimy
+	solved grimy in 4 turns
+2053. curvy
+	solved curvy in 3 turns
+2054. cagey
+	solved cagey in 3 turns
+2055. rinse
+	solved rinse in 3 turns
+2056. deuce
+	solved deuce in 3 turns
+2057. state
+	solved state in 3 turns
+2058. grasp
+	solved grasp in 3 turns
+2059. milky
+	solved milky in 3 turns
+2060. bison
+	solved bison in 4 turns
+2061. graft
+	solved graft in 4 turns
+2062. sandy
+	solved sandy in 4 turns
+2063. baste
+	solved baste in 6 turns
+2064. flask
+	solved flask in 3 turns
+2065. hedge
+	solved hedge in 4 turns
+2066. girly
+	solved girly in 3 turns
+2067. swash
+	solved swash in 4 turns
+2068. boney
+	solved boney in 5 turns
+2069. coupe
+	solved coupe in 4 turns
+2070. endow
+	solved endow in 3 turns
+2071. abhor
+	solved abhor in 4 turns
+2072. welch
+	solved welch in 3 turns
+2073. blade
+	solved blade in 4 turns
+2074. tight
+	solved tight in 7 turns
+2075. geese
+	solved geese in 4 turns
+2076. miser
+	solved miser in 3 turns
+2077. mirth
+	solved mirth in 3 turns
+2078. cloud
+	solved cloud in 2 turns
+2079. cabal
+	solved cabal in 4 turns
+2080. leech
+	solved leech in 4 turns
+2081. close
+	solved close in 3 turns
+2082. tenth
+	solved tenth in 3 turns
+2083. pecan
+	solved pecan in 4 turns
+2084. droit
+	solved droit in 4 turns
+2085. grail
+	solved grail in 4 turns
+2086. clone
+	solved clone in 3 turns
+2087. guise
+	solved guise in 3 turns
+2088. ralph
+	solved ralph in 3 turns
+2089. tango
+	solved tango in 4 turns
+2090. biddy
+	solved biddy in 5 turns
+2091. smith
+	solved smith in 3 turns
+2092. mower
+	solved mower in 5 turns
+2093. payee
+	solved payee in 4 turns
+2094. serif
+	solved serif in 4 turns
+2095. drape
+	solved drape in 4 turns
+2096. fifth
+	solved fifth in 4 turns
+2097. spank
+	solved spank in 3 turns
+2098. glaze
+	solved glaze in 4 turns
+2099. allot
+	solved allot in 2 turns
+2100. truck
+	solved truck in 4 turns
+2101. kayak
+	solved kayak in 4 turns
+2102. virus
+	solved virus in 4 turns
+2103. testy
+	solved testy in 3 turns
+2104. tepee
+	solved tepee in 5 turns
+2105. fully
+	solved fully in 4 turns
+2106. zonal
+	solved zonal in 4 turns
+2107. metro
+	solved metro in 3 turns
+2108. curry
+	solved curry in 4 turns
+2109. grand
+	solved grand in 4 turns
+2110. banjo
+	solved banjo in 4 turns
+2111. axion
+	solved axion in 3 turns
+2112. bezel
+	solved bezel in 5 turns
+2113. occur
+	solved occur in 4 turns
+2114. chain
+	solved chain in 3 turns
+2115. nasal
+	solved nasal in 3 turns
+2116. gooey
+	solved gooey in 5 turns
+2117. filer
+	solved filer in 3 turns
+2118. brace
+	solved brace in 3 turns
+2119. allay
+	solved allay in 3 turns
+2120. pubic
+	solved pubic in 4 turns
+2121. raven
+	solved raven in 4 turns
+2122. plead
+	solved plead in 4 turns
+2123. gnash
+	solved gnash in 3 turns
+2124. flaky
+	solved flaky in 4 turns
+2125. munch
+	solved munch in 5 turns
+2126. dully
+	solved dully in 4 turns
+2127. eking
+	solved eking in 4 turns
+2128. thing
+	solved thing in 3 turns
+2129. slink
+	solved slink in 2 turns
+2130. hurry
+	solved hurry in 5 turns
+2131. theft
+	solved theft in 3 turns
+2132. shorn
+	solved shorn in 3 turns
+2133. pygmy
+	solved pygmy in 4 turns
+2134. ranch
+	solved ranch in 3 turns
+2135. wring
+	solved wring in 4 turns
+2136. lemon
+	solved lemon in 4 turns
+2137. shore
+	solved shore in 3 turns
+2138. mamma
+	solved mamma in 5 turns
+2139. froze
+	solved froze in 5 turns
+2140. newer
+	solved newer in 4 turns
+2141. style
+	solved style in 3 turns
+2142. moose
+	solved moose in 6 turns
+2143. antic
+	solved antic in 3 turns
+2144. drown
+	solved drown in 3 turns
+2145. vegan
+	solved vegan in 3 turns
+2146. chess
+	solved chess in 3 turns
+2147. guppy
+	solved guppy in 4 turns
+2148. union
+	solved union in 3 turns
+2149. lever
+	solved lever in 4 turns
+2150. lorry
+	solved lorry in 4 turns
+2151. image
+	solved image in 3 turns
+2152. cabby
+	solved cabby in 4 turns
+2153. druid
+	solved druid in 3 turns
+2154. exact
+	solved exact in 4 turns
+2155. truth
+	solved truth in 3 turns
+2156. dopey
+	solved dopey in 4 turns
+2157. spear
+	solved spear in 3 turns
+2158. cried
+	solved cried in 4 turns
+2159. chime
+	solved chime in 4 turns
+2160. crony
+	solved crony in 4 turns
+2161. stunk
+	solved stunk in 4 turns
+2162. timid
+	solved timid in 3 turns
+2163. batch
+	solved batch in 3 turns
+2164. gauge
+	solved gauge in 4 turns
+2165. rotor
+	solved rotor in 4 turns
+2166. crack
+	solved crack in 5 turns
+2167. curve
+	solved curve in 3 turns
+2168. latte
+	solved latte in 3 turns
+2169. witch
+	solved witch in 5 turns
+2170. bunch
+	solved bunch in 6 turns
+2171. repel
+	solved repel in 4 turns
+2172. anvil
+	solved anvil in 3 turns
+2173. soapy
+	solved soapy in 4 turns
+2174. meter
+	solved meter in 4 turns
+2175. broth
+	solved broth in 3 turns
+2176. madly
+	solved madly in 4 turns
+2177. dried
+	solved dried in 6 turns
+2178. scene
+	solved scene in 4 turns
+2179. known
+	solved known in 5 turns
+2180. magma
+	solved magma in 4 turns
+2181. roost
+	solved roost in 3 turns
+2182. woman
+	solved woman in 3 turns
+2183. thong
+	solved thong in 3 turns
+2184. punch
+	solved punch in 4 turns
+2185. pasty
+	solved pasty in 4 turns
+2186. downy
+	solved downy in 4 turns
+2187. knead
+	solved knead in 4 turns
+2188. whirl
+	solved whirl in 4 turns
+2189. rapid
+	solved rapid in 5 turns
+2190. clang
+	solved clang in 4 turns
+2191. anger
+	solved anger in 2 turns
+2192. drive
+	solved drive in 3 turns
+2193. goofy
+	solved goofy in 5 turns
+2194. email
+	solved email in 4 turns
+2195. music
+	solved music in 3 turns
+2196. stuff
+	solved stuff in 6 turns
+2197. bleep
+	solved bleep in 4 turns
+2198. rider
+	solved rider in 4 turns
+2199. mecca
+	solved mecca in 4 turns
+2200. folio
+	solved folio in 4 turns
+2201. setup
+	solved setup in 3 turns
+2202. verso
+	solved verso in 3 turns
+2203. quash
+	solved quash in 4 turns
+2204. fauna
+	solved fauna in 4 turns
+2205. gummy
+	solved gummy in 4 turns
+2206. happy
+	solved happy in 5 turns
+2207. newly
+	solved newly in 4 turns
+2208. fussy
+	solved fussy in 4 turns
+2209. relic
+	solved relic in 4 turns
+2210. guava
+	solved guava in 4 turns
+2211. ratty
+	solved ratty in 3 turns
+2212. fudge
+	solved fudge in 5 turns
+2213. femur
+	solved femur in 4 turns
+2214. chirp
+	solved chirp in 4 turns
+2215. forte
+	solved forte in 4 turns
+2216. alibi
+	solved alibi in 4 turns
+2217. whine
+	solved whine in 3 turns
+2218. petty
+	solved petty in 4 turns
+2219. golly
+	solved golly in 4 turns
+2220. plait
+	solved plait in 4 turns
+2221. fleck
+	solved fleck in 4 turns
+2222. felon
+	solved felon in 4 turns
+2223. gourd
+	solved gourd in 3 turns
+2224. brown
+	solved brown in 5 turns
+2225. thrum
+	solved thrum in 3 turns
+2226. ficus
+	solved ficus in 4 turns
+2227. stash
+	solved stash in 5 turns
+2228. decry
+	solved decry in 3 turns
+2229. wiser
+	solved wiser in 4 turns
+2230. junta
+	solved junta in 4 turns
+2231. visor
+	solved visor in 4 turns
+2232. daunt
+	solved daunt in 5 turns
+2233. scree
+	solved scree in 5 turns
+2234. impel
+	solved impel in 4 turns
+2235. await
+	solved await in 4 turns
+2236. press
+	solved press in 4 turns
+2237. whose
+	solved whose in 4 turns
+2238. turbo
+	solved turbo in 3 turns
+2239. stoop
+	solved stoop in 4 turns
+2240. speak
+	solved speak in 3 turns
+2241. mangy
+	solved mangy in 4 turns
+2242. eying
+	solved eying in 3 turns
+2243. inlet
+	solved inlet in 3 turns
+2244. crone
+	solved crone in 3 turns
+2245. pulse
+	solved pulse in 3 turns
+2246. mossy
+	solved mossy in 3 turns
+2247. staid
+	solved staid in 4 turns
+2248. hence
+	solved hence in 4 turns
+2249. pinch
+	solved pinch in 4 turns
+2250. teddy
+	solved teddy in 5 turns
+2251. sully
+	solved sully in 3 turns
+2252. snore
+	solved snore in 3 turns
+2253. ripen
+	solved ripen in 3 turns
+2254. snowy
+	solved snowy in 3 turns
+2255. attic
+	solved attic in 3 turns
+2256. going
+	solved going in 3 turns
+2257. leach
+	solved leach in 4 turns
+2258. mouth
+	solved mouth in 3 turns
+2259. hound
+	solved hound in 5 turns
+2260. clump
+	solved clump in 4 turns
+2261. tonal
+	solved tonal in 3 turns
+2262. bigot
+	solved bigot in 3 turns
+2263. peril
+	solved peril in 4 turns
+2264. piece
+	solved piece in 4 turns
+2265. blame
+	solved blame in 3 turns
+2266. haute
+	solved haute in 3 turns
+2267. spied
+	solved spied in 3 turns
+2268. undid
+	solved undid in 3 turns
+2269. intro
+	solved intro in 3 turns
+2270. basal
+	solved basal in 3 turns
+2271. shine
+	solved shine in 3 turns
+2272. gecko
+	solved gecko in 3 turns
+2273. rodeo
+	solved rodeo in 3 turns
+2274. guard
+	solved guard in 4 turns
+2275. steer
+	solved steer in 4 turns
+2276. loamy
+	solved loamy in 3 turns
+2277. scamp
+	solved scamp in 3 turns
+2278. scram
+	solved scram in 4 turns
+2279. manly
+	solved manly in 3 turns
+2280. hello
+	solved hello in 3 turns
+2281. vaunt
+	solved vaunt in 6 turns
+2282. organ
+	solved organ in 4 turns
+2283. feral
+	solved feral in 4 turns
+2284. knock
+	solved knock in 4 turns
+2285. extra
+	solved extra in 4 turns
+2286. condo
+	solved condo in 3 turns
+2287. adapt
+	solved adapt in 3 turns
+2288. willy
+	solved willy in 6 turns
+2289. polka
+	solved polka in 4 turns
+2290. rayon
+	solved rayon in 3 turns
+2291. skirt
+	solved skirt in 4 turns
+2292. faith
+	solved faith in 3 turns
+2293. torso
+	solved torso in 3 turns
+2294. match
+	solved match in 4 turns
+2295. mercy
+	solved mercy in 5 turns
+2296. tepid
+	solved tepid in 3 turns
+2297. sleek
+	solved sleek in 3 turns
+2298. riser
+	solved riser in 3 turns
+2299. twixt
+	solved twixt in 4 turns
+2300. peace
+	solved peace in 4 turns
+2301. flush
+	solved flush in 3 turns
+2302. catty
+	solved catty in 3 turns
+2303. login
+	solved login in 4 turns
+2304. eject
+	solved eject in 3 turns
+2305. roger
+	solved roger in 6 turns
+2306. rival
+	solved rival in 3 turns
+2307. untie
+	solved untie in 3 turns
+2308. refit
+	solved refit in 3 turns
+2309. aorta
+	solved aorta in 4 turns
+2310. adult
+	solved adult in 3 turns
+2311. judge
+	solved judge in 6 turns
+2312. rower
+	solved rower in 6 turns
+2313. artsy
+	solved artsy in 3 turns
+2314. rural
+	solved rural in 4 turns
+2315. shave
+	solved shave in 4 turns
+on average each test took 0.4818837973263042 seconds for a total time of 1115.5609908103943('%H:%M:%S', time.struct_time(tm_year=1970, tm_mon=1, tm_mday=1, tm_hour=0, tm_min=18, tm_sec=35, tm_wday=3, tm_yday=1, tm_isdst=0))
+average turns to win: 3.5644811115935737
+found, taunt, catch, daddy, boxer, mammy, sober, taste, fifty, wound, corer, tight

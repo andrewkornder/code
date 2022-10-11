@@ -1,0 +1,7 @@
+test11 => C:\Program Files\Google\Chrome\Application\chrome.exe
+test12 => https://youtube.com
+test13 => https://youtube.com
+test14 => https://youtube.com
+test15 => https://youtube.com
+test16 => https://youtube.com
+test17 => https://youtube.com

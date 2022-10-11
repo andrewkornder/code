@@ -1,0 +1,11 @@
+*first four lines are ignored*
+- preset name => x,y,name,mass,density,dx,dy,
+- separate each planet in the preset using '|'
+
+basic orbit => 0,0,star,50,1,0,0,1|0,280,planet,2,1,1,0,0
+oval orbit  => 0,0,star,50,1,0,0,1|0,280,planet,1,1,0.7,0,0
+2x orbit    => 0,0,star,50,1,0,0,1|0,280,planet a,2,1,1,0,0|0,-280,planet b,2,1,-1,0,0
+4x orbit    => 0,0,star,50,1,0,0,1|0,280,planet a,2,1,1,0,0|280,0,planet b,2,1,0,-1,0|0,-280,planet c,2,1,-1,0,0|-280,0,planet d,2,1,0,1,0
+binary sys  => -50,0,star a,25,1,0,1,0|50,0,star b,25,1,0,-1,0
+black hole  => 0,0,the black hole,1000,10000,0,0,1
+test        => -145,-196, ,2,1,0,0,0

@@ -1,0 +1,2 @@
+m,c,s=float(__import__('re').findall(r'\d+\.\d+ United States Dollar',str(__import__('requests').get(f'https://www.google.com/search?q={input(">which currency: ")}tousd').content))[0][:-21]),lambda a:a*m if s else a/m,1
+while 1: s=(lambda x:((print('>',c(float(x))) or s) if x!='switch' else not s) if x not in ('exit','','exit()') else exit())(input())
