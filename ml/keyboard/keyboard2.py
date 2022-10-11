@@ -23,8 +23,8 @@ class Text:
         return Text.cleanup(''.join(open(file, errors='ignore').read() for file in get_files('E:/all')))[:length]
 
     @staticmethod
-    def sample_text(*_):  # 35 chars
-        return Text.cleanup('The quick brown fox jumps over the lazy dog')
+    def sample_text(*_):  # 32 chars, 2 e's, 2 u's, 3 o's and 3 i's
+        return 'packmyboxwithfivedozenliquorjugs'
 
     @staticmethod
     def wikipedia_text(length, folder='E:/resources/wiki_text'):
@@ -281,7 +281,8 @@ def get_p_size_splits(m_k, n):
 
 if __name__ == '__main__':
     # get_p_size_splits(5, 100)
-    t, test = get_text(), Text.wikipedia_text(1000000)
+    # t, test = get_text(), Text.wikipedia_text(1000000)
+    t = Text.sample_text()
 
     best = Keyboard.get_best()
     heights = [Keyboard.qwerty().fitness_score(t),
@@ -289,7 +290,7 @@ if __name__ == '__main__':
                best.fitness_score(t)]
 
     current_best = Graph(Keyboard, t, size=len(t), comparisons=heights,
-                         minimize=True, text_output=True, full_refresh=True).run()
-    if current_best.fitness_score(test) < best.fitness_score(test):
-        open('best.txt', 'w').write(current_best.get_format())
-        print('new best:\n' + str(current_best))
+                         minimize=True, text_output=True, full_refresh=0).run()
+    # if current_best.fitness_score(test) < best.fitness_score(test):
+    #     open('best.txt', 'w').write(current_best.get_format())
+    #     print('new best:\n' + str(current_best))

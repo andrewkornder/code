@@ -38,7 +38,7 @@ class Optimizer:
         else:
             self.population_size = self.default_population if population_size is None else population_size
             self.p_size = int(children_proportion * self.population_size) if p_size is None else p_size
-        self.minimizing = minimize
+        self.minimize = minimize
 
         self.object = cls
         self.training_material = training_material
@@ -52,14 +52,14 @@ class Optimizer:
 
     @property
     def snapshot(self):
-        return round(self.scores[-1], 3), self.average, self.worst
+        return self.scores[-1], self.average, self.worst
 
     @property
     def best(self):
         return self.record.obj
 
     def initiate(self):
-        self.__init__(self.object, self.training_material, self.population_size, self.p_size, self.minimizing,
+        self.__init__(self.object, self.training_material, self.population_size, self.p_size, self.minimize,
                       full_refresh=(self.next_round == self.new_generation))
 
     def new_generation(self):
@@ -96,17 +96,10 @@ class Optimizer:
         while any(t.is_alive() for t in threads):
             sleep(0.1)
 
-        def key(x): return x[0]
-
-        if self.minimizing:
-            sorted_scores = sorted(scores, key=key, reverse=True)
-        else:
-            sorted_scores = sorted(scores, key=key)
+        sorted_scores = sorted(scores, reverse=self.minimize,  key=lambda x: x[0])
         scores, objs = list(zip(*sorted_scores))
 
         self.worst, self.average = scores[0], sum(scores) / self.population_size
-        if not (len(scores) == len(self.generation) == self.population_size):
-            print(self.population_size, len(self.generation), len(scores))
         self.record.compare(*sorted_scores[-1], self.round)
         return scores, objs
 
@@ -117,9 +110,9 @@ class Optimizer:
     def run(self, rounds):
         for i in range(rounds):
             self.next_round()
-            print('\r' + self.output(), end='           ')
+            print(f'\r{self.output()}', end=' ' * 10)
 
-        print('\nbest score:', self.record.score)
+        print(f'\nbest score:{self.record.score}')
         return self.record.obj
 
 
@@ -218,29 +211,32 @@ class Graph:
             y = self.calc_height(h)
             self.canvas.create_line(self.x_padding, y, self.w, y, fill='grey', dash=[5, 1], tags=('comparisons',))
 
-    def rescale(self, *_):
+    def rescale(self, *_, s=0.8):
         if not self.points:
             return
 
         self.points = [[self.undo_calc(entry) for entry in point] for point in self.points]
         all_points = list(chain.from_iterable(self.points))
-        self.y_floor = min(all_points) * 0.7
+        self.y_floor = min(all_points) * s
         self.y_scale = self.h / (max(all_points) - self.y_floor)
 
         self.canvas.delete('comparisons')
         self.add_comparisons(self.comparisons)
 
         self.points = [[self.calc_height(entry) for entry in point] for point in self.points]
+        self.add_round()
 
     def draw_points(self, x0, x1, *args):
         for y0, y1, color in zip(*args):
-            if y1 >= self.h - self.y_padding:
+            if y1 >= self.h - self.y_padding or y1 <= 0:
                 self.rescale()
+                return
             self.canvas.create_line(x0, y0, x1, y1, fill=color, width=self.line_width, tags=('to delete',))
 
     def add_round(self, *args, colors=('blue', 'red', 'green')):  # maybe add worst score each round
         self.canvas.delete('to delete')
-        self.points.append([self.calc_height(value) for value in args])
+        if args:
+            self.points.append([self.calc_height(value) for value in args])
 
         n = len(self.points) - 1
         x_scale = (self.w - self.x_padding) / (n if n else 1)
