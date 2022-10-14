@@ -1,7 +1,8 @@
-from random import choice, shuffle, randint
+from random import choice, shuffle, randint, sample
 from json import load
 from os import walk, path, listdir
 from ml.genetic_algorithm import Graph
+import numpy as np
 
 
 class Text:
@@ -51,7 +52,9 @@ class Finger:
 
 
 class Keyboard:
-    letters = list('abcdefghijklmnopqrstuvwxyz;,./')
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+               'v', 'w', 'x', 'y', 'z', ';', ',', '.', '/']
+
     hard_coded_distance = {(3, 0, 4, 1): 1.605,
                            (3, 0, 4, 2): 2.661,
                            (3, 1, 4, 0): 1.247,
@@ -98,8 +101,8 @@ class Keyboard:
         shuffle(cls.letters)
 
         x, y = 0, 0
-        for i, letter in enumerate(cls.letters):
-            keys[letter] = (x, y)
+        for letter in cls.letters:
+            keys[letter] = x, y
             x += 1
             if x == 10:
                 x = 0
@@ -108,12 +111,10 @@ class Keyboard:
         return cls(keys)
 
     @classmethod
-    def merge_c(cls, a, b, swaps=True):
+    def merge(cls, a, b):
         def swap(dictionary):
-            items = list(dictionary.items())
-            (l0, e0), (l1, e1) = choice(items), choice(items)
-            dictionary[l1] = e0
-            dictionary[l0] = e1
+            (l0, e0), (l1, e1) = sample(list(dictionary.items()), 2)
+            dictionary[l1], dictionary[l0] = e0, l1
 
         keys = {}
         remaining_letters = cls.letters[:]
@@ -128,29 +129,24 @@ class Keyboard:
                     continue
 
                 letter = choice([l for v, l in zip(validity, alleles) if v])
-                keys[letter] = (x, y)
+                keys[letter] = x, y
+
                 remaining_letters.remove(letter)
 
-        for xy in missing:
-            letter = choice(remaining_letters)
-            keys[letter] = xy
-            remaining_letters.remove(letter)
+        shuffle(remaining_letters)
+        for c in missing:
+            keys[remaining_letters.pop()] = c
 
-        if swaps:
-            choices = [0, 0] + list(range(randint(0, 3)))
-            for _ in range(choice(choices)):
-                swap(keys)
+        for _ in range(np.random.choice([0, 1, 2, 3], p=[0.5, 0.17, 0.17, 0.16])):
+            swap(keys)
 
         return cls(keys)
 
     @classmethod
-    def merge_b(cls, a, b, swaps=True):  # maybe put all keys where a and b agree, randomize rest?
-        # maybe just 50/50 on every key if possible, then just pick a random key or sum
-
-        if swaps:
-            ab = [a, b]
-            shuffle(ab)
-            a, b = ab
+    def merge_b(cls, a, b):
+        ab = [a, b]
+        shuffle(ab)
+        a, b = ab
 
         def swap():
             x0, x1 = randint(0, 4), randint(5, 9)
@@ -181,22 +177,17 @@ class Keyboard:
             m.remove(c)
             keys[letter] = c
 
-        if swaps:
-            k = {v: k for k, v in keys.items()}
-            choices = [0, 0] + list(range(randint(0, 3)))
-            for _ in range(choice(choices)):
-                swap()
-            keys = {v: k for k, v in k.items()}
+        k = {v: k for k, v in keys.items()}
+        for _ in range(np.random.choice([0, 1, 2, 3], p=[0.5, 0.17, 0.17, 0.16])):
+            swap()
 
-        return cls(keys)
+        return cls({v: k for k, v in k.items()})
 
     @classmethod
-    def merge(cls, a, b, swaps=True):
+    def merge_c(cls, a, b):
         def swap(dictionary):
-            items = list(dictionary.items())
-            (l0, e0), (l1, e1) = choice(items), choice(items)
-            dictionary[l1] = e0
-            dictionary[l0] = e1
+            (l0, e0), (l1, e1) = sample(list(dictionary.items()), 2)
+            dictionary[l1], dictionary[l0] = e0, l1
 
         ml = []
         mc = [(x, y) for x in range(10) for y in range(3)]
@@ -209,59 +200,38 @@ class Keyboard:
                 continue
             ml.append(letter)
 
-        for letter in ml:
-            c = choice(mc)  # todo: weight choices someone so the key is more likely to stay where it was
-            mc.remove(c)
-            keys[letter] = c
+        shuffle(mc)
+        for letter in ml:  # todo: weight choices someone so the key is more likely to stay where it was
+            keys[letter] = mc.pop()
 
-        if swaps:
-            choices = [0, 0] + list(range(randint(0, 3)))
-            for _ in range(choice(choices)):
-                swap(keys)
+        for _ in range(np.random.choice([0, 1, 2, 3], p=[0.5, 0.17, 0.17, 0.16])):
+            swap(keys)
 
         return cls(keys)
 
     def get_distance(self, x0, y0, x1, y1):
-        dx = x0 - x1  # if dx > 0, moved left, else moved right
-        dy = y0 - y1  # if dy > 0, moved down, else up
+        dx, dy = x0 - x1, y0 - y1
 
         # what the fuck
         return self.hard_coded_distance[(x0, y0, x1, y1)] if dx and dy else \
             (dy == 0) * abs(dx) + (dy != 0) * (1 + 0.5 * (x0 in (0, 9))) * \
             (2.138 * (dy == 2) + (dy != 2) * 1.118 - 0.086 * (0 in (y1, y0)))
 
-    def get_distance2(self, x0, y0, x1, y1):
-        dx = x0 - x1  # if dx > 0, moved left, else moved right
-        dy = y0 - y1  # if dy > 0, moved down, else up
-
-        if dy == 0:
-            return abs(dx)
-
-        if dx == 0:  # what the fuck
-            return (1 + 0.5 * (x0 in (0, 9))) * (2.138 * (dy == 2) + (dy != 2) * 1.118 - 0.086 * (0 in (y1, y0)))
-
-        return self.hard_coded_distance[(x0, y0, x1, y1)]
-
     def fitness_score(self, text):
-        distance = 0
-        last = self.fingers[0]  # doesnt really matter which one, wont change the outcome
-        for char in text:
-            x, y = self.keys(char)
+        distance, last = 0, self.fingers[0]  # doesnt really matter which one, wont change the outcome
+        coords = (self.keys(char) for char in text)
+        for x, y in coords:
             finger = self.fingers[x]
-
             distance += self.get_distance(finger.x, finger.y, x, y)
 
             if finger != last:
                 last.reset()
-            last = finger
+                last = finger
 
         return distance
 
     def __str__(self):
         return '\n'.join(' '.join(self.coords(x, y) for x in range(10)) for y in range(3))
-
-    def get_format(self):
-        return ''.join(''.join(self.coords(x, y) for x in range(10)) for y in range(3))
 
     @classmethod
     def from_string(cls, string):
@@ -298,7 +268,8 @@ def get_text():
 def get_p_size_splits(m_k, n):
     from math import sqrt
 
-    def m(x): return -0.5 + sqrt(1 + 8 * m_k * x) / 2  # p_size for some multiple of m_k
+    def m(x):
+        return -0.5 + sqrt(1 + 8 * m_k * x) / 2  # p_size for some multiple of m_k
 
     k = 0
     for i in range(n):
@@ -311,9 +282,7 @@ def get_p_size_splits(m_k, n):
 
 
 if __name__ == '__main__':
-    # get_p_size_splits(5, 100)
-    # t, test = get_text(), Text.wikipedia_text(1000000)
-    t = Text.sample_text()
+    t, test = get_text(), Text.wikipedia_text(1000000)
 
     best = Keyboard.get_best()
     heights = [Keyboard.qwerty().fitness_score(t),
@@ -322,6 +291,6 @@ if __name__ == '__main__':
 
     current_best = Graph(Keyboard, t, size=len(t), comparisons=heights,
                          minimize=True, text_output=True, full_refresh=1).run()
-    # if current_best.fitness_score(test) < best.fitness_score(test):
-    #     open('best.txt', 'w').write(current_best.get_format())
-    #     print('new best:\n' + str(current_best))
+    if current_best.fitness_score(test) < best.fitness_score(test):
+        open('best.txt', 'w').write(current_best.get_format())
+        print('new best:\n' + str(current_best))

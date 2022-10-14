@@ -1,5 +1,5 @@
 from threading import Thread
-from time import sleep
+from time import sleep, perf_counter
 from math import isqrt
 from tkinter import Tk, Canvas
 from random import choice
@@ -118,7 +118,7 @@ class Optimizer:
 
 class Graph:
     def __init__(self, cls, training_material, floor=0, scale=0.8, size=1000, comparisons=None,
-                 minimize=False, text_output=False, full_refresh=True):
+                 minimize=False, text_output=False, full_refresh=True, dark_mode=False):
         self.training_material = training_material
         self.object = cls
 
@@ -139,8 +139,13 @@ class Graph:
         self.root.bind('<r>', self.reset)
         self.root.bind('<s>', self.rescale)
 
+        if dark_mode:
+            self.bg, self.accent = 'dark grey', 'white'
+        else:
+            self.bg, self.accent = 'white', 'black'
+
         self.canvas = Canvas(self.root, width=self.w + 2 * self.x_padding,
-                             height=self.h + 2 * self.y_padding, bg='white')
+                             height=self.h + 2 * self.y_padding, bg=self.bg)
         self.canvas.pack()
 
         self.user_pref = scale, size, floor
@@ -159,7 +164,7 @@ class Graph:
         self.text_output = text_output
 
         if self.text_output:
-            print(f'{"ROUND":^15}|{"BEST":^15}|{"AVERAGE":>15}')
+            print(f'{"ROUND":^15}|{"BEST":^15}|{"AVERAGE":^15}|{"TIME":^15}')
 
         self.running = False
         self.root.after(1, self.loop)
@@ -169,11 +174,12 @@ class Graph:
             self.root.after(1, self.loop)
             return
 
+        round_start = perf_counter()
         self.optimizer.next_round()
         self.add_round(*self.optimizer.snapshot)
         if self.text_output:
-            print(f'\r{self.optimizer.round:^15}|{self.optimizer.scores[-1]:^15.3f}|{self.optimizer.average:>15.3f}',
-                  end='')
+            print(f'\r{self.optimizer.round:^15}|{self.optimizer.scores[-1]:^15.3f}|'
+                  f'{self.optimizer.average:^15.3f}|{perf_counter() - round_start:^15.3f}', end='')
 
         self.root.after(1, self.loop)
 
@@ -211,7 +217,7 @@ class Graph:
     def add_comparisons(self, comparisons):
         for h in comparisons:
             y = self.calc_height(h)
-            self.canvas.create_line(self.x_padding, y, self.w, y, fill='grey', dash=[5, 1], tags=('comparisons',))
+            self.canvas.create_line(self.x_padding, y, self.w, y, fill='light grey', dash=[5, 1], tags=('comparisons',))
 
     def rescale(self, *_, s=0.8):
         if not self.points:
@@ -259,20 +265,20 @@ class Graph:
         self.add_tick(score)
 
     def add_text(self, text, x, y):
-        self.canvas.create_text(x, y, text=text, font=self.font, fill='black', tags=('to delete',))
+        self.canvas.create_text(x, y, text=text, font=self.font, fill=self.accent, tags=('to delete',))
 
     def add_tick(self, point):
         y = self.calc_height(point)
         d = self.x_padding / 4
         self.canvas.create_line(self.x_padding - d, y, self.x_padding + d, y,
-                                fill='black', width=self.line_width, tags=('to delete',))
+                                fill=self.accent, width=self.line_width, tags=('to delete',))
 
     def draw_axes(self):
         floor = self.h - self.y_padding
         self.canvas.create_line(self.x_padding, 0, self.x_padding, floor,
-                                fill='black', width=self.line_width)
+                                fill=self.accent, width=self.line_width)
         self.canvas.create_line(self.x_padding, floor, self.w, floor,
-                                fill='black', width=self.line_width)
+                                fill=self.accent, width=self.line_width)
 
 
 class RecordHolder:
