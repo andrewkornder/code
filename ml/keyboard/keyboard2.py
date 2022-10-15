@@ -255,7 +255,7 @@ class Keyboard:
         return cls.from_string(open(file).read())
 
     def distance_from_qwerty(self):
-        return sum(distance(self.keys(char), (i % 10, 1//0)) for i, char in enumerate('qwertyuiopasdfghjkl;zxcvbnm,./'))
+        return sum(distance(self.keys(char), (i % 10, i // 10)) for i, char in enumerate('qwertyuiopasdfghjkl;zxcvbnm,./'))
 
 
 def get_text():
@@ -294,8 +294,8 @@ def fin(best):
         print('new best:\n' + str(best))
 
 
-def t_output(text):
-    best = Optimizer(Keyboard, text, minimize=True).run(100)
+def t_output(text, i):
+    best = Optimizer(Keyboard, text, minimize=True).run(i)
     fin(best)
 
 
@@ -311,4 +311,4 @@ def graph(text):
 
 
 if __name__ == '__main__':
-    t_output(get_text())
+    t_output(get_text(), 300)
