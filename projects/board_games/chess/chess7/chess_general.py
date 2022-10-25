@@ -5,7 +5,11 @@ import tkinter
 flesh out visuals
 create actual pieces
 write check and turn-based moves
-
+en passant + other weird rules
+50 move rule
+castling
+draws
+promotion
 """
 
 
@@ -61,8 +65,12 @@ class Window:
 
 class Piece:
     @staticmethod
+    def check_bounds(r, c):
+        return 0 <= r < 8 and 0 <= c < 8
+
+    @staticmethod
     def get_path(name, c):
-        return f'../{"white" if c else "black"}{name}.png'
+        return f'../{"white" if c == 1 else "black"}{name}.png'
 
     def __init__(self, board, r, c, color, name, text=None):
         self.board, self.window = board, board.window
@@ -74,6 +82,10 @@ class Piece:
         self.text = text if text else name[0]
         if color:
             self.text = self.text.upper()
+
+    def open_square(self, r, c):
+        p = self.board.arr[r][c]
+        return p is None or p.color != self.color
 
     def move(self, r1, c1):
         self.board.arr[r1][c1] = self
@@ -106,8 +118,8 @@ class Board:
         self.window.bind_all(binds)
 
         self.arr = [
-            [layout[0][i](self, 0, i, 0) for i in range(8)],
-            [layout[1][i](self, 1, i, 0) for i in range(8)],
+            [layout[0][i](self, 0, i, -1) for i in range(8)],
+            [layout[1][i](self, 1, i, -1) for i in range(8)],
             [None] * 8,
             [None] * 8,
             [None] * 8,
@@ -132,6 +144,7 @@ class Board:
     def draw_possible_moves(self):
         for r, c in self.selection.get_moves():
             self.window.draw_square(*self.window.get_window_loc(r, c), tags=('moves',))
+        self.window.canvas.tag_raise('images')
 
     def press(self, x, y):
         r, c = self.window.get_board_loc(x, y)
@@ -146,7 +159,7 @@ class Board:
         if self.selection is None:
             return
 
-        self.window.canvas.moveto(self.selection.image, x, y)
+        self.window.canvas.moveto(self.selection.drawing, x - self.window.sx / 2, y - self.window.sy / 2)
 
     def release(self, x, y):
         r, c = self.window.get_board_loc(x, y)
