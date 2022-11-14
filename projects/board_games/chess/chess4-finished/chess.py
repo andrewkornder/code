@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from tkinter import Tk, Canvas, PhotoImage, CENTER
 from typing import Any
 from os import name
@@ -12,7 +14,7 @@ PLAYER_COLOR = True  # True => 'white', False => 'black'
 WINDOWS = name == 'nt'
 
 if WINDOWS:
-    stockfish = Stockfish('stockfish_15/stockfish.exe')
+    stockfish = Stockfish('./stockfish_15/stockfish.exe')
     stockfish.set_depth(15)
 
     stockfish.set_skill_level(20)
@@ -177,7 +179,7 @@ Return => Display key binds""")
             if isinstance(piece, Pawn) and piece.row in (0, 7):
                 piece.promote()
 
-        stockfish.set_fen_position(self.get_fen())
+        if WINDOWS: stockfish.set_fen_position(self.get_fen())
 
         self.in_check()
         self.turn = not self.turn
@@ -514,7 +516,7 @@ def window():
     canvas = Canvas(root, height=dim, width=dim)
     canvas.pack()
 
-    Board(canvas, dim, dim)
+    Board(canvas, dim, dim, pvp=WINDOWS)
 
     return root.mainloop()
 
