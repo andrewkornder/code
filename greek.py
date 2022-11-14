@@ -1,4 +1,4 @@
-from tkinter import Tk, Canvas, Entry, PhotoImage, END
+from tkinter import Tk, Canvas, Entry, END
 from random import randint, choice
 from time import sleep
 
