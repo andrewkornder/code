@@ -108,15 +108,18 @@ class Optimizer:
         return f'{self.round} | scores: {scores} | average: {self.average:.3f} | worst: {self.worst:.3f}'
 
     def run(self, rounds):
+        print(f'{"ROUND":^15}|{"BEST":^15}|{"AVERAGE":^15}|{"TIME":^15}')
         for i in range(rounds):
+            round_start = perf_counter()
             self.next_round()
-            print(f'\r{self.output()}', end=' ' * 10)
+            print(f'\r{self.round:^15}|{self.scores[-1]:^15.3f}|{self.average:^15.3f}|'
+                  f'{perf_counter() - round_start:^15.3f}', end='')
 
-        print(f'\nbest score:{self.record.score}')
+        print(f'\nbest score: {self.record.score:.3f}')
         return self.record.obj
 
 
-class Graph:
+class Graph:  # TODO: add mini graph for the time of each run on the side?
     def __init__(self, cls, training_material, floor=0, scale=0.8, size=1000, comparisons=None,
                  minimize=False, text_output=False, full_refresh=True, dark_mode=False):
         self.training_material = training_material

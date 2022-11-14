@@ -129,8 +129,8 @@ def score(guess, ans):
 def start_game():
     global guesses, answer_list, target, user
     with open('answers.txt', 'r') as a, open('guesses.txt', 'r') as g:
-        answer_list = a.read().split('","')
-        guesses = g.read().split('","') + answer_list
+        answer_list = a.read().split('\n')
+        guesses = g.read().split('\n') + answer_list
 
     target = random.choice(answer_list)
     user = ''

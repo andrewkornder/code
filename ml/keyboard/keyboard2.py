@@ -1,8 +1,9 @@
 from random import choice, shuffle, randint, sample
 from json import load
 from os import walk, path, listdir
-from ml.genetic_algorithm import Graph
+from ml.genetic_algorithm import Graph, Optimizer
 import numpy as np
+from math import dist as distance
 
 
 class Text:
@@ -114,7 +115,7 @@ class Keyboard:
     def merge(cls, a, b):
         def swap(dictionary):
             (l0, e0), (l1, e1) = sample(list(dictionary.items()), 2)
-            dictionary[l1], dictionary[l0] = e0, l1
+            dictionary[l1], dictionary[l0] = e0, e1
 
         keys = {}
         remaining_letters = cls.letters[:]
@@ -161,22 +162,23 @@ class Keyboard:
             for y in range(3):
                 keys[a.coords(x, y)] = (x, y)
 
-        ml = []
+        ml = []  # think about whether starting empty and adding letters or starting w b._k.keys() is better
+        mc = [(x, y) for x in range(5, 10) for y in range(3)]
         for letter, coords in b._k.items():
             if keys[letter] is not None:
                 continue
 
             if coords[0] > 4:
                 keys[letter] = coords
+                mc.remove(coords)
             else:
                 ml.append(letter)
 
-        m = [(x, y) for x in range(5, 10) for y in range(3) if (x, y) not in keys.values()]
+        shuffle(mc)
         for letter in ml:
-            c = choice(m)
-            m.remove(c)
-            keys[letter] = c
+            keys[letter] = mc.pop()
 
+        # TODO: switch the order from line 158 and then reverse back at line 184, avoiding line 180
         k = {v: k for k, v in keys.items()}
         for _ in range(np.random.choice([0, 1, 2, 3], p=[0.5, 0.17, 0.17, 0.16])):
             swap()
@@ -219,8 +221,7 @@ class Keyboard:
 
     def fitness_score(self, text):
         distance, last = 0, self.fingers[0]  # doesnt really matter which one, wont change the outcome
-        coords = (self.keys(char) for char in text)
-        for x, y in coords:
+        for x, y in (self.keys(char) for char in text):
             finger = self.fingers[x]
             distance += self.get_distance(finger.x, finger.y, x, y)
 
@@ -253,6 +254,9 @@ class Keyboard:
     def get_best(cls, file='best.txt'):
         return cls.from_string(open(file).read())
 
+    def distance_from_qwerty(self):
+        return sum(distance(self.keys(char), (i % 10, i // 10)) for i, char in enumerate('qwertyuiopasdfghjkl;zxcvbnm,./'))
+
 
 def get_text():
     choices = {'wiki': Text.wikipedia_text,
@@ -281,16 +285,30 @@ def get_p_size_splits(m_k, n):
                 break
 
 
-if __name__ == '__main__':
-    t, test = get_text(), Text.wikipedia_text(1000000)
+def fin(best):
+    t = Text.wikipedia_text(1000000)
+    b = Keyboard.get_best()
+    if best.fitness_score(t) <= b.fitness_score(t) and \
+       best.distance_from_qwerty() < b.distance_from_qwerty():
+        open('keyboard/best.txt', 'w').write(best.get_format())
+        print('new best:\n' + str(best))
 
+
+def t_output(text, i):
+    best = Optimizer(Keyboard, text, minimize=True).run(i)
+    fin(best)
+
+
+def graph(text):
     best = Keyboard.get_best()
-    heights = [Keyboard.qwerty().fitness_score(t),
-               Keyboard.rstlne().fitness_score(t),
-               best.fitness_score(t)]
+    heights = [Keyboard.qwerty().fitness_score(text),
+               Keyboard.rstlne().fitness_score(text),
+               best.fitness_score(text)]
 
-    current_best = Graph(Keyboard, t, size=len(t), comparisons=heights,
+    current_best = Graph(Keyboard, text, size=len(text), comparisons=heights,
                          minimize=True, text_output=True, full_refresh=1).run()
-    if current_best.fitness_score(test) < best.fitness_score(test):
-        open('best.txt', 'w').write(current_best.get_format())
-        print('new best:\n' + str(current_best))
+    fin(current_best)
+
+
+if __name__ == '__main__':
+    t_output(get_text(), 300)
