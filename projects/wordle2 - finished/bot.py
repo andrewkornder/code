@@ -33,7 +33,8 @@ def test(words):
 
 
 def remove_words(guess, info, words):
-    return [word for word in words if score(word, guess) == info]
+    l = [word for word in words if score(word, guess) == info]
+    return l
 
 
 def remove_words_v2(guess, info, words, testing=False):
@@ -91,10 +92,11 @@ def average_score(words):
     open('average_score_1.0.txt', 'a').write(f'\n{total / len(words)} in {time() - start} seconds')
 
 
-def start(): return open('answers.txt', 'r').read().split('","')
+def start(): return open('answers.txt', 'r').read().split('\n')
 
 
 if __name__ == '__main__':
     answers = start()
+    print(answers[0])
     while True:
         game(answers[:])

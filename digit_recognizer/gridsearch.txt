@@ -1,0 +1,4 @@
+f_epochs|f_batch_size|m_optimizer|m_activation|m_hidden_inc|m_output_size|m_hidden_size|m_loss_fn|m_hidden_layers|m_metrics
+int|int|str|str|tint|int|float|str|int|str
+10|105|RMSProp|sigmoid|(1, 1.25, 0.8)|10|1.2|sparse_categorical_crossentropy|4|sparse_categorical_accuracy|0.961809515953064
+10|105|RMSProp|sigmoid|(1, 1.25, 1)|10|1.2|sparse_categorical_crossentropy|4|sparse_categorical_accuracy|0.9662857055664062
