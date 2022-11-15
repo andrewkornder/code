@@ -91,6 +91,18 @@ class Downloader:
 
     def download_all(self):   # TODO: add id to end of filename, and check if file[-12:-4] is in [ids]
         # TODO: then rewrite all the code to be less shitty & cleanup imports and funcs
+        # get yt-dlp on mac & set configs to be the same
+        # TODO: config =>
+        '''
+-x
+--audio-format mp3
+--write-sub
+--sub-langs "en,jp"
+--write-thumbnail
+-o C:/Users/Administrator/OneDrive/Desktop/folders/music/%(title)s.%(ext)s
+--embed-thumbnail
+--add-metadata
+        '''
         ids, songs, artists = list(zip(*self.data.values()))
 
         print('\n', '\n'.join(songs), '\n')
