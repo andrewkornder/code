@@ -1,22 +1,24 @@
 from youtube_search import YoutubeSearch as Search
-from os import system, listdir, rename, remove
+from os import system, listdir, rename, remove, path
+from os import name as operating_sys
 from tkinter import Tk, Canvas, Entry, END, NW
 from requests import get
 from PIL import Image, ImageTk
-from multiprocess import Pool
-from yt_dlp.utils import sanitize_filename as yt_sanitize
+from threading import Thread
+from yt_dlp import YoutubeDL
 from shutil import move
 import eyed3
 from eyed3.id3.frames import ImageFrame
 
 
 class Downloader:
-    def __init__(self, k=None, w=1200, h=800,
+    def __init__(self, k=None, w=1200, h=800, langs='en,jp',
                  file='to_download', destination='C:/Users/Administrator/OneDrive/Desktop/folders/music/'):
         self.i = 0
         self.queries = open(file, encoding='UTF-8').read().split('\n')
         if k:
             self.queries = self.queries[:k]
+        self.langs = langs.split(',')
 
         self.w, self.h = w, h - 100
         self.length = 3
@@ -25,8 +27,7 @@ class Downloader:
         self.data = {}
         self.current = {}
         self.images = {}
-        self.image_names = {}
-        self.destination = destination
+        self.destination = destination.replace('~', path.expanduser('~'))
 
         self.font = ('Niagara Bold', 10)
 
@@ -57,12 +58,9 @@ class Downloader:
 
         self.images[self.i] = []
         for j, video in enumerate(self.current):
-            name = f'./temp/{sanitize(video["title"])}.jpg'
-            if name[7:] in listdir('./temp'):
-                name = name[:-4] + f'{j}.jpg'
+            name = f'./temp/{video["id"]}.jpg'
 
             open(name, 'wb').write(get(video['thumbnails'][0]).content)
-            self.image_names[sanitize(video['title'])] = name
 
             im = ImageTk.PhotoImage(Image.open(name).resize((self.iw, self.ih)), master=self.root)
             self.images[self.i].append(im)
@@ -77,7 +75,8 @@ class Downloader:
         self.input.delete(0, END)
         self.load_next()
 
-    def back(self, _): self.i -= 1
+    def back(self, _):
+        self.i -= 1
 
     def select(self, e):
         if e.y > self.length * self.ih:
@@ -89,81 +88,90 @@ class Downloader:
         self.i += 1
         self.load_next()
 
-    def download_all(self):   # TODO: add id to end of filename, and check if file[-12:-4] is in [ids]
+    def download_all(self):  # TODO: add id to end of filename, and check if file[-12:-4] is in [ids]
         # TODO: then rewrite all the code to be less shitty & cleanup imports and funcs
-        # get yt-dlp on mac & set configs to be the same
-        # TODO: config =>
-        '''
--x
---audio-format mp3
---write-sub
---sub-langs "en,jp"
---write-thumbnail
--o C:/Users/Administrator/OneDrive/Desktop/folders/music/%(title)s.%(ext)s
---embed-thumbnail
---add-metadata
-        '''
+
         ids, songs, artists = list(zip(*self.data.values()))
 
-        print('\n', '\n'.join(songs), '\n')
         songs = list(map(sanitize, songs))
-        print('\n', '\n'.join(songs), '\n')
+        print('\n'.join([''] + songs), '\n')
 
-        Pool(11).map(lambda x: system(f'youtube-dl {x} --rm-cache-dir --no-progress'), ids)
+        opts = {
+            'audio-format': 'mp3',
+            'extract-audio': True,
+            'write-subs': True,
+            'sub-langs': 'en,jp,ja',
+            'write-thumbnail': True,
+            'no-check-certificate': True,
+            'add-metadata': True,
+            'ffmpeg-location': '~/Downloads/',
+            'o': f'{self.destination}/%(id)s.mp3',
+            'postprocessors': [{  # Extract audio using ffmpeg
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+            }]
+        }
+        with YoutubeDL(opts) as yt:
+            # yt.download(ids)
+            threads = [Thread(target=lambda x: yt.download(x), args=(id,)) for id in ids]
 
-        # threads = list(map(lambda x: Thread(target=lambda: system(f'youtube-dl {x}')), ids))
-        # for thread in threads:
-        #     thread.start()
-        #
-        # for i, thread in enumerate(threads):
-        #     thread.join()
-        #     print(songs[i])
+        [t.start() for t in threads]
+        while threads:
+            threads = [t for t in threads if t.is_alive()]
+            print(f'\r{len(ids) - len(threads):>3} / {len(ids)}', end='')
+        print('\ndone')
 
-        print('finished downloading')
-        for file in listdir(self.destination):
-            print(sanitize(file[:-4]))
-            src = self.destination + file
-            ext = file[-4:]
+        def get_info(index):
+            t = songs[index]
+            print(f'\n{t}')
 
-            if ext == '.mp3' and sanitize(file[:-4]) in songs:
-                name = sanitize(file[:-4])
+            a = input(f'artist = {artists[index]}?\n > ')
+            for style in (f'{a}: ', f'{a} - ', f' - {a}', a, f' {a} '):
+                t = t.replace(style, '')
 
-                tags = eyed3.load(f'{self.destination}/{file}')
-                tags.tag.images.set(ImageFrame.FRONT_COVER, open(self.image_names[name], 'rb').read(),
-                                    'image/jpeg')
+            t = (lambda x: x if x else t)(input(f'title = {t}?\n > '))
+            print(f'using {t} by {a}')
 
-                tags.tag.artist = input(f'is {tags.tag.artist} the artist?\n > ')
+            return t, a if a else artists[index]
 
-                t = input('title?\n > ')
-                if t:
-                    f = f'{self.destination}/{t}.mp3'
-                    if f in listdir(self.destination):
-                        print(f'\t\toverwriting {f}')
-                        remove(f)
-                    rename(src, f)
-                    tags.tag.title = t
-
-                tags.tag.save(version=eyed3.id3.ID3_V2_3)
-
+        files = listdir(self.destination)
+        for i, url in enumerate(ids):
+            src = f'{self.destination}/{url}'
+            if src + '.mp3' not in files:
+                print(f'{songs[i]} failed to download')
                 continue
 
-            a, b = ext == '.vtt', ext in ('.jpg', '.png', '.jpeg')
+            title, artist = get_info(i)
 
-            if not (a or b):
-                if ext != '.mp3':
-                    print(f'\t\t"{file}" extension ({ext}) was not in (.vtt, .png, .jpeg, .jpg, .mp3)')
-                else:
-                    print(f'\t\t"{sanitize(file[:-4])}" was not found in songs')
-                continue
+            tags = eyed3.load(src)
+            tags.tag.images.set(ImageFrame.FRONT_COVER, open(f'./temp/{url}', 'rb').read(), 'image/jpeg')
+            tags.tag.artist, tags.tag.title = artist, title
+            tags.tag.save(version=eyed3.id3.ID3_V2_3)
 
-            folder = self.destination + ('/subtitles/' if a else ('/thumbnails/' if b else ''))
+            rename(src + '.mp3', f'{self.destination}/{title}.mp3')
 
-            if file in listdir(folder):
-                remove(folder + file)
+            for lang in self.langs:
+                f = f'.{lang}.vtt'
+                if (url + f) in files:
+                    rename(src + f, f'{self.destination}/{title}{f}')
+                    move(src + f, f'{self.destination}/subtitles/{title}{f}')
+                    break
+            else:
+                print(f'no subtitles found for {src} with langs {", ".join(self.langs)}')
 
-            move(src, folder)
+            for ext in ('.png', '.jpg', 'jpeg', 'webp'):
+                if url + ext in files:
+                    rename(src + ext, f'{self.destination}/{title}{ext}')
+                    move(src + ext, f'{self.destination}/thumbnails/{title}{ext}')
+                    break
+            else:
+                print(f'no image found for {src}')
 
-        system(f'start {self.destination}')
+        if operating_sys == 'posix':
+            system(f'open {self.destination}')
+        else:
+            system(f'start {self.destination}')
+
         for file in listdir('./temp'):
             remove(f'./temp/{file}')
 
@@ -176,8 +184,8 @@ class Downloader:
 
 
 def sanitize(s):
-    return yt_sanitize(s.replace("/", "_").replace(' - ', ': ').replace('"', '').replace('”', '').replace('\'', ''))
+    return ''.join(x for x in s if x not in '<>/\\"\':|?*')
 
 
 if __name__ == '__main__':
-    Downloader().run()
+    Downloader(2, destination='~/Documents/m').run()
