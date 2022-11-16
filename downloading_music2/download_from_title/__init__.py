@@ -47,7 +47,7 @@ class Downloader:
         self.langs = langs.split(',') if langs else self.langs
 
         self.w, self.h = w, h - 100
-        self.length = 3
+        self.length = 5
         self.iw, self.ih = self.w * 3 // 10, (self.h - 50) // self.length
 
         self.data = {}
@@ -67,7 +67,7 @@ class Downloader:
         self.root = Tk()
         self.root.geometry(f'{self.w}x{h}')
 
-        self.canvas = Canvas(self.root, width=self.w, height=self.h, bg='white')
+        self.canvas = Canvas(self.root, width=self.w, height=self.h)
         self.canvas.grid(row=0, column=0, columnspan=3)
 
         self.input = Entry(self.root)
@@ -135,15 +135,14 @@ class Downloader:
         self.images[self.i] = []
         for j, video in enumerate(self.current):
             name = f'{self.temp}/{video["id"]}.jpg'
-
             open(name, 'wb').write(get(video['thumbnails'][0]).content)
 
             im = ImageTk.PhotoImage(Image.open(name).resize((self.iw, self.ih)), master=self.root)
             self.images[self.i].append(im)
 
-            ic = self.w - self.iw, self.ih * j
-            self.canvas.create_image(*ic, anchor=NW, image=self.images[self.i][-1])
-            self.canvas.create_text(ic[0] / 2, (j + 0.5) * self.ih, font=self.font,
+            x, y = self.w - self.iw, self.ih * j
+            self.canvas.create_image(x, y, anchor=NW, image=self.images[self.i][-1])
+            self.canvas.create_text(x / 2, y + self.ih / 2, font=self.font,
                                     text=f"[{video['duration']}] \"{video['title']}\" - {video['channel']}")
 
         if self.auto_select:
@@ -192,7 +191,6 @@ class Downloader:
 
     def finalize(self):
         ids, songs, artists = list(zip(*self.data.values()))
-
         songs = list(map(self.sanitize, songs))
 
         system('youtube-dl --rm-cache-dir --quiet')
