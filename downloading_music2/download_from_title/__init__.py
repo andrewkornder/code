@@ -5,6 +5,7 @@ from requests import get
 from PIL import Image, ImageTk
 from threading import Thread
 from youtube_dl import YoutubeDL as yt
+from youtube_dl.utils import DownloadError
 from shutil import move
 import eyed3
 from eyed3.id3.frames import ImageFrame
@@ -101,19 +102,37 @@ class Downloader:
         songs = list(map(self.sanitize, songs))
 
         system('youtube-dl --rm-cache-dir --quiet')
-        yt({
-            'writethumbnail': True,
-            'quiet': True,
-            'writesubtitles': True,
-            'subtitleslangs': self.langs,
-            'outtmpl': f'{self.destination}/%(id)s.%(ext)s',
-            'postprocessors': [
-                {'key': 'FFmpegExtractAudio',
-                 'preferredcodec': 'mp3'},
-                {'key': 'FFmpegMetadata'},
-                {'key': 'EmbedThumbnail'},
-            ]
-        }).download(ids)
+
+        y = yt({
+                'writethumbnail': True,
+                'quiet': True,
+                'writesubtitles': True,
+                'subtitleslangs': self.langs,
+                'outtmpl': f'{self.destination}/%(id)s.%(ext)s',
+                'postprocessors': [
+                    {'key': 'FFmpegExtractAudio',
+                     'preferredcodec': 'mp3'},
+                    {'key': 'FFmpegMetadata'},
+                    {'key': 'EmbedThumbnail'},
+                ]
+        })
+
+        def dl(inputs):
+            failed = []
+            for x in inputs:
+                try:
+                    y.download([x])
+                    print(f'downloaded {x}')
+                except DownloadError:
+                    print(f'failed to download {x}')
+                    failed.append(x)
+                    system('youtube-dl --rm-cache-dir --quiet')
+            return failed
+
+        t = dl(ids)
+        while t:
+            print(f'{len(t)} downloads failed: restarting')
+            t = dl(t)
 
         print('finished downloading')
 
