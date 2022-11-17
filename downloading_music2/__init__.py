@@ -20,7 +20,7 @@ class Downloader:
         'writesubtitles': True,
         'subtitleslangs': ['en', 'ja'],
         'outtmpl': f'/%(id)s.%(ext)s',
-        # 'ffmpeg_location': '/Users/akornder25/Downloads/',
+        'ffmpeg_location': '/Users/akornder25/Downloads/',
         'postprocessors': [
             {'key': 'FFmpegExtractAudio',
              'preferredcodec': 'mp3'},
@@ -30,10 +30,10 @@ class Downloader:
     }
     destination = 'C:/Users/Administrator/OneDrive/Desktop/folders/music'
 
-    read = '../to_download'
-    temp = '../temp'
-    translator = '../translator'
-    past = '../past_saves'
+    read = './to_download.txt'
+    temp = './temp'
+    translator = './translator.txt'
+    past = './past_saves.txt'
 
     def __init__(self, text=None, first_k=None, w=1200, h=800, langs=None,
                  destination=None, translator=None, options=None, auto=False,
@@ -89,7 +89,7 @@ class Downloader:
         if first_k:
             self.queries = self.queries[:first_k]
 
-        self.paused = len(self.queries) == 0
+        self.paused = bool(self.queries)
 
         self.canvas.bind('<ButtonRelease-1>', lambda e: self.select(e.y // self.ih))
         self.canvas.bind('<ButtonPress-3>', self.back)
@@ -194,6 +194,9 @@ class Downloader:
         ids, songs_o, artists = list(zip(*self.data.values()))
         songs = list(map(self.sanitize, songs_o))
 
+        past = set(open(self.past).read().split('\n'))
+        trans = set(open(self.translator).read().split('\n'))
+
         system('youtube-dl --no-cache-dir')
 
         self.download(self.options, ids)
@@ -229,6 +232,9 @@ class Downloader:
 
             title, artist = get_info(i)
 
+            past.add(f'{url}|{songs[i]}')
+            trans.add(f'{songs[i]} : {title} | {artist}')
+
             tags = eyed3.load(src + '.mp3')
             tags.tag.images.set(ImageFrame.FRONT_COVER, open(f'{self.temp}/{url}.jpg', 'rb').read(), 'image/jpeg')
             tags.tag.artist, tags.tag.title = artist, title
@@ -249,10 +255,9 @@ class Downloader:
         for temp in listdir(self.temp):
             remove(f'{self.temp}/{temp}')
 
-        i = {x.split('|') for x in open(self.past).read().split('\n')}
-        i.update(set(zip(ids, songs_o)))
+        open(self.past, 'w').write('\n'.join(past))
+        open(self.translator, 'w').write('\n'.join(trans))
 
-        open(self.past, 'a').write('\n' + '\n'.join(f'{a}|{b}' for a, b in i))
         exit()
 
     def run(self):
