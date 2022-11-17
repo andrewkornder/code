@@ -20,7 +20,7 @@ class Downloader:
         'writesubtitles': True,
         'subtitleslangs': ['en', 'ja'],
         'outtmpl': f'/%(id)s.%(ext)s',
-        'ffmpeg_location': '/Users/akornder25/Downloads/',
+        # 'ffmpeg_location': '/Users/akornder25/Downloads/',
         'postprocessors': [
             {'key': 'FFmpegExtractAudio',
              'preferredcodec': 'mp3'},
@@ -36,10 +36,12 @@ class Downloader:
     past = '../past_saves'
 
     def __init__(self, text=None, first_k=None, w=1200, h=800, langs=None,
-                 destination=None, translator=None, options=None, auto=False):
+                 destination=None, translator=None, options=None, auto=False,
+                 just_subs=False):
 
         self.i = 0
         self.auto_select = auto
+        self.just_subs = just_subs
 
         self.translate = (lambda *args: args) if translator is None else \
             (translator if translator is not True else self.get_translator(self.translator))
@@ -61,6 +63,7 @@ class Downloader:
             self.options = options
         else:
             self.options['outtmpl'] = self.destination + self.options['outtmpl']
+        self.options['skip_download'] = just_subs
 
         self.font = ('Niagara Bold', 10)
 
@@ -122,8 +125,6 @@ class Downloader:
 
         if self.i == len(self.queries):
             self.root.destroy()
-            self.root.update()
-
             self.finalize()
             return
 
@@ -157,7 +158,7 @@ class Downloader:
         self.i -= 1
 
     def select(self, i):
-        if i >= self.length:
+        if i >= self.length or self.paused:
             return
 
         a = self.current[i]
@@ -181,7 +182,7 @@ class Downloader:
                 except DownloadError:
                     print(f'failed to download {x}')
                     failed.append(x)
-                    system('youtube-dl --rm-cache-dir --quiet')
+
             return failed
 
         retry = dl(x)
@@ -190,12 +191,12 @@ class Downloader:
             retry = dl(retry)
 
     def finalize(self):
-        ids, songs, artists = list(zip(*self.data.values()))
-        songs = list(map(self.sanitize, songs))
+        ids, songs_o, artists = list(zip(*self.data.values()))
+        songs = list(map(self.sanitize, songs_o))
 
-        system('youtube-dl --rm-cache-dir --quiet')
+        system('youtube-dl --no-cache-dir')
 
-        # TODO: self.download(self.options, ids)
+        self.download(self.options, ids)
 
         print('finished downloading')
 
@@ -248,7 +249,10 @@ class Downloader:
         for temp in listdir(self.temp):
             remove(f'{self.temp}/{temp}')
 
-        open(self.past, 'a').write('\n'.join(f'{a}|{b}' for a, b in zip(ids, self.queries)))
+        i = {x.split('|') for x in open(self.past).read().split('\n')}
+        i.update(set(zip(ids, songs_o)))
+
+        open(self.past, 'a').write('\n' + '\n'.join(f'{a}|{b}' for a, b in i))
         exit()
 
     def run(self):
@@ -268,17 +272,14 @@ class Downloader:
 
     @staticmethod
     def get_translator(file):
-        t0, t1, t2 = zip(
-            *[(lambda x: (x[0].strip(), *x[1].split(' | ')))(a.split(' : ')) for a in open(file).read().split('\n')])
+        t0, t1, t2 = zip(*[(lambda x: (x[0].strip(), *x[1].split(' | ')))(a.split(' : '))
+                           for a in open(file, encoding='utf-8').read().split('\n')])
         t = dict(zip(t0, zip(t1, t2)))
         return lambda x, n: (x, n) if x not in t else (lambda y, a: y if y[1] else (y[0], a))(t[x], n)
 
 
 if __name__ == '__main__':
-    file = '~/Documents/GitHub/code/downloading_music2/to_download' if operating_sys == 'posix' else \
-        'E:/code/downloading_music2/to_download'
-
     folder = '~/Documents/GitHub/folders/music/' if operating_sys == 'posix' else \
         '~/OneDrive/Desktop/folders/music'
 
-    ids = Downloader([], destination=folder, translator=True).run()
+    ids = Downloader(destination=folder, translator=True, auto=True).run()
