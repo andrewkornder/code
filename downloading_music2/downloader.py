@@ -16,6 +16,7 @@ class Downloader:
     options = {
         'writethumbnail': True,
         'quiet': True,
+        'cache-dir': False,
         'nocheckcertificate': operating_sys == 'posix',
         'writesubtitles': True,
         'subtitleslangs': ['en', 'ja'],
@@ -89,7 +90,7 @@ class Downloader:
         if first_k:
             self.queries = self.queries[:first_k]
 
-        self.paused = bool(self.queries)
+        self.paused = not bool(self.queries)
 
         self.canvas.bind('<ButtonRelease-1>', lambda e: self.select(e.y // self.ih))
         self.canvas.bind('<ButtonPress-3>', self.back)
@@ -175,20 +176,23 @@ class Downloader:
 
         def dl(inputs):
             failed = []
-            for x in inputs:
+            for i in inputs:
                 try:
-                    y.download([x])
-                    print(f'downloaded {x}')
+                    y.download([i])
+                    print(f'downloaded {i}')
                 except DownloadError:
-                    print(f'failed to download {x}')
-                    failed.append(x)
+                    print(f'failed to download {i}')
+                    failed.append(i)
 
             return failed
 
         retry = dl(x)
         while retry:
             print(f'{len(retry)} downloads failed: restarting')
-            retry = dl(retry)
+            second = dl(retry)
+            if len(retry) == len(second):
+                return second
+            retry = second
 
     def finalize(self):
         ids, songs_o, artists = list(zip(*self.data.values()))
@@ -196,8 +200,6 @@ class Downloader:
 
         past = set(open(self.past).read().split('\n'))
         trans = set(open(self.translator).read().split('\n'))
-
-        system('youtube-dl --no-cache-dir')
 
         self.download(self.options, ids)
 
@@ -287,4 +289,4 @@ if __name__ == '__main__':
     folder = '~/Documents/GitHub/folders/music/' if operating_sys == 'posix' else \
         '~/OneDrive/Desktop/folders/music'
 
-    ids = Downloader(destination=folder, translator=True, auto=True).run()
+    _ids = Downloader(destination=folder, translator=True, auto=True, just_subs=True).run()
