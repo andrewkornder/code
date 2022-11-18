@@ -8,6 +8,7 @@ from youtube_dl import YoutubeDL as Yt
 from youtube_dl.utils import DownloadError
 from shutil import move
 import eyed3
+from time import sleep, perf_counter
 from eyed3.id3.frames import ImageFrame
 
 
@@ -16,12 +17,14 @@ class Downloader:
     options = {
         'writethumbnail': True,
         'quiet': True,
-        'cache-dir': False,
+        'no_warnings': True,
+        'retries': 2,
+        'cachedir': './cache',
         'nocheckcertificate': operating_sys == 'posix',
         'writesubtitles': True,
         'subtitleslangs': ['en', 'ja'],
         'outtmpl': f'/%(id)s.%(ext)s',
-        'ffmpeg_location': '/Users/akornder25/Downloads/',
+        # 'ffmpeg_location': '/Users/akornder25/Downloads/',
         'postprocessors': [
             {'key': 'FFmpegExtractAudio',
              'preferredcodec': 'mp3'},
@@ -39,7 +42,7 @@ class Downloader:
     def __init__(self, text=None, first_k=None, w=1200, h=800, langs=None,
                  destination=None, translator=None, options=None, auto=False,
                  just_subs=False):
-
+# TODO: make editable list on a sidebar for search queries
         self.i = 0
         self.auto_select = auto
         self.just_subs = just_subs
@@ -50,7 +53,7 @@ class Downloader:
         self.langs = langs.split(',') if langs else self.langs
 
         self.w, self.h = w, h - 100
-        self.length = 5
+        self.length = 3
         self.iw, self.ih = self.w * 3 // 10, (self.h - 50) // self.length
 
         self.data = {}
@@ -148,7 +151,7 @@ class Downloader:
                                     text=f"[{video['duration']}] \"{video['title']}\" - {video['channel']}")
 
         if self.auto_select:
-            self.select(0)
+            self.root.after(1, lambda: self.select(0))
 
     def enter(self, *_):
         self.queries[self.i] = self.input.get()
@@ -172,23 +175,61 @@ class Downloader:
 
     @staticmethod
     def download(options, x):
+        start = perf_counter()
         y = Yt(options)
+
+        def dl2(inputs, k=5):
+            def clean(ts):
+                ls = []
+                for t, u in ts:
+                    if t.is_alive():
+                        ls.append((t, u))
+                    # else:
+                    #     print(f'downloaded {u}')
+
+                return ls
+
+            def d(a):
+                try:
+                    y.download([a])
+                except DownloadError:
+                    system('youtube-dl --rm-cache-dir --quiet')
+                    failed.append(a)
+
+            failed = []
+            threads = []
+            for n, i in enumerate(inputs):
+                threads.append((Thread(target=d, args=(i,)), i))
+                threads[-1][0].start()
+                print(
+                    f'\rstarted {", ".join([z[1] for z in threads])} | finished{n - len(threads) + 2 - len(failed):>3} | failed {len(failed)}',
+                    end='')
+
+                while len(threads) == k:
+                    threads = clean(threads)
+                    sleep(1)
+
+            while threads:
+                threads = clean(threads)
+                sleep(1)
+
+            return failed
 
         def dl(inputs):
             failed = []
             for i in inputs:
                 try:
                     y.download([i])
-                    print(f'downloaded {i}')
+                    print(f'[{(perf_counter() - start) / 60:.1f}] downloaded {i}')
                 except DownloadError:
-                    print(f'failed to download {i}')
                     failed.append(i)
+                    print(f'failed to download {i}')
 
             return failed
 
-        retry = dl(x)
+        retry = dl2(x)
         while retry:
-            print(f'{len(retry)} downloads failed: restarting')
+            print(f'\n{len(retry)} downloads failed: restarting')
             second = dl(retry)
             if len(retry) == len(second):
                 return second
@@ -198,12 +239,14 @@ class Downloader:
         ids, songs_o, artists = list(zip(*self.data.values()))
         songs = list(map(self.sanitize, songs_o))
 
-        past = set(open(self.past).read().split('\n'))
-        trans = set(open(self.translator).read().split('\n'))
+        past = set(open(self.past, encoding='utf-8').read().split('\n'))
+        trans = set(open(self.translator, encoding='utf-8').read().split('\n'))
 
+        system('youtube-dl --rm-cache-dir')
         self.download(self.options, ids)
 
         print('finished downloading')
+        print(ids)
 
         def get_info(index):
             def func(a, b): return a if a else b
@@ -213,7 +256,7 @@ class Downloader:
 
             current_artist = func(input(f'artist = {current_artist}?\n > '), current_artist)
             for style in (f'{current_artist}: ', f'{current_artist} - ', f' - {current_artist}',
-                          current_artist, f' {current_artist} '):
+                          current_artist, f' {current_artist} ', f' - {current_artist} MV'):
                 current_title = current_title.replace(style, '')
 
             current_title = func(input(f'title = {current_title}?\n > '), current_title)
@@ -223,8 +266,7 @@ class Downloader:
 
         files = [x for x in listdir(self.destination) if path.isfile(self.destination + '/' + x)]
 
-        print('\n'.join(f'{a:<20}{b}' for a, b in zip(*(lambda l: (files[:l // 2], files[l // 2:]))(len(files)))), '',
-              sep='\n')
+        print('\n'.join(f'{a:<20}{b}' for a, b in zip(*(lambda l: (files[:l // 2], files[l // 2:]))(len(files)))), '\n')
 
         for i, url in enumerate(ids):
             src = f'{self.destination}/{url}'
@@ -234,8 +276,8 @@ class Downloader:
 
             title, artist = get_info(i)
 
-            past.add(f'{url}|{songs[i]}')
-            trans.add(f'{songs[i]} : {title} | {artist}')
+            past.add(f'{url}|{songs_o[i]}')
+            trans.add(f'{songs_o[i]} : {title} | {artist}')
 
             tags = eyed3.load(src + '.mp3')
             tags.tag.images.set(ImageFrame.FRONT_COVER, open(f'{self.temp}/{url}.jpg', 'rb').read(), 'image/jpeg')
@@ -257,10 +299,8 @@ class Downloader:
         for temp in listdir(self.temp):
             remove(f'{self.temp}/{temp}')
 
-        open(self.past, 'w').write('\n'.join(past))
-        open(self.translator, 'w').write('\n'.join(trans))
-
-        exit()
+        open(self.past, 'w', encoding='utf-8').write('\n'.join(past))
+        open(self.translator, 'w', encoding='utf-8').write('\n'.join(trans))
 
     def run(self):
         if not self.paused:
@@ -279,8 +319,8 @@ class Downloader:
 
     @staticmethod
     def get_translator(file):
-        t0, t1, t2 = zip(*[(lambda x: (x[0].strip(), *x[1].split(' | ')))(a.split(' : '))
-                           for a in open(file, encoding='utf-8').read().split('\n')])
+        t0, t1, t2 = zip(*[(lambda x: (x[0].strip(), *(lambda x: x if len(x) == 2 else ['', ''])(x[1].split(' | ')))) \
+                               (a.split(' : ')) for a in open(file, encoding='utf-8').read().split('\n')])
         t = dict(zip(t0, zip(t1, t2)))
         return lambda x, n: (x, n) if x not in t else (lambda y, a: y if y[1] else (y[0], a))(t[x], n)
 
@@ -289,4 +329,4 @@ if __name__ == '__main__':
     folder = '~/Documents/GitHub/folders/music/' if operating_sys == 'posix' else \
         '~/OneDrive/Desktop/folders/music'
 
-    _ids = Downloader(destination=folder, translator=True, auto=True, just_subs=True).run()
+    _ids = Downloader(destination=folder, translator=True, auto=1).run()
