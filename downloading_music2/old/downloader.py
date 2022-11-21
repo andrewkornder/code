@@ -185,7 +185,7 @@ class Downloader:
                     if t.is_alive():
                         ls.append((t, u))
                     # else:
-                    #     print(f'downloaded {u}')
+                    #     print(title_font'colors {u}')
 
                 return ls
 

@@ -27,7 +27,7 @@ def main():
     def _show_all():
         root = tkinter.Tk()
 
-        # code i found on stack overflow for bringing window to front
+        # code index found on stack overflow for bringing window to front
         # not really sure why it's this complicated, but it works
         root.lift()
         root.attributes('-topmost', True)

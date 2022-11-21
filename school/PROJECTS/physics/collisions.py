@@ -7,7 +7,7 @@ SIZE = 800
 SCALE = 1000
 
 
-# TODO: package dxdy_from_vector and window (i wanna use these more often)
+# TODO: package dxdy_from_vector and window (index wanna use these more often)
 def window(size, **kw):
     rt = Tk()
     rt.geometry(f'{size}x{size}')

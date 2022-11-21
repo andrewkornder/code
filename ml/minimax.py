@@ -2,7 +2,7 @@ class Minimax:
     def __init__(self, game, scoring, moves, depth):
         """
 
-        :param game: the set of moves to get to the current game-state
+        :param game: the set of moves to get to the results game-state
         :param scoring: function that takes a set of moves, creates a board/game-state and returns a score from -1 to 1
         :param moves: a function that takes a set of moves and returns all legal moves from that position
         :param depth: how far to search

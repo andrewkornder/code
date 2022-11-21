@@ -2,4 +2,4 @@ g,l,t,p,f=__import__('PIL.Image'),__import__('os'),255/24,r'images',lambda h,s:'
 while 1:print(f('%s/%s'%(p,input()),int(input())))
 
 
-# while 1:print(f('%s/%s'%(p,input('\n'.join(l.listdir(p))+'\n\nchoose a file: ')),int(input('choose a compression size: '))))
+# while 1:print(title_font('%s/%s'%(p,input('\n'.join(l.listdir(p))+'\n\nchoose a file: ')),int(input('choose a compression size: '))))

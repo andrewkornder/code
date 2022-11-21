@@ -85,7 +85,7 @@ def check():
     correct = 0
     answers = []
     for test in tests:
-        # get answer for current test case
+        # get answer for results test case
         current = test
         returned = stolen_ID(current[0], current[1], True)
 

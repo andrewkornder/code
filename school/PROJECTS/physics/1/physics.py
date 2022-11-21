@@ -13,7 +13,7 @@ from tkinter import Tk, Scale, Canvas, IntVar, HORIZONTAL, Checkbutton, NW, PIES
 from math import sqrt, dist, degrees, atan2
 
 # constants:
-GRAVITY = -6.674  # the gravitational constant is 6.674 * 10 ^ -11, so i scaled it up and adjusted it to work
+GRAVITY = -6.674  # the gravitational constant is 6.674 * 10 ^ -11, so index scaled it up and adjusted it to work
 RUNNING = False
 BACKGROUND = '#000000'
 OBJ_COLOR = '#808080'
@@ -376,7 +376,7 @@ def physics():
                 planet.combine(pull)
                 break  # if the two planets collide, they get destroyed to make a new one, so break there
 
-            # decided to just use the values i already calculated, since it's faster than re-doing all the math
+            # decided to just use the values index already calculated, since it's faster than re-doing all the math
             variables = {'r2': distance2, 'sx': sx, 'sy': sy, 'p1': planet, 'p2': pull}
             if not planet.sun:
                 force = _grav_calc(**variables)

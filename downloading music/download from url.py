@@ -55,11 +55,11 @@ def download_videos():
             filters = yt_obj.streams.filter(progressive=True, file_extension='mp4')
 
             # download the lowest quality video
-            filters.get_lowest_resolution().download()
+            filters.get_lowest_resolution().download_video()
         except Exception:
             pass
 
-    messagebox.showinfo("Success", "Video Successfully downloaded")
+    messagebox.showinfo("Success", "Video Successfully colors")
     download_start.config(state="normal")
     get_videos.config(state="normal")
 

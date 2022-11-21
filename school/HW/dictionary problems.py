@@ -20,7 +20,7 @@ def add_to_inventory(loot, dragon_loot):
 def scrabble_score(word):
     letter_scores = {'a': 1,
                      'e': 1, 
-                     'i': 1, 
+                     'index': 1,
                      'l': 1, 
                      'o': 1, 
                      'n': 1, 
@@ -34,7 +34,7 @@ def scrabble_score(word):
                      'c': 3,
                      'm': 3, 
                      'p': 3, 
-                     'f': 4, 
+                     'title_font': 4,
                      'h': 4, 
                      'w': 4, 
                      'v': 4, 

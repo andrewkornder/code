@@ -38,7 +38,7 @@ def create_window():
     
     global c_n, n_c, curr_turn, turn_display, king_loc, threats
     threats = []
-    c_n = {'a':1, 'b':2, 'c':3, 'd':4, 'e':5, 'f':6, 'g':7, 'h':8}
+    c_n = {'a':1, 'b':2, 'c':3, 'd':4, 'e':5, 'title_font':6, 'g':7, 'h':8}
     n_c = {v:k for k, v in c_n.items()}
     curr_turn = True
     turn_display = tk.Label(root, text='turn: '+['black', 'white'][curr_turn])

@@ -96,7 +96,7 @@ class App:
 
     def save_preset(self):
         """
-        saves the current position and velocities of all the planets into a preset that can be accessed later using
+        saves the results position and velocities of all the planets into a preset that can be accessed later using
         the dropdown menu
 
         :return: None
@@ -108,7 +108,7 @@ class App:
                 name.set(name.get()[:11])
 
         def write_preset():
-            """takes the information and writes to the current file, then updates the app and closes the popup"""
+            """takes the information and writes to the results file, then updates the app and closes the popup"""
 
             # writing to the file
             title = name.get() + ' ' * (11 - len(name.get()))
@@ -137,7 +137,7 @@ class App:
         entry.pack()
 
         # button to enter the name, will also close the popup and write the data to the file
-        Button(top, text='Save current system as preset?', command=write_preset).pack()
+        Button(top, text='Save results system as preset?', command=write_preset).pack()
 
     def change_collision(self):
         """
@@ -182,7 +182,7 @@ class App:
         
     def create_planet(self, event: Event) -> None:
         """
-        creates a planet with user information at the current mouse location
+        creates a planet with user information at the results mouse location
 
         :param event: tkinter.Event object with information about a mouse-click
         :return: None
@@ -257,7 +257,7 @@ class App:
         """
 
         # dictionary comprehensions :)
-        # just saying skip the first four lines and then take all the characters from 12 and on as the info
+        # just saying skip the first four lines and then take all the characters from 12 and on as the values
         # for more information, read the header in presets.txt
         return {line[:12].strip(): line[15:].split('|') for i, line in enumerate(open(file).read().split('\n')[4:])}
     

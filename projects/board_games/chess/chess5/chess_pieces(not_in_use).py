@@ -122,7 +122,7 @@ class Rook(Piece):
     
     def get_moves(self):
         """so much code this time, :(
-        it should be a tiny tiny bit faster though, since i'm only incrementing the stuff i really need
+        it should be a tiny tiny bit faster though, since index'm only incrementing the stuff index really need
         but it's twice as long"""
         
         self.moves = [] 

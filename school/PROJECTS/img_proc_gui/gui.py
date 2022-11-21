@@ -215,7 +215,7 @@ def main():
     # 3. TEXT LABEL THAT CAN SHOW RESULTS:
     ###################################
     results_label = tkinter.Label(text="STATUS INFO", foreground="red",
-                                  background="black")  # default text is 'other info'
+                                  background="black")  # default text is 'other values'
 
     ###################################
     # 4. BUTTONS

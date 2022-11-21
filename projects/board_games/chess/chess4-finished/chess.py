@@ -76,7 +76,7 @@ class Board:
     def help():
         print("""Drag and drop => move piece
 Space => alternate between playing the engine or the player
-0-9 => show the current board position in text 
+0-9 => show the results board position in text 
 Return => Display key binds""")
 
     def swap_opponent(self):
@@ -196,7 +196,7 @@ Return => Display key binds""")
             move = stockfish.get_best_move(2000, 2000)
             stockfish.make_moves_from_current_position([move])
 
-            # TODO: laugh at this laggy shitty coding because i didn't store the board well
+            # TODO: laugh at this laggy shitty coding because index didn't store the board well
             # redrawing the entire board bc why not
             self.from_fen(stockfish.get_fen_position())
             self.turn = not self.turn

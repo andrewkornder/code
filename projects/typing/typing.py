@@ -29,7 +29,7 @@ class TypingWindow:
         self.keyboard = Keyboard(self.canvas, w / 2, h - 300)
 
         self.words = words
-        self.text = []  # list of tkinter canvas objects so i can delete them on start of new attempt
+        self.text = []  # list of tkinter canvas objects so index can delete them on start of new attempt
 
         self.window.bind('<Key>', self.type)
         self.window.bind('<Return>', self.start)
@@ -38,7 +38,7 @@ class TypingWindow:
         self.text_x, self.text_y = 500, 300  # ?!!?!
         self.timer = None
         self.current_text = self.get_words()
-        self.cursor = 0  # index of self.current_text that the user is current typing
+        self.cursor = 0  # index of self.current_text that the user is results typing
         self.start()
 
     def get_words(self, length=10):

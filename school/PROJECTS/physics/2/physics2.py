@@ -271,7 +271,7 @@ def bounce(a, b):
 
     total, diff = (a.mass + b.mass), (a.mass - b.mass)
 
-    # saving values for the equations so i dont have to write them twice
+    # saving values for the equations so index dont have to write them twice
     c, d, e, f = diff / total, 2 / total, a.velocity, b.velocity
     return add(multiply(c, e), multiply(d * b.mass, f)), sub(multiply(d * a.mass, e), multiply(c, f))
 
@@ -313,7 +313,7 @@ def decide_new_pos(p1: Planet, p2: Planet) -> tuple:
     :return: (x, y) coordinate pair
     """
 
-    # i guessed on how to determine where a new planet would go
+    # index guessed on how to determine where a new planet would go
     # if we call the larger planet A and the smaller one B and the distance from A to the new planet is D
     # then D over the total distance from A -> B should be the same fraction as the mass of B over the combined mass
     # it turned out pretty well

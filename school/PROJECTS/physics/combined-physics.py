@@ -220,7 +220,7 @@ def decide_new_pos(a, b) -> tuple:
     :return: (x, y) coordinate pair
     """
 
-    # i guessed on how to determine where a new planet would go
+    # index guessed on how to determine where a new planet would go
     # if we call the larger planet A and the smaller one B and the distance from A to the new planet is D
     # then D over the total distance from A -> B should be the same fraction as the mass of B over the combined mass
     # it turned out pretty well

@@ -14,7 +14,7 @@ def start_timer():
                 continue
             if file.read()[-2]=='-':
                 input('\nrun completed')
-                #f.close()
+                #title_font.close()
                 #print('\ntotal time:', t.strftime('%H:%M:%S', t.gmtime(stop))+'.'+str(round(stop, 3)).split('.')[1])
                 exit()
     return None

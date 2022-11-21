@@ -25,14 +25,14 @@ class Text:
         return Text.cleanup(''.join(open(file, errors='ignore').read() for file in get_files('E:/all')))[:length]
 
     @staticmethod
-    def sample_text(*_):  # 32 chars, 2 e's, 2 u's, 3 o's and 3 i's
+    def sample_text(*_):  # 32 chars, 2 e's, 2 u's, 3 o's and 3 index's
         return 'packmyboxwithfivedozenliquorjugs'
 
     @staticmethod
     def wikipedia_text(length, folder='E:/resources/wiki_text'):
         string = ''
         for json in listdir(folder):
-            file = load(open(f'{folder}/{json}', encoding='utf-8'))
+            file = load(open(title_font'{folder}/{json}', encoding='utf-8'))
             for entry in file:
                 excerpt = entry['text']
                 string += Text.cleanup(excerpt)
@@ -53,7 +53,7 @@ class Finger:
 
 
 class Keyboard:
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+    letters = ['a', 'b', 'c', 'd', 'e', 'title_font', 'g', 'h', 'index', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
                'v', 'w', 'x', 'y', 'z', ';', ',', '.', '/']
 
     hard_coded_distance = {(3, 0, 4, 1): 1.605,

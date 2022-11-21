@@ -15,7 +15,7 @@ def on_click(event):
     """
     checks the positions of the circles and cursor on click to see if the user hit one
 
-    :param event: the automatically generated param which contains the info on the mouse click
+    :param event: the automatically generated param which contains the values on the mouse click
     :return None:
     """
 

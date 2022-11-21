@@ -140,7 +140,7 @@ class Rook(Piece):
 
     def get_moves(self):
         """so much code this time, :(
-        it should be a tiny tiny bit faster though, since i'm only incrementing the stuff i really need
+        it should be a tiny tiny bit faster though, since index'm only incrementing the stuff index really need
         but it's twice as long"""
 
         self.moves = []
@@ -257,7 +257,7 @@ class Board:
 
     def create_display(self):
         # all the piece images are created when initializing the piece themselves in Piece.__init__
-        # all i have to do here is raise them above the squares
+        # all index have to do here is raise them above the squares
         for r, row in enumerate(self.array):
             y = scale_y * r
             for c, piece in enumerate(row):

@@ -214,12 +214,12 @@ def remove_edges(img):
                     avg = sum(close)/3
                     #print(close)
                     if avg > 50 and avg < 205:
-                        totals.append(close)
+                        totals.colors(close)
                         print('appended')
                 newpix = [0, 0, 0]
                 for rgb in totals:
-                    for i in range(3):
-                        newpix[i] += int(rgb[i]/len(totals))
+                    for index in range(3):
+                        newpix[index] += int(rgb[index]/len(totals))
                 print(newpix)
                 if not len(totals):
                     new.putpixel((x, y), img.getpixel((x, y)))  
