@@ -12,7 +12,8 @@ from search_bar import SearchBar
 class SearchResults:
     background = '#333333'
 
-    def __init__(self, root, w, h, length, grid, title_font, searches, tree, past, temp, pages=3, auto=False):
+    def __init__(self, root, w, h, length, grid, title_font, searches, tree, past, temp, pages=3, auto=False,
+                 strict_prev=False):
         # we dont really care about the title, since the url uniquely identifies the video
         self.past = [a.split(' | ') for a in open(past, encoding='utf-8').read().split('\n') if a]
         self.past_ids = list(map(lambda x: x[1], self.past))
@@ -37,7 +38,7 @@ class SearchResults:
         self.images = []
         self.chosen = {}
         self.i = 0
-        self.auto = auto
+        self.auto, self.strict_prev = auto, strict_prev
         self.ended = False
 
         self.root = root
@@ -105,9 +106,8 @@ class SearchResults:
 
     def jump_to(self, e):
         self.reset_page()
-        self.queries_t.highlight(str(self.i), color='white')
+        self.queries_t.highlight(self.i, color='white')
         self.i = int(self.queries_t.table.identify_row(e.y))
-        self.queries_t.table.yview_scroll(self.i, 'unit')
 
         self.search()
 
@@ -128,7 +128,7 @@ class SearchResults:
     def back(self, *_):
         if (self.i - 1) < 0:
             return
-        self.queries_t.highlight(str(self.i), color='white')
+        self.queries_t.highlight(self.i, color='white')
         self.i -= 1
         self.reset_page()
         self.search()
@@ -136,7 +136,8 @@ class SearchResults:
     def skip(self, *_):
         if (self.i + 1) >= len(self.searches):
             return
-        self.queries_t.highlight(str(self.i), color='white')
+
+        self.queries_t.highlight(self.i, color='white')
         self.i += 1
         self.reset_page()
         self.search()
@@ -226,7 +227,7 @@ class SearchResults:
         self.chosen[self.i] = i
         self.tree.add(self.i, (*info, u), u)
 
-        self.queries_t.highlight(str(self.i), color='white')
+        self.queries_t.highlight(self.i, color='white')
         self.i += 1
         self.reset_page()
         self.search()
@@ -258,10 +259,12 @@ class SearchResults:
         self.page_n['text'] = f'page {self.page + 1} of {self.pages}'
         self.query_dis['text'] = self.searches[self.i]
 
-        self.queries_t.highlight(str(self.i))
+        self.queries_t.highlight(self.i)
 
         for v in self.results[self.i][self.page * self.length:(self.page + 1) * self.length]:
             self.draw(v)
 
         if self.auto:
+            if self.strict_prev and self.results[0]['id'] not in self.past_ids:
+                return
             self.root.after(1, lambda: self.select(0))

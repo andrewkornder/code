@@ -1,13 +1,13 @@
-from os import remove
+from os import remove, listdir
 from shutil import move
 from subprocess import run
+from PIL import Image
 from eyed3 import id3, load
 from eyed3.id3.frames import ImageFrame
 from multiprocess import Process
 from tkinter import Toplevel, Label, Entry, Button, Frame
 from tkinter.font import Font
 from tkinter.ttk import Style, Treeview
-
 from pytube import YouTube
 
 
@@ -16,9 +16,11 @@ class EditableList:
 
     def __init__(self, root, w, h, rows, columns, pack, entries=(), tags=(), font=None):
         self.root = root
-        self.columns = columns
+        self.columns, self.h = columns, h
 
         row_height = min(max(15, h // (rows + 2)), 50)
+        self.rows = min(rows, h // 15 - 2)
+        self.bottom, self.top = self.rows - 1, 0
         font = font if font else Font(font='TkDefaultFont')
         self.style = Style(self.root)
 
@@ -26,10 +28,11 @@ class EditableList:
         self.style.configure("Treeview.Heading", font=font)
 
         self.table = Treeview(self.root, columns=columns, selectmode='extended',
-                              show='headings', height=min(rows, h // 15 - 2))
+                              show='headings', height=self.rows)
         self.table.pack(**pack)
 
         self.table.bind("<Button-3>", self.edit)
+        self.table.bind("<MouseWheel>", self.on_scroll)
         self.id_table, self.ignore = {}, []
 
         for heading, width in zip(columns, w if type(w) in (list, tuple) else [w] * len(columns)):
@@ -92,8 +95,21 @@ class EditableList:
         top.bind('<Escape>', lambda *_: top.destroy())
         top.mainloop()
 
-    def highlight(self, tag, color='green'):
-        self.table.tag_configure(tag, background=color)
+    def on_scroll(self, e):
+        u = int(-1 * (e.delta / 120))
+        self.table.yview_scroll(u, 'units')
+        self.bottom += u
+        self.top += u
+
+    def highlight(self, row, color='green'):  # TODO: look into methods for row visible or not
+        if row > self.bottom:
+            self.table.yview_scroll(row - self.bottom, 'units')
+            self.bottom = row
+        elif row <= self.top:
+            self.table.yview_scroll(row - self.top - 1, 'units')
+            self.top = row
+
+        self.table.tag_configure(str(row), background=color)
 
     def add(self, index, values, tags=()):
         iid = str(index)
@@ -107,33 +123,46 @@ class DownloadList(EditableList):
     @staticmethod
     def download_video(info, params):
         title, artist, url = info
-        dest, temp, langs = params
+        dest, temp, langs, skip, no_overwrite = params
+
+        if no_overwrite and title + '.mp3' in listdir(f'{dest}/mp3s'):
+            return
+
+        fsi = f'{dest}/thumbnails/original/{title}.jpg'
+        sqi = f'{dest}/thumbnails/square/{title}.jpg'
+
+        move(f'{temp}/{url}.jpg', fsi)
+
+        sq = Image.open(fsi)
+        sq.resize((sq.size[0], sq.size[0]), box=(sq.size[0] / 2 - sq.size[1] / 2, 0,
+                                                 sq.size[0] / 2 + sq.size[1] / 2, sq.size[1])
+                  ).save(sqi)
 
         video = YouTube(f'https://www.youtube.com/embed/{url}')
 
         for lang in langs:
             if lang in video.captions:
-                video.captions[lang].download(title=title, output_path=f'{dest}/subtitles/{lang}')
+                video.captions[lang].download(title=title, output_path=f'{dest}/subtitles/{lang}',
+                                              filename_suffix=False)
+        if skip:
+            return
 
         mp4, mp3 = f'{dest}/{title}.mp4', f'{dest}/mp3s/{title}.mp3'
-
-        print(f'starting to download {title} by {artist}')
         video.streams.filter(type='audio').first().download(dest, filename=mp4)
 
         run([
             'ffmpeg',
             '-i', mp4, mp3
         ], capture_output=True)
-
-        print('finished downloading', title)
+        remove(mp4)
 
         tags = load(mp3)
-        tags.tag.images.set(ImageFrame.FRONT_COVER, open(f'{temp}/{url}.jpg', 'rb').read(), 'image/jpeg')
+        tags.tag.images.set(ImageFrame.FRONT_COVER,
+                            open(sqi, 'rb').read(), 'image/jpeg')
         tags.tag.artist, tags.tag.title, tags.tag.album = artist, title, title
+        tags.tag.images.set(type_=18, img_data=None, mime_type=None, description=video.description,
+                            img_url=video.thumbnail_url)
         tags.tag.save(version=id3.ID3_V2_3)
-
-        remove(mp4)
-        move(f'{temp}/{url}.jpg', f'{dest}/thumbnails/{title}.jpg')
 
     @staticmethod
     def get_translator(file):
@@ -141,9 +170,9 @@ class DownloadList(EditableList):
                  for a in open(file, encoding='utf-8').read().split('\n'))
         return lambda url, *args: (*(t[url] if url in t else args), url)
 
-    def __init__(self, root, w, h, rows, font, grid, translator, langs, dest, temp):
+    def __init__(self, root, w, h, rows, font, grid, translator, langs, dest, temp, skip_video=False, no_ow=False):
         self.langs, self.dest, self.temp = langs, dest, temp
-        self.dl_params = dest, temp, langs
+        self.dl_params = dest, temp, langs, skip_video, no_ow
 
         self.frame = Frame(root)
         self.frame.grid(**grid)
@@ -191,6 +220,8 @@ class DownloadList(EditableList):
             url = self.id_table[i]
             self.table.tag_configure(url, background='green')
             self.downloaded.append(url)
+
+        print(f'\rdownloading:{len(self.running):>3} | finished:{len(self.downloaded):>3}', end='')
 
         self.root.after(100, self.check_finished)
 

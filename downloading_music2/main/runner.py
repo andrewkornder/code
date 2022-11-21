@@ -1,5 +1,6 @@
 from os import remove, listdir, mkdir, system
 from os.path import exists
+from shutil import rmtree
 from tkinter.font import Font
 from tkinter import Tk
 
@@ -8,18 +9,21 @@ from search_results import SearchResults
 
 
 class Display:
-    def __init__(self, w, h, consts, translator=None, auto=False, open_destination=False, first_k=None):
+    def __init__(self, w, h, consts, translator=None, auto=False, open_destination=False, first_k=None,
+                 skip_video=False, overwrite=True, wipe_prev=False, strict_prev=False):
         destination, read, temp, langs, past = consts
 
-        for subfolder in ('subtitles', 'thumbnails', 'mp3s'):
-            folder = f'{destination}/{subfolder}'
+        def check_folder(folder):
             if not exists(folder):
                 mkdir(folder)
 
-        for lang in langs:
-            folder = f'{destination}/subtitles/{lang}'
-            if not exists(folder):
-                mkdir(folder)
+        if wipe_prev:
+            rmtree(destination)
+        check_folder(destination)
+
+        [check_folder(f'{destination}/{subfolder}') for subfolder in
+         ('thumbnails', 'thumbnails/original', 'thumbnails/square', 'subtitles', [f'subtitles/{la}' for la in langs])
+         + (('mp3s',) if not skip_video else ())]
 
         self.queries = open(read, encoding='utf-8').read().split('\n')
         if first_k:
@@ -37,10 +41,10 @@ class Display:
 
         info = DownloadList(self.root, w=lw, h=h, rows=len(self.queries), font=self.font,
                             grid={'row': 0, 'column': 0}, translator=translator,
-                            dest=destination, temp=temp, langs=langs)
+                            dest=destination, temp=temp, langs=langs, skip_video=skip_video, no_ow=not overwrite)
         search = SearchResults(self.root, w - sum(lw) - 10, h, length=3, title_font=self.font,
                                tree=info, grid={'row': 0, 'column': 2}, searches=self.queries, auto=auto, temp=temp,
-                               past=past)
+                               past=past, strict_prev=strict_prev)
         search.search()
 
         self.root.mainloop()
@@ -76,5 +80,14 @@ if __name__ == '__main__':
     _langs = ['en', 'ja']
     _past = './utils/past_saves.txt'
     _translator = './utils/translator.txt'
-    Display(1700, 600, (_destination, _read, _temp, _langs, _past), translator=_translator,
-            auto=False, open_destination=False, first_k=None)
+
+    _sp = True
+    _au = False
+    _od = True
+    _fk = None
+    _sk = False
+    _ov = False
+    _wp = False
+
+    Display(1700, 600, (_destination, _read, _temp, _langs, _past), translator=_translator, strict_prev=_sp, auto=_au,
+            open_destination=_od, first_k=_fk, skip_video=_sk, overwrite=_ov, wipe_prev=_wp)
