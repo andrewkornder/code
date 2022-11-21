@@ -14,9 +14,8 @@ class SearchResults:
 
     def __init__(self, root, w, h, length, grid, title_font, searches, tree, past, temp, pages=3, auto=False,
                  strict_prev=False):
-        # we dont really care about the title, since the url uniquely identifies the video
-        self.past = [a.split(' | ') for a in open(past, encoding='utf-8').read().split('\n') if a]
-        self.past_ids = list(map(lambda x: x[1], self.past))
+        self.past_titles, self.past_ids = zip(*[a.split(' | ') for a in open(past, encoding='utf-8').read().split('\n')
+                                                if a])
 
         self.temp = temp
 
@@ -167,7 +166,7 @@ class SearchResults:
             if video['id'] not in self.past_ids:
                 return levenshtein(q, video['title']) + 10
 
-            title = self.past[self.past_ids.index(video['id'])][0]
+            title = self.past_titles[self.past_ids.index(video['id'])][0]
             return 0.5 * levenshtein(title, video['title'])
 
         def scrape(video):
