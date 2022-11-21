@@ -1,24 +1,27 @@
 from threading import Thread
 from PIL import ImageTk, Image
+from numpy import pi, cos, sin
 from requests import get
 from youtubesearchpython import VideosSearch
-from tkinter import Frame, Canvas
+from tkinter import Frame, Canvas, Label, Button
 from editable_list import EditableList
 from functools import cache
+from search_bar import SearchBar
 
 
 class SearchResults:
     background = '#333333'
 
-    def __init__(self, root, w, h, length, grid, title_font, searches, tree, past, temp, auto=False):
+    def __init__(self, root, w, h, length, grid, title_font, searches, tree, past, temp, pages=3, auto=False):
         # we dont really care about the title, since the url uniquely identifies the video
         self.past = [a.split(' | ') for a in open(past, encoding='utf-8').read().split('\n') if a]
         self.past_ids = list(map(lambda x: x[1], self.past))
 
         self.temp = temp
 
-        lwidth = min(title_font.measure(max(searches, key=len)), w // 6)
-        self.w, self.h = w - lwidth, h
+        max_len_q = max(searches, key=len)
+        line_width = min(title_font.measure(max_len_q), w // 6)
+        self.w, self.h = w - line_width, h - 60
         self.length = length
 
         self.ih = self.h // self.length
@@ -27,7 +30,8 @@ class SearchResults:
 
         self.font = title_font
 
-        self.results, self.results, self.searches = {i: None for i in range(len(searches))}, {}, searches
+        self.pages, self.page = pages, 0
+        self.results, self.searches = {i: None for i in range(len(searches))}, searches
         self.load_searches()
 
         self.images = []
@@ -37,10 +41,13 @@ class SearchResults:
         self.ended = False
 
         self.root = root
-        self.frame = Frame(self.root)
-        self.frame.grid(**grid)
+        self.total_frame = Frame(self.root)
+        self.minor_frame = Frame(self.total_frame)
 
-        self.canvas = Canvas(self.frame, width=self.w, height=h, bg=self.background)
+        self.total_frame.grid(**grid)
+        self.minor_frame.grid(row=0, column=0, columnspan=5)
+
+        self.canvas = Canvas(self.minor_frame, width=self.w, height=self.h, bg=self.background)
         self.canvas.pack(side='left')
 
         self.canvas.bind('<ButtonRelease-1>', lambda e: self.select(e.y // self.ih))
@@ -51,9 +58,10 @@ class SearchResults:
         self.root.bind('<Tab>', self.toggle_auto)
 
         self.tree = tree
-        self.queries_t = EditableList(self.frame, lwidth, h, len(searches), ('query',),
+        self.queries_t = EditableList(self.minor_frame, line_width, self.h, len(searches), ('query',),
                                       {'side': 'right'}, entries=list(zip(self.searches)),
-                                      tags=[('all', a) for a in self.searches])
+                                      tags=[('all', str(i)) for i in range(len(self.searches))])
+        self.queries_t.table.bind('<Button-1>', self.jump_to)
 
         def on_edit(entries, args):
             i = self.searches.index(args[0])
@@ -66,6 +74,43 @@ class SearchResults:
 
         self.queries_t.on_edit = on_edit
 
+        # [ [<] [page_n] [>]    [search_bar]    [query] ]
+        self.page_arrows = [Button(self.total_frame, text='< >'[1 + inc], font=title_font,
+                                   command=lambda inc=inc: self.change_page(inc)) for inc in (-1, 1)]
+        [button.grid(row=1, column=2 * i) for i, button in enumerate(self.page_arrows)]
+        self.page_arrows[0]['state'] = 'disabled'
+
+        self.page_n = Label(self.total_frame, font=title_font, text='Loading')
+        self.page_n.grid(row=1, column=1)
+
+        SearchBar(self.root, self, {'row': 1, 'column': 3}, font=title_font)
+
+        self.query_dis = Label(self.total_frame, font=title_font,
+                               width=len(max_len_q), text=self.searches[0])
+        self.query_dis.grid(row=1, column=4)
+
+    def change_page(self, add):
+        self.page += add
+        if not self.page:
+            self.page_arrows[0]['state'] = 'disabled'
+        else:
+            self.page_arrows[0]['state'] = 'normal'
+
+        if self.page == self.pages - 1:
+            self.page_arrows[1]['state'] = 'disabled'
+        else:
+            self.page_arrows[1]['state'] = 'normal'
+
+        self.search()
+
+    def jump_to(self, e):
+        self.reset_page()
+        self.queries_t.highlight(str(self.i), color='white')
+        self.i = int(self.queries_t.table.identify_row(e.y))
+        self.queries_t.table.yview_scroll(self.i, 'unit')
+
+        self.search()
+
     def remove(self, *_):
         self.tree.add(self.i, ('', ''), '')
 
@@ -73,19 +118,30 @@ class SearchResults:
         self.auto = not self.auto
         self.select(0)
 
+    def reset_page(self):
+        self.page = 0
+
+        self.page_n['text'] = f'page 0 of {self.pages}'
+        self.page_arrows[0]['state'] = 'disabled'
+        self.page_arrows[1]['state'] = 'normal'
+
     def back(self, *_):
-        if (self.i - 1) not in self.results:
+        if (self.i - 1) < 0:
             return
+        self.queries_t.highlight(str(self.i), color='white')
         self.i -= 1
+        self.reset_page()
         self.search()
 
     def skip(self, *_):
-        if (self.i + 1) not in self.results:
+        if (self.i + 1) >= len(self.searches):
             return
+        self.queries_t.highlight(str(self.i), color='white')
         self.i += 1
+        self.reset_page()
         self.search()
 
-    def get_search(self, index, q):  # TODO: add second page and button for turning page
+    def get_search(self, index, q):
         @cache
         def levenshtein(s1, s2):
             if len(s1) < len(s2):
@@ -108,22 +164,22 @@ class SearchResults:
 
         def score(video):
             if video['id'] not in self.past_ids:
-                return levenshtein(q, video['title'])
+                return levenshtein(q, video['title']) + 10
 
             title = self.past[self.past_ids.index(video['id'])][0]
-            return levenshtein(title, video['title'])
+            return 0.5 * levenshtein(title, video['title'])
 
         def scrape(video):
-            new = {
+            _n = {
                 'artist': video['channel']['name'],
                 'title': video['title'],
                 'duration': video['duration'],
                 'thumbnails': video['thumbnails'],
                 'id': video['id']
             }
-            return new
+            return _n
 
-        result = list(map(scrape, VideosSearch(q, limit=self.length).result()['result']))
+        result = list(map(scrape, VideosSearch(q, limit=self.pages * self.length).result()['result']))
         self.results[index] = sorted(result, key=score)
 
     def load_searches(self):
@@ -167,34 +223,44 @@ class SearchResults:
         selection = self.results[self.i][i]
         u, info = selection['id'], (selection['title'], selection['artist'])
 
-        self.results[u] = info
         self.chosen[self.i] = i
         self.tree.add(self.i, (*info, u), u)
 
+        self.queries_t.highlight(str(self.i), color='white')
         self.i += 1
+        self.reset_page()
         self.search()
 
-    def draw_load(self):
+    def draw_load(self, frame):
         self.canvas.delete('all')
-        self.canvas.create_text(400, 400, text='loading')
-        # TODO: loading page
+        circles, fade_out, s = 10, 3, self.w / 128
+        cx, cy, k = self.w / 2, self.h / 2, 2 * pi / circles
+        for i in range(1, fade_out + 1):
+            angle = k * (i + frame)
+            x, y, c = cx + 4 * cos(angle) * s, cy + 4 * sin(angle) * s, i * 255 // fade_out
+            self.canvas.create_oval(x - s, y - s, x + s, y + s,
+                                    fill='#' + f'{max(0, c - i):02x}{c:02x}{c:02x}', outline='')
 
-    def search(self):
+    def search(self, frame=0):
         if self.i == len(self.searches):
             self.ended = True
             self.auto = False
             return
 
-        self.draw_load()
         if self.i not in self.results or self.results[self.i] is None:
-            self.root.after(500, self.search)
+            self.draw_load(frame)
+            self.root.after(125, lambda: self.search(frame + 1))
             return
 
-        self.queries_t.table.tag_configure('all', background='white')
-        self.queries_t.table.tag_configure(self.searches[self.i], background='green')
         self.canvas.delete('all')
         self.images = []
-        for v in self.results[self.i]:
+
+        self.page_n['text'] = f'page {self.page + 1} of {self.pages}'
+        self.query_dis['text'] = self.searches[self.i]
+
+        self.queries_t.highlight(str(self.i))
+
+        for v in self.results[self.i][self.page * self.length:(self.page + 1) * self.length]:
             self.draw(v)
 
         if self.auto:

@@ -4,7 +4,6 @@ from tkinter.font import Font
 from tkinter import Tk
 
 from editable_list import DownloadList
-from search_bar import SearchBar
 from search_results import SearchResults
 
 
@@ -32,23 +31,19 @@ class Display:
         self.root.geometry(f'{w}x{h}')
 
         self.font = Font(family='Niagara Bold', size=10)
-        list_width = min(self.font.measure(max(self.queries + ['abcdefgh'], key=len)), w // 8)
-
+        lw = (lambda x: [x, 2 * x // 3, 2 * x // 5])(min(self.font.measure(max(self.queries +
+                                                                           ['abcdefgh'], key=len)), w // 8))
         self.w, self.h = w, h
 
-        row_height = h - 50
-
-        info = DownloadList(self.root, w=list_width, h=row_height, rows=len(self.queries),
-                            grid={'row': 0, 'column': 0, 'columnspan': 2}, translator=translator,
+        info = DownloadList(self.root, w=lw, h=h, rows=len(self.queries), font=self.font,
+                            grid={'row': 0, 'column': 0}, translator=translator,
                             dest=destination, temp=temp, langs=langs)
-        search = SearchResults(self.root, w - list_width * 3 - 10, row_height, length=3, title_font=self.font,
+        search = SearchResults(self.root, w - sum(lw) - 10, h, length=3, title_font=self.font,
                                tree=info, grid={'row': 0, 'column': 2}, searches=self.queries, auto=auto, temp=temp,
                                past=past)
         search.search()
 
-        SearchBar(self.root, search, {'row': 1, 'column': 2})
-
-        # self.root.mainloop()
+        self.root.mainloop()
 
         trans = {a: b for a, b in [tuple(x.split(' : ')) for x in
                  filter(bool, open(translator, encoding='utf-8').read().split('\n'))]}

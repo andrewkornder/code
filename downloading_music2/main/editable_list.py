@@ -5,6 +5,7 @@ from eyed3 import id3, load
 from eyed3.id3.frames import ImageFrame
 from multiprocess import Process
 from tkinter import Toplevel, Label, Entry, Button, Frame
+from tkinter.font import Font
 from tkinter.ttk import Style, Treeview
 
 from pytube import YouTube
@@ -13,13 +14,17 @@ from pytube import YouTube
 class EditableList:
     restricted_letters = ''
 
-    def __init__(self, root, w, h, rows, columns, pack, entries=(), tags=()):
+    def __init__(self, root, w, h, rows, columns, pack, entries=(), tags=(), font=None):
         self.root = root
         self.columns = columns
 
         row_height = min(max(15, h // (rows + 2)), 50)
+        font = font if font else Font(font='TkDefaultFont')
         self.style = Style(self.root)
-        self.style.configure('Treeview', rowheight=row_height)
+
+        self.style.configure('Treeview', rowheight=row_height, font=font)
+        self.style.configure("Treeview.Heading", font=font)
+
         self.table = Treeview(self.root, columns=columns, selectmode='extended',
                               show='headings', height=min(rows, h // 15 - 2))
         self.table.pack(**pack)
@@ -27,22 +32,23 @@ class EditableList:
         self.table.bind("<Button-3>", self.edit)
         self.id_table, self.ignore = {}, []
 
-        for heading in self.table['columns']:
+        for heading, width in zip(columns, w if type(w) in (list, tuple) else [w] * len(columns)):
             self.table.heading(heading, text=heading.upper())
-            self.table.column(heading, anchor='center', stretch=True, width=w)
+            self.table.column(heading, anchor='center', stretch=True, width=width)
         for i, (v, t) in enumerate(zip(entries, tags)):
-            self.table.insert('', 'end', iid=str(i), values=v, tags=t if isinstance(t, tuple) else (t,))
+            self.add(i, v, t if isinstance(t, tuple) else (t,))
 
     def edit(self, e):
-        iid = str(self.table.identify('row', e.x, e.y))
-        if iid not in self.ignore:
+        iid, selection = str(self.table.identify('row', e.x, e.y)), self.table.selection()
+        if iid not in self.ignore and iid not in selection:
             self.pop_up(iid, *self.table.item(iid)['values'])
 
-        iids = self.table.selection()
-        for iid in iids:
+        for iid in selection:
             if iid in self.ignore:
                 continue
             self.pop_up(iid, *self.table.item(iid)['values'])
+
+        self.table.selection_clear()
 
     def on_edit(self, *_):
         return
@@ -73,9 +79,9 @@ class EditableList:
         [entry.grid(row=1, column=2 * i + (lc == 1)) for i, entry in enumerate(entries)]
 
         b = None
-        for t, col, func in zip('reset enter? cancel'.split(), (0, lc - (lc != 1), 2 * (lc + (lc == 1)) - 2),
-                                (r, finish, lambda *_: top.destroy())):
-            b = Button(top, text=t, width=10, command=func)
+        for te, col, func in zip('reset enter? cancel'.split(), (0, lc - (lc != 1), 2 * (lc + (lc == 1)) - 2),
+                                 (r, finish, lambda *_: top.destroy())):
+            b = Button(top, text=te, width=10, command=func)
             b.grid(row=2, column=col)
 
         r()
@@ -86,7 +92,10 @@ class EditableList:
         top.bind('<Escape>', lambda *_: top.destroy())
         top.mainloop()
 
-    def add(self, index, values, tags=''):
+    def highlight(self, tag, color='green'):
+        self.table.tag_configure(tag, background=color)
+
+    def add(self, index, values, tags=()):
         iid = str(index)
         if self.table.exists(iid):
             self.table.delete(iid)
@@ -132,13 +141,15 @@ class DownloadList(EditableList):
                  for a in open(file, encoding='utf-8').read().split('\n'))
         return lambda url, *args: (*(t[url] if url in t else args), url)
 
-    def __init__(self, root, w, h, rows, grid, translator, langs, dest, temp):
+    def __init__(self, root, w, h, rows, font, grid, translator, langs, dest, temp):
         self.langs, self.dest, self.temp = langs, dest, temp
         self.dl_params = dest, temp, langs
 
         self.frame = Frame(root)
         self.frame.grid(**grid)
-        super().__init__(self.frame, w, h, rows, ('title', 'artist', 'id'), {})
+
+        row_height = font.metrics('linespace')
+        super().__init__(self.frame, w, h - 2 * row_height, rows, ('title', 'artist', 'id'), {})
 
         self.restricted_letters = '<>/\\"”\':|?*'
 
@@ -158,7 +169,7 @@ class DownloadList(EditableList):
         self.frame.update_idletasks()
         dl.pack_forget(), st.pack_forget()
         for i, b in enumerate((dl, st)):
-            if b.winfo_width() > w:
+            if b.winfo_width() > w[1]:
                 b.pack(side='bottom')
             elif i:
                 b.pack(side='right')
@@ -166,8 +177,8 @@ class DownloadList(EditableList):
                 b.pack(side='left')
 
     def on_edit(self, entries, args):
-        (t, a, i), (title, artist, id) = entries, args
-        open(self.trans_file, 'a', encoding='utf-8').write(f'\n{id} : {t.get()} | {a.get()}')
+        (t, a, i), (_, _, url) = entries, args
+        open(self.trans_file, 'a', encoding='utf-8').write(f'\n{url} : {t.get()} | {a.get()}')
 
     def add(self, index, values, tags=''):
         super().add(index, self.translator(values[-1], *values[:2]), tags)
@@ -211,3 +222,4 @@ class DownloadList(EditableList):
             if iid in self.ignore:
                 continue
             self.mp_dl(iid)
+        self.table.selection_clear()

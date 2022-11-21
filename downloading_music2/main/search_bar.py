@@ -2,9 +2,9 @@ from tkinter import Entry
 
 
 class SearchBar:
-    def __init__(self, root, results, grid):
+    def __init__(self, root, results, grid, font):
         self.results = results
-        self.entry = Entry(root, width=max(len(x) for x in results.searches))
+        self.entry = Entry(root, font=font, width=max(len(x) for x in results.searches))
         self.entry.grid(**grid)
 
         self.entry.bind('<Return>', self.search)
