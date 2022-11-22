@@ -51,8 +51,6 @@ class EditableList:
                 continue
             self.pop_up(iid, *self.table.item(iid)['values'])
 
-        self.table.selection_clear()
-
     def on_edit(self, *_):
         return
 
@@ -142,8 +140,11 @@ class DownloadList(EditableList):
 
         for lang in langs:
             if lang in video.captions:
-                video.captions[lang].download(title=title, output_path=f'{dest}/subtitles/{lang}',
-                                              filename_suffix=False)
+                open(f'{dest}/subtitles/{lang}/{title}.txt', 'w', encoding='utf-8').write(
+                    '\n'.join(t_i for i, t_i in enumerate(video.captions[lang].generate_srt_captions().split('\n'))
+                              if i % 4 == 2)
+                )
+
         if skip:
             return
 

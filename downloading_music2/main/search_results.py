@@ -153,25 +153,27 @@ class SearchResults:
             if len(s2) == 0:
                 return len(s1)
 
+            s1, s2 = s1.lower(), s2.lower()
             previous_row = range(len(s2) + 1)
             for i, c1 in enumerate(s1):
                 current_row = [i + 1]
                 for j, c2 in enumerate(s2):
-                    insertions = previous_row[j + 1] + 1
-                    deletions = current_row[j] + 1
-                    substitutions = previous_row[j] + (c1 != c2)
-                    current_row.append(min(insertions, deletions, substitutions))
+                    current_row.append(min(previous_row[j + 1] + 1, current_row[j] + 1, previous_row[j] + (c1 != c2)))
                 previous_row = current_row
 
             return previous_row[-1]
 
-        def score(video):
-            if video['id'] not in self.past_ids:
-                return levenshtein(q, video['title']) + 10
-            return 0.1 * levenshtein(self.past_titles[self.past_ids.index(video['id'])][0], video['title'])
+        def score(video, stype=0):
+            if stype:
+                if video['id'] not in self.past_ids:
+                    return levenshtein(q, video['title']) + 10
+                return 0.1 * levenshtein(self.past_titles[self.past_ids.index(video['id'])][0], video['title'])
+            return (1 - 0.9 * (video['id'] in self.past_ids)) * video['pos']
 
-        def scrape(video):
+        def scrape(info):
+            i, video = info
             _n = {
+                'pos': i,
                 'artist': video['channel']['name'],
                 'title': video['title'],
                 'duration': video['duration'],
@@ -180,8 +182,8 @@ class SearchResults:
             }
             return _n
 
-        self.results[index] = sorted(map(scrape, VideosSearch(q, limit=self.pages * self.length)
-                                         .result()['result']), key=score)
+        results = map(scrape, enumerate(VideosSearch(q, limit=self.pages * self.length).result()['result']))
+        self.results[index] = sorted(results, key=score)
 
     def load_searches(self):
         for i, query in enumerate(self.searches):

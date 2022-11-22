@@ -1,4 +1,4 @@
-from os import mkdir, system, path
+from os import mkdir, system, path, listdir
 from shutil import rmtree
 from tkinter.font import Font
 from tkinter import Tk
@@ -89,14 +89,28 @@ class Selector:
     def __init__(self, cls):
         self.params, self.types = zip(*cls.__init__.__annotations__.items())
         self.none = [any(str(x) == 'None' for x in str(t).split(' | ')) if '|' in str(t) else False for t in self.types]
-        
+
         self.wrappers = list(map(lambda t: (lambda rep, lk=(lambda n: globals()['__builtins__'].__dict__[n]):
         (lambda wr, string: lambda x: wr([f(a) for f, a in zip([(lambda a, b: lambda _x: lk(a)(map(lk(b[:-1]), _x)))
         (*_t.split('[')) if '[' in _t else lk(_t) for _t in string.split(', ')], x)]))(rep[:-1].split('[')[0], '['.join(
-        rep[:-1].split('[')[1:])) if '[' in rep else ([lk(x) for x in rep.split(' | ') if str(x) != 'None'][0] if '|' 
+        rep[:-1].split('[')[1:])) if '[' in rep else ([lk(x) for x in rep.split(' | ') if str(x) != 'None'][0] if '|'
         in rep else rep))(str(t)), self.types))
 
         print(*[f'{a} = {b} | {c}' for a, b, c in zip(self.params, self.wrappers, self.none)], sep='\n')
+
+
+def rf(f0, ignored=()):
+    total = 0
+    for f1 in listdir(f0):
+        if f1 in ignored:
+            continue
+        fp = f'{f0}/{f1}'
+        if path.isdir(fp):
+            total += rf(fp, ignored)
+        elif f1[-3:] == '.py':
+            total += sum(c == '\n' for c in open(fp, encoding='utf-8').read())
+
+    return total
 
 
 if __name__ == '__main__':
@@ -110,12 +124,16 @@ if __name__ == '__main__':
     _pa = 5
     _sp = True
     _au = True
-    _od = True
     _fk = None
     _sk = False
     _ov = False
     _wp = True
-    _pr = True
+    _pr = False
+    _od = True
+
+    print(
+        f'{rf("../", ignored=("utils",))} lines of code'
+    )
 
     Display(
         1700, 600,
