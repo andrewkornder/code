@@ -1,4 +1,6 @@
 from threading import Thread
+from time import sleep
+
 from PIL import ImageTk, Image
 from numpy import pi, cos, sin
 from requests import get
@@ -79,6 +81,7 @@ class SearchResults:
                                    command=lambda inc=inc: self.change_page(inc)) for inc in (-1, 1)]
         [button.grid(row=1, column=2 * i) for i, button in enumerate(self.page_arrows)]
         self.page_arrows[0]['state'] = 'disabled'
+        self.page_arrows[1]['state'] = 'disabled' if pages <= 1 else 'normal'
 
         self.page_n = Label(self.total_frame, font=title_font, text='Loading')
         self.page_n.grid(row=1, column=1)
@@ -165,9 +168,7 @@ class SearchResults:
         def score(video):
             if video['id'] not in self.past_ids:
                 return levenshtein(q, video['title']) + 10
-
-            title = self.past_titles[self.past_ids.index(video['id'])][0]
-            return 0.5 * levenshtein(title, video['title'])
+            return 0.1 * levenshtein(self.past_titles[self.past_ids.index(video['id'])][0], video['title'])
 
         def scrape(video):
             _n = {
@@ -179,8 +180,8 @@ class SearchResults:
             }
             return _n
 
-        result = list(map(scrape, VideosSearch(q, limit=self.pages * self.length).result()['result']))
-        self.results[index] = sorted(result, key=score)
+        self.results[index] = sorted(map(scrape, VideosSearch(q, limit=self.pages * self.length)
+                                         .result()['result']), key=score)
 
     def load_searches(self):
         for i, query in enumerate(self.searches):
@@ -264,6 +265,6 @@ class SearchResults:
             self.draw(v)
 
         if self.auto:
-            if self.strict_prev and self.results[0]['id'] not in self.past_ids:
+            if self.strict_prev and self.results[self.i][0]['id'] not in self.past_ids:
                 return
             self.root.after(1, lambda: self.select(0))

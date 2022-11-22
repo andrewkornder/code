@@ -170,7 +170,8 @@ class DownloadList(EditableList):
                  for a in open(file, encoding='utf-8').read().split('\n'))
         return lambda url, *args: (*(t[url] if url in t else args), url)
 
-    def __init__(self, root, w, h, rows, font, grid, translator, langs, dest, temp, skip_video=False, no_ow=False):
+    def __init__(self, root, w, h, rows, font, grid, translator, langs, dest, temp, skip_video=False, no_ow=False,
+                 print_progress=False):
         self.langs, self.dest, self.temp = langs, dest, temp
         self.dl_params = dest, temp, langs, skip_video, no_ow
 
@@ -190,13 +191,16 @@ class DownloadList(EditableList):
         self.table.bind("<Return>", self.download_selection)
         self.table.bind("<Button-3>", self.edit)
 
+        self.print_progress = print_progress
         self.root.after(100, self.check_finished)
 
         dl = Button(self.frame, text='download all', command=lambda: [self.mp_dl(iid) for iid in self.id_table])
         st = Button(self.frame, text='stop downloads', command=self.cancel_dl)
+
         dl.pack(), st.pack()
         self.frame.update_idletasks()
         dl.pack_forget(), st.pack_forget()
+
         for i, b in enumerate((dl, st)):
             if b.winfo_width() > w[1]:
                 b.pack(side='bottom')
@@ -221,7 +225,8 @@ class DownloadList(EditableList):
             self.table.tag_configure(url, background='green')
             self.downloaded.append(url)
 
-        print(f'\rdownloading:{len(self.running):>3} | finished:{len(self.downloaded):>3}', end='')
+        if self.print_progress:
+            print(f'\rdownloading:{len(self.running):>3} | finished:{len(self.downloaded):>3}', end='')
 
         self.root.after(100, self.check_finished)
 
