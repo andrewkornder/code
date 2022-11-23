@@ -1,4 +1,4 @@
-from os import mkdir, system, path, listdir
+from os import mkdir, system, path, listdir, name as os_name
 from shutil import rmtree
 from tkinter.font import Font
 from tkinter import Tk
@@ -8,10 +8,10 @@ from search_results import SearchResults
 
 
 class Display:
-    def __init__(self, w: int, h: int, consts: tuple[str, str, str, list[str], str], first_k: None | int = None,
-                 translator: None | str = None, pages: int = 3, auto: bool = False, skip_video: bool = False,
-                 overwrite: bool = True, wipe_prev: bool = False, strict_prev: bool = False,
-                 print_progress: bool = False):
+    def __init__(self, w_h_r: float, consts: tuple[str | tuple[str] | list[str], str, str, list[str], str],
+                 first_k: None | int = None, translator: None | str = None, auto: bool = False, wipe_prev: bool = False,
+                 strict_prev: bool = False, print_progress: bool = False, skip_video: bool = False,
+                 overwrite: bool = True, pages: int = 3):
 
         (self.destination, self.read, self.temp, self.langs, self.past), self.translator = consts, translator
 
@@ -34,26 +34,30 @@ class Display:
           'subtitles', *[f'subtitles/{la}' for la in self.langs])
          + (('mp3s',) if not skip_video else ())]
 
-        self.queries = open(self.read, encoding='utf-8').read().split('\n')
+        if isinstance(self.read, list) or isinstance(self.read, tuple):
+            self.queries = list(self.read)
+        else:
+            self.queries = open(self.read, encoding='utf-8').read().split('\n')
+
         if first_k:
             self.queries = self.queries[:first_k]
 
         self.root = Tk()
         self.root.resizable(False, False)
         self.root.title('Downloader')
-        self.root.geometry(f'{w}x{h}')
+        self.w, self.h = (lambda d: (d - 2, int(d / w_h_r) - 1))(self.root.winfo_screenwidth())
+        self.root.geometry(f'{self.w}x{self.h}+0+0')
 
         self.font = Font(family='Niagara Bold', size=10)
         lw = (lambda x: [x, 2 * x // 3, 2 * x // 5])(min(self.font.measure(max(self.queries + ['abcdefgh'],
-                                                                               key=len)), w // 8))
-        self.w, self.h = w, h
+                                                                               key=len)), self.w // 8))
 
-        self.info = DownloadList(self.root, w=lw, h=h, rows=len(self.queries), font=self.font,
+        self.info = DownloadList(self.root, w=lw, h=self.h, rows=len(self.queries), font=self.font,
                                  grid={'row': 0, 'column': 0}, translator=translator,
                                  dest=self.destination, temp=self.temp, langs=self.langs,
                                  skip_video=skip_video, no_ow=not overwrite, print_progress=print_progress)
 
-        self.search = SearchResults(self.root, w - sum(lw) - 10, h, length=3, title_font=self.font,
+        self.search = SearchResults(self.root, self.w - sum(lw) - 10, self.h, length=3, title_font=self.font,
                                     tree=self.info, grid={'row': 0, 'column': 2}, searches=self.queries,
                                     auto=auto, temp=self.temp, past=self.past, strict_prev=strict_prev, pages=pages)
 
@@ -82,7 +86,7 @@ class Display:
         rmtree(self.temp)
 
         if open_destination:
-            system('start ' + self.destination)
+            system(('open ' if os_name == 'posix' else 'start ') + self.destination)
 
 
 class Selector:
@@ -114,8 +118,10 @@ def rf(f0, ignored=()):
 
 
 if __name__ == '__main__':
-    _destination = 'C:/Users/Administrator/OneDrive/Desktop/folders/music'
-    _read = './utils/to_download.txt'
+
+    _destination = '/Users/akornder25/Documents/GitHub/folders/music/' if os_name == 'posix' else \
+        'C:/Users/Administrator/OneDrive/Desktop/folders/music/'
+    _read = 'test video, sample video, sample video bnw'.split(', ') if os_name == 'posix' else './utils/to_download.txt'
     _temp = './utils/temp'
     _langs = ['en', 'ja']
     _past = './utils/past_saves.txt'
@@ -123,7 +129,7 @@ if __name__ == '__main__':
 
     _pa = 5
     _sp = True
-    _au = True
+    _au = False
     _fk = None
     _sk = False
     _ov = False
@@ -131,12 +137,13 @@ if __name__ == '__main__':
     _pr = False
     _od = True
 
+    _wh = 1700 / 600
     print(
         f'{rf("../", ignored=("utils",))} lines of code'
     )
 
     Display(
-        1700, 600,
+        _wh,
         (
             _destination,
             _read,
