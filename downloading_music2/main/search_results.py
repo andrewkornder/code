@@ -1,6 +1,10 @@
-from threading import Thread
-from time import sleep
+#!/usr/bin/python
+# search_results.py
+__author__ = "Andrew Kornder"
+__version__ = '1.0'
 
+
+from threading import Thread
 from PIL import ImageTk, Image
 from numpy import pi, cos, sin
 from requests import get

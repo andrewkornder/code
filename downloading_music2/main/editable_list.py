@@ -1,3 +1,9 @@
+#!/usr/bin/python
+# editable_list.py
+__author__ = "Andrew Kornder"
+__version__ = '1.0'
+
+
 from os import remove, listdir
 from shutil import move
 from subprocess import run

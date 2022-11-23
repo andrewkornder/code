@@ -1,3 +1,9 @@
+#!/usr/bin/python
+# search_bar.py
+__author__ = "Andrew Kornder"
+__version__ = '1.0'
+
+
 from tkinter import Entry
 
 

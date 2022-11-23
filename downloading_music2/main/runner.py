@@ -1,3 +1,9 @@
+#!/usr/bin/python
+# runner.py
+__author__ = "Andrew Kornder"
+__version__ = '1.0'
+
+
 from os import mkdir, system, path, listdir, name as os_name
 from shutil import rmtree
 from tkinter.font import Font
@@ -34,7 +40,7 @@ class Display:
           'subtitles', *[f'subtitles/{la}' for la in self.langs])
          + (('mp3s',) if not skip_video else ())]
 
-        if isinstance(self.read, list) or isinstance(self.read, tuple):
+        if isinstance(self.read, (list, tuple)):
             self.queries = list(self.read)
         else:
             self.queries = open(self.read, encoding='utf-8').read().split('\n')
@@ -81,7 +87,8 @@ class Display:
 
             past_items.add(f'{video["title"]} | {video["id"]}')
 
-        open(self.past, 'w', encoding='utf-8').write('\n'.join(past_items))
+        # sorted bc sets are unordered, and i want it to only change the file if a change has actually been made
+        open(self.past, 'w', encoding='utf-8').write('\n'.join(sorted(past_items)))
 
         rmtree(self.temp)
 
@@ -99,8 +106,6 @@ class Selector:
         (*_t.split('[')) if '[' in _t else lk(_t) for _t in string.split(', ')], x)]))(rep[:-1].split('[')[0], '['.join(
         rep[:-1].split('[')[1:])) if '[' in rep else ([lk(x) for x in rep.split(' | ') if str(x) != 'None'][0] if '|'
         in rep else rep))(str(t)), self.types))
-
-        print(*[f'{a} = {b} | {c}' for a, b, c in zip(self.params, self.wrappers, self.none)], sep='\n')
 
 
 def rf(f0, ignored=()):
@@ -121,7 +126,7 @@ if __name__ == '__main__':
 
     _destination = '/Users/akornder25/Documents/GitHub/folders/music/' if os_name == 'posix' else \
         'C:/Users/Administrator/OneDrive/Desktop/folders/music/'
-    _read = 'test video, sample video, sample video bnw'.split(', ') if os_name == 'posix' else './utils/to_download.txt'
+    _read = './utils/to_download.txt'
     _temp = './utils/temp'
     _langs = ['en', 'ja']
     _past = './utils/past_saves.txt'
