@@ -108,22 +108,28 @@ class Selector:
         in rep else rep))(str(t)), self.types))
 
 
-def rf(f0, ignored=()):
-    total = 0
+def msg_box(msg):
+    width = max(map(len, msg)) + 2
+    box = (f'╔{    "═" * width   }╗\n' +
+           ''.join(f'║{m: ^{width}}║\n' for m in msg) +
+           f'╚{    "═" * width   }╝')
+    return box
+
+
+def rf(f0, ignored=(), lens=()):
+    lens = list(lens)
     for f1 in listdir(f0):
         if f1 in ignored:
             continue
         fp = f'{f0}/{f1}'
         if path.isdir(fp):
-            total += rf(fp, ignored)
+            lens = rf(fp, ignored, lens)
         elif f1[-3:] == '.py':
-            total += sum(c == '\n' for c in open(fp, encoding='utf-8').read())
-
-    return total
+            lens.append((f1, sum(c == '\n' for c in open(fp, encoding='utf-8').read())))
+    return lens
 
 
 if __name__ == '__main__':
-
     _destination = '/Users/akornder25/Documents/GitHub/folders/music/' if os_name == 'posix' else \
         'C:/Users/Administrator/OneDrive/Desktop/folders/music/'
     _read = './utils/to_download.txt'
@@ -132,21 +138,24 @@ if __name__ == '__main__':
     _past = './utils/past_saves.txt'
     _translator = './utils/translator.txt'
 
+    _wh = 1700 / 600
+
     _pa = 5
-    _sp = True
+    _sp = False
     _au = False
     _fk = None
     _sk = False
     _ov = False
-    _wp = True
-    _pr = False
+    _wp = False
+    _pr = True
     _od = True
 
-    _wh = 1700 / 600
     print(
-        f'{rf("../", ignored=("utils",))} lines of code'
+        (lambda m:
+         msg_box(list(map(lambda a: f"{f'%s : %s' % a}", m))) +
+         f'\n{sum(x[1] for x in m)} lines of code')(rf("E:/code", ignored=("utils", "venv", 'py311')))
     )
-
+    exit()
     Display(
         _wh,
         (

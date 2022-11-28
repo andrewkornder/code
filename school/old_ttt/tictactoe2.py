@@ -79,8 +79,8 @@ class Bot:
         for depth in layers:
             layer = layers[depth]
             for node in layer:
-                if node.next:
-                    node.score = sum(x.score for x in node.next) / len(node.next)
+                if node.children:
+                    node.score = sum(x.score for x in node.children) / len(node.children)
 
     def branch(self, node, turn):
         copy = node.get_board(self.game, self.turn)
@@ -88,9 +88,9 @@ class Bot:
             n = Node(node.moves + [move], node)
             c, p = self.check_win(n.get_board(self.game, self.turn), turn)
             n.score = c * (-1 + 2 * p)
-            node.next.append(n)
+            node.children.append(n)
 
-        return node.next
+        return node.children
 
     def check_win(self, array, turn, length=None, size=None):
         if length is None:

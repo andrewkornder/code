@@ -25,7 +25,7 @@ class Minimax:
         for move in self.moves(node.moves):
             child = node.child(move)
             child.score = self.scoring(child.moves)
-        return node.next
+        return node.children
 
 
 class Node:

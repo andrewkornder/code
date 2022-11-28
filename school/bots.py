@@ -71,7 +71,7 @@ class Bot1:
         for move in node.legal:
             n = node.child(move)
             n.score = check_win(n.moves(), self.length, self.size)
-        return node.next
+        return node.children
 
     def get_top_move(self, tree):
         for depth in range(1, self.depth):

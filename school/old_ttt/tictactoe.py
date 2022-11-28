@@ -43,7 +43,7 @@ class Bot:
         turn = self.game.turn
 
         layers = {}
-        for depth in range(self.game.length + 2):
+        for depth in range(self.game.branch_size + 2):
             layer = []
             for node in (layers[depth - 1] if layers else (top,)):
                 if node.score == 0:
@@ -61,8 +61,8 @@ class Bot:
         for depth in layers:
             layer = layers[depth]
             for node in layer:
-                if node.next:
-                    node.best = (max if turn is self.game.turn else min)(node.next, key=lambda x: x.score)
+                if node.children:
+                    node.best = (max if turn is self.game.turn else min)(node.children, key=lambda x: x.score)
                     node.score = node.best.score
         pprint(layers, depth=1000)
 
@@ -78,11 +78,11 @@ class Bot:
         copy = node.get_board(self.game.array, self.game.turn)
         for move in all_moves(copy):
             n = Node(node.moves + [move], node)
-            c, p = check_win(n.get_board(self.game.array, self.game.turn), self.game.length, turn)
+            c, p = check_win(n.get_board(self.game.array, self.game.turn), self.game.branch_size, turn)
             n.score = c * (-1 + 2 * p)
-            node.next.append(n)
+            node.children.append(n)
 
-        return node.next
+        return node.children
 
 
 class Game:
