@@ -1,4 +1,5 @@
 from itertools import product
+from functools import reduce
 from tkinter import Canvas, Tk, Label
 
 
@@ -111,24 +112,22 @@ class TreeDisplay:
         self.root.mainloop()
 
     def create_layer(self, i):
-        def par(x, p, lcolor, j):
+        def par(x, p, j):
             nj = self.nodes[i - 1]
             self.canvas.create_line(x, y, (self.w - 20) / len(nj) * (nj.index(p) + 0.5) + 10, y - self.ly,
-                                    fill=lcolor, width=0.1, tags=('line', f'{j},{i}'))
+                                    fill='#bbbbbb', width=0.1, tags=('line', f'{j},{i}'))
 
         layer = self.nodes[i]
         sw, y = (self.w - 20) / len(self.nodes[i]), self.ly * (i + 1)
         for j, node in enumerate(layer):
-            color, lcolor = ('#888888', '#bbbbbb') if node.active else ('#c81111', '#a60000')
+            if not node.active:
+                continue
 
             x = 10 + (j + 0.5) * sw
             self.canvas.create_oval(x - self.s, y - self.s, x + self.s, y + self.s,
-                                    fill=color, tags=(node.value, 'node'), outline=self.outline)
-            if node.parent is not None:
-                if isinstance(node.parent, Node):
-                    par(x, node.parent, lcolor, j)
-                else:
-                    [par(x, p, lcolor, j) for p in node.parents]
+                                    fill='#888888', tags=(node.value, 'node'), outline=self.outline)
+            if type(node) == Node and node.parent is not None:
+                par(x, node.parent, j)
 
 
 class Node:
@@ -178,18 +177,15 @@ class Node:
 class PolygamousChildNode(Node):
     def __init__(self, parents, value):
         super().__init__(parents, value)
-        self.parents = self.parent
+        for parent in parents:
+            parent.add(self)
         del self.parent
-
-    def create_marriage(self, parent):
-        self.parents.append(parent)
 
     def delete(self):
         self.active = False
 
     def __repr__(self):
-        return f'Node({[p.value for p in self.parents]}) -> Node({self.value})' if self.parents != [None] else \
-            f'None -> Node({self.value})'
+        return f'Node({self.value})'
 
 
 class PolygamousTree:
@@ -197,17 +193,11 @@ class PolygamousTree:
     def from_list(cls, entries, **kwargs):
         parent, entries = Node.parent(), list(entries)
 
-        length = len(entries[0])
-        assert {length} == set(map(len, entries))
+        uniques = list(map(set, zip(*entries)))
 
         nodes = [[parent]]
-        for entry in entries:
-            p = parent
-            for i, char in enumerate(entry):
-                if char in p:
-                    p = p[char]
-                    continue
-                p = Node(p, char)
+        for layer_chars in uniques:
+            nodes.append([PolygamousChildNode(nodes[-1], char) for char in sorted(list(layer_chars))])
 
         return cls(parent, nodes, **kwargs)
 
@@ -224,8 +214,14 @@ class PolygamousTree:
     def __init__(self, parent, nodes, guess, info, clean=True):
         self.nodes, self.parent = nodes, parent
 
+        print(self.tree_size)
         if clean:
             self.clean_up(guess, info)
+        print(self.tree_size)
+
+    @property
+    def tree_size(self):
+        return reduce(lambda a, b: a * b, map(lambda nodes: sum(x.active for x in nodes), self.nodes))
 
     def display(self):
         TreeDisplay(self, True)
@@ -248,18 +244,15 @@ class MonogamousTree:
     @classmethod
     def from_list(cls, entries, **kwargs):
         parent, entries = Node.parent(), list(entries)
-        nodes = [[parent]]
+        nodes = [[parent], *[[] for _ in range(len(entries[0]))]]
         for entry in entries:
             p = parent
             for i, char in enumerate(entry):
                 if char in p:
                     p = p[char]
-                else:
-                    p = Node(p, char)
-                    if i + 1 >= len(nodes):
-                        nodes.append([p])
-                    else:
-                        nodes[i + 1].append(p)
+                    continue
+                p = Node(p, char)
+                nodes[i + 1].append(p)
 
         return cls(parent, nodes, **kwargs)
 
@@ -322,14 +315,14 @@ class MonogamousTree:
 
 if __name__ == '__main__':
     _test = {
-        'guess': '2*3-1=+5',
-        'info': [1, 2, 0, 0, 1, 2, 0, 1],
+        'guess': '2*3=+6',
+        'info': [2,2,0,2,0,2],
         'clean': True,
     }
 
     assert len(_test['info']) == len(_test['guess'])
 
-    _g = Nerdle(5)
-    MonogamousTree.from_list(_g.permutations, **_test).display()
+    _g = Nerdle(6)
+    # MonogamousTree.from_list(_g.permutations, **_test).display()
 
-    PolygamousTree.from_charset(5, **_test).display()
+    PolygamousTree.from_list(_g.permutations, **_test).display()
