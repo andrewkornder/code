@@ -87,7 +87,7 @@ class Display:
 
             past_items.add(f'{video["title"]} | {video["id"]}')
 
-        # sorted bc sets are unordered, and i want it to only change the file if a change has actually been made
+        # sorted bc sets are unordered, and I want it to only change the file if a change has actually been made
         open(self.past, 'w', encoding='utf-8').write('\n'.join(sorted(past_items)))
 
         rmtree(self.temp)
@@ -106,14 +106,6 @@ class Selector:
         (*_t.split('[')) if '[' in _t else lk(_t) for _t in string.split(', ')], x)]))(rep[:-1].split('[')[0], '['.join(
         rep[:-1].split('[')[1:])) if '[' in rep else ([lk(x) for x in rep.split(' | ') if str(x) != 'None'][0] if '|'
         in rep else rep))(str(t)), self.types))
-
-
-def msg_box(msg):
-    width = max(map(len, msg)) + 2
-    box = (f'╔{    "═" * width   }╗\n' +
-           ''.join(f'║{m: ^{width}}║\n' for m in msg) +
-           f'╚{    "═" * width   }╝')
-    return box
 
 
 def rf(f0, ignored=(), lens=()):
@@ -151,8 +143,8 @@ if __name__ == '__main__':
     _od = True
 
     print(
-        (lambda m:
-         msg_box(list(map(lambda a: f"{f'%s : %s' % a}", m))) +
+        (lambda m: (lambda msg: (lambda width: (f'╔{"═" * width}╗\n' + ''.join(f'║{m: ^{width}}║\n' for m in msg) +
+                    f'╚{"═" * width}╝'))(max(map(len, msg)) + 2))(list(map(lambda a: f"{f'%s : %s' % a}", m))) +
          f'\n{sum(x[1] for x in m)} lines of code')(rf("E:/code", ignored=("utils", "venv", 'py311')))
     )
     exit()
