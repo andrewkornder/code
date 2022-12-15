@@ -67,6 +67,7 @@ class Point:
         return f'{self.__class__.__name__}({self.x}, {self.y})'
 
 
+# noinspection PyTypeChecker
 class BezierPoint(Point):
     def __init__(self, x, y, radius, canvas, color, child=False, draw=True):
         super().__init__(x, y, radius, canvas, color, draw=draw, tags=('trails',) if child else ())
@@ -101,7 +102,7 @@ class PointGraph:
 
         self.points = []
         self.paused = False
-        self.rpressed = False
+        self.right_click_down = False
         self.radius = 3
         self.root.after(1000, self.update())
 
@@ -109,7 +110,7 @@ class PointGraph:
         self.points.append(Point(x, y, self.radius, self.canvas, 'red'))
 
     def toggle_pressed(self):
-        self.rpressed = not self.rpressed
+        self.right_click_down = not self.right_click_down
 
     def pause(self):
         self.paused = not self.paused
@@ -119,7 +120,7 @@ class PointGraph:
         self.canvas.delete('all')
 
     def drag(self, x, y):
-        if not self.rpressed:
+        if not self.right_click_down:
             return
 
         for point in self.points:
