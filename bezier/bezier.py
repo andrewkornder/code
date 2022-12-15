@@ -18,12 +18,15 @@ def bezier_recursive(vectors, t):
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 def bezier(vectors, t, illus, func=1):
     if not func and illus and len(vectors) == 2:
         (lambda a, b: a.canvas.create_line(*a.coords, *b.coords, fill='white', tags=('child',),
                                            width=a.radius / 5))(*vectors)
     return (bezier_fast if func else bezier_recursive)(vectors, t)
 =======
+=======
+>>>>>>> Stashed changes
 def bezier(vectors, t, illus, type=0):
     """type: 0 for recursive
              1 for iterative"""
