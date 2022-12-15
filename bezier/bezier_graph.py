@@ -74,7 +74,7 @@ class BezierPoint(Point):
 
     def lerp(self, point, t, child=False):
         return BezierPoint(*((1 - t) * self.coords + point.coords * t),
-                           self.radius, self.canvas, self.color, child, self.drawing is not None)
+                           self.radius, self.canvas, 'red', child, self.drawing is not None)
 
     def draw_lerp(self, point, t):
         if self.drawing is not None:
@@ -146,7 +146,7 @@ class BezierGraph(PointGraph):
         self.lines = not self.lines
 
     def add_point(self, x, y):
-        self.points.append(BezierPoint(x, y, self.radius, self.canvas, 'red'))
+        self.points.append(BezierPoint(x, y, self.radius, self.canvas, 'white'))
         self.last_trail = self.points[0].coords
         self.restart()
 

@@ -1,5 +1,6 @@
-from itertools import product
+from itertools import product, chain
 from functools import reduce
+from random import choice
 from tkinter import Canvas, Tk, Label
 
 
@@ -32,7 +33,10 @@ class Nerdle:
 
     @staticmethod
     def _test_equation(equation):
-        rhs, lhs = equation.split('=')
+        sp = equation.split('=')
+        if len(sp) != 2:
+            return False
+        rhs, lhs = sp
         if any(a * 2 in equation for a in '+-/=*'):
             return False
         if any('/0' in x or not x or x in '-+=*/' for x in (rhs, lhs)):
@@ -63,8 +67,6 @@ class Nerdle:
                 continue
             if validate(string):
                 yield string
-
-        return None
 
     def __init__(self, length, validate=lambda *args: args):
         self.permutations = self._get_permutations(length, validate)
@@ -212,12 +214,25 @@ class PolygamousTree:
         return cls(parent, nodes, **kwargs)
 
     def __init__(self, parent, nodes, guess, info, clean=True):
+        def get_combinations(options):
+            c = [(a,) for a in options[0]]
+
+            for values in options[1:]:
+                c = list(chain.from_iterable([[(*part, a) for a in values] for part in c]))
+            return [''.join(a) for a in c]
+
         self.nodes, self.parent = nodes, parent
 
         print(self.tree_size)
         if clean:
             self.clean_up(guess, info)
         print(self.tree_size)
+
+        print('', *[', '.join([node.value for node in layer if node.active]) for layer in nodes[1:]], '', sep='\n')
+
+        combs = filter(Nerdle._test_equation,
+                       get_combinations([[node.value for node in layer if node.active] for layer in nodes[1:]]))
+        print(f'guess: {next(combs)}')
 
     @property
     def tree_size(self):
@@ -316,7 +331,7 @@ class MonogamousTree:
 if __name__ == '__main__':
     _test = {
         'guess': '2*3=+6',
-        'info': [2,2,0,2,0,2],
+        'info': [0,0,0,1,0,0],
         'clean': True,
     }
 
