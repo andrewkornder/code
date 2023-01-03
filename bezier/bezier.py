@@ -13,32 +13,36 @@ def bezier_fast(points, t):
 
 def bezier_recursive(vectors, t):
     return (lambda l: l[0] if len(l) == 1 else bezier_recursive(l, t))(
-        [vectors[i].draw_lerp(p, t) for i, p in enumerate(vectors[1:])]
-        )
-
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-def bezier(vectors, t, illus, func=1):
-    if not func and illus and len(vectors) == 2:
-        (lambda a, b: a.canvas.create_line(*a.coords, *b.coords, fill='white', tags=('child',),
-                                           width=a.radius / 5))(*vectors)
-    return (bezier_fast if func else bezier_recursive)(vectors, t)
-=======
-=======
->>>>>>> Stashed changes
-def bezier(vectors, t, illus, type=0):
+        [vectors[i].draw_lerp(p, t) for i, p in enumerate(vectors[1:])])
+    
+    
+def bezier_full(vectors, t, illus, type=1):
     """type: 0 for recursive
              1 for iterative"""
     if not type and illus and len(vectors) == 2:
         (lambda a, b: a.canvas.create_line(*a.coords, *b.coords, fill='white', tags=('child',), width=a.radius / 5))\
             (*vectors)
     return (bezier_fast if type else bezier_recursive)(vectors, t)
->>>>>>> Stashed changes
+
+
+import numpy as np
+
+
+def bspline(self, degree=3, periodic=False):
+    cv = np.asarray(self.points)
+
+    if periodic:
+        cv = (lambda factor, fraction: np.concatenate((cv,) * factor + (cv[:fraction],)))(*divmod(self.length + degree + 1, self.length))
+
+    count = len(cv)
+    degree = np.clip(degree, 1, degree if periodic else count - 1)
+    kv = np.arange(0 - degree, count + degree + degree - 1, dtype='int') if periodic else kv = np.concatenate(([0] * degree, np.arange(count - degree + 1), [count - degree] * degree))
+
+    return np.array(si.splev(np.linspace(periodic, (count - degree), self.N), (kv, cv.T, degree))).T
 
 
 if __name__ == '__main__':
-    _g = BezierGraph(1000, 1000, bezier)
+    _g = BezierGraph(1000, 1000, bezier_full)
 
     _k = 5
     _n = 1

@@ -1,6 +1,7 @@
 from PIL import Image
 from time import time
 
+
 def mandelbrot(z, c):
     a, b = z
     x0, y0 = c
