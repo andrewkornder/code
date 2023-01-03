@@ -46,7 +46,7 @@ class App:
             yield k - 1
         if c != self.size - 1:
             yield k + 1
-            
+
     @classmethod
     def random(cls, size, walls, blocks, start, goal, **kwargs):
         s2 = size * size
@@ -151,7 +151,8 @@ class App:
         entry = StringVar(root, str(DEFAULT_ROUNDS))
 
         Label(root, text='rounds:').grid(row=1, column=1)
-        Entry(root, textvariable=entry).grid(row=2, column=1)
+        Entry(root, textvariable=entry, validate='key',
+              validatecommand=(root.register(lambda k: k in '1234567890'), '%S')).grid(row=2, column=1)
         Button(root, text='run', command=lambda: self.model()).grid(row=3, column=1)
 
         return root, canvas, entry
@@ -187,7 +188,7 @@ class App:
                 continue
             yield move
         yield k
-        
+
     def draw_nums(self):
         for r in range(self.size):
             for c in range(self.size):
@@ -206,14 +207,14 @@ class App:
         if self.showing_moves:
             self.canvas.delete('moves')
             self.show_moves()
-            
+
     def change_color(self, k, color):
         self.canvas.itemconfigure(f'loc_{k}', fill=color)
-        
+
     def iterate_pos(self, k):
         if k in self.blocks:
             return
-        
+
         if k == self.start:
             if self.goal is not None:
                 self.change_color(self.goal, BG)
@@ -225,19 +226,19 @@ class App:
                 self.change_color(self.start, BG)
             self.start, color = k, START_COLOR
         self.change_color(k, color)
-        
+
     def create_block(self, k):
         if k in (self.start, self.goal):
             return
-        
+
         if k in self.blocks:
             self.blocks.remove(k)
             self.change_color(k, BG)
             return
-    
+
         self.change_color(k, BLOCK_COLOR)
         self.blocks.append(k)
-        
+
     def create_wall(self, a, b):
         if (a, b) in self.walls:
             self.walls.remove((a, b))
@@ -249,11 +250,11 @@ class App:
             return
 
         inter = self.intersection(a, b)
-        
+
         if len(inter) != 2:
             print(f'{a} and {b} were not adjacent')
             return
-        
+
         a_p, b_p = inter
         self.canvas.create_line(*a_p, *b_p, fill=WALL_COLOR, width=WALL_WIDTH,
                                 tags=(f'wall_{a}x{b}', f'wall_{b}x{a}'))
@@ -330,4 +331,3 @@ class PathDisplay:
 if __name__ == '__main__':
     TRAINING_TYPE = 2
     App(3).run()
-    

@@ -10,7 +10,7 @@ def approximate_slope(func, x):
 class Node:
     def __init__(self, parent, size):
         self.parent = parent
-        self.weights, self.bias = np.array([1 for a in range(size)]), 0
+        self.weights, self.bias = np.array([1 for _ in range(size)]), 0
 
     def calculate_value(self, inputs):
         return self.parent.activation_func(np.dot(self.weights, inputs) + self.bias)

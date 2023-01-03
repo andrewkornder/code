@@ -1,5 +1,5 @@
 import numpy as np
-from random import choice
+from random import choice, uniform
 from functools import cache
 from app3 import App, PathDisplay, GOAL
 from pprint import pprint
@@ -14,6 +14,7 @@ ILLEGAL = -100
 POSITIVE = 10
 NEGATIVE = -10
 DISINCENTIVE = 10
+ALLOW_STANDING = False
 
 
 def manhattan_dist(a, b):
@@ -23,6 +24,7 @@ def manhattan_dist(a, b):
 class Model:
     step_size = 1
     decay = 0.75
+    exploration = 0.3
 
     def __init__(self, total_states, total_actions, available_states, reward, start, goal,
                  record_interval=0, training_type=1):
@@ -38,7 +40,19 @@ class Model:
         self.record = {}
         self.record_training = max(0, record_interval)
 
-        self.train = lambda rounds, func={1: self.train_A, 2: self.train_B}[training_type]: func(rounds)
+        self.train = lambda rounds, func=getattr(self, 'train_' + chr(65 + training_type)): func(rounds)
+
+    def get_moves(self, state):
+        return list(filter(lambda a: a[1] > 0, [(i, self.reward(state, i)) for i in self.states]))
+
+    def choose_action(self, state):
+        if uniform(0, 1) < self.exploration:
+            actions = self.get_moves(state)
+            if actions:
+                return choice(actions)
+
+        action = np.argmax(self.Q[state, ])  # TODO: should be only legal entries in the Q arr
+        return action, self.reward(state, action)
 
     def step(self, action, training=False, illegal_moves=False):
         reward = self.reward(self.state, action)
@@ -83,13 +97,21 @@ class Model:
                 print(f'\r{rnd:>10}', end='')
 
             state = choice(self.states)
-            actions = list(filter(lambda a: a[1] > 0, [(i, self.reward(state, i)) for i in self.states]))
+            actions = self.get_moves(state)
             if not actions:
                 continue
 
             action, reward = choice(actions)
 
             self.update_Q(state, action, reward)
+
+    def train_C(self, rounds):
+        for rnd in range(rounds):
+            if PROGRESS:
+                print(f'\r{rnd:>10}', end='')
+
+            state = choice(self.states)
+            self.update_Q(state, *self.choose_action(state))
 
     def reset(self):
         self.state = self.start
@@ -118,6 +140,9 @@ class PathFinderModel(Model):
     def from_grid(cls, n, walls, blocks, start, goal, **kwargs):
         @cache
         def reward(state, action):
+            if not ALLOW_STANDING and state == action:
+                return ILLEGAL
+
             if action in blocks or state in blocks:
                 return ILLEGAL
 
@@ -155,6 +180,12 @@ def create_model(self):
     path = model.play_game()
     if path[-1] == -1:
         path = path[:-1]
+
+    state = model.start
+    for action in path:
+        print(f'{state} -> {action}: {model.reward(state, action)}')
+        state = action
+
     draw_path(self, path)
 
 
@@ -171,8 +202,6 @@ def create_model_windowless(n, walls, blocks, start, goal, rounds):
 
 def draw_path(self, path):
     self.canvas.delete('path')
-
-    print('\npath:', path)
     centers = np.array([np.array([sum(c) / 4 for c in zip(*self.bounding(k))]) for k in path])
 
     PathDisplay(centers, self.canvas, 'linear')
@@ -180,17 +209,8 @@ def draw_path(self, path):
 
 
 if __name__ == '__main__':
-    # def choose_action(self, state):
-    #     if random.uniform(0, 1) < self.epsilon:
-    #         # choose random action
-    #         action = random.choice(self.actions)
-    #     else:
-    #         # choose action with highest Q-value
-    #         action = max(self.q_values[state], key=self.q_values[state].get)
-    #     return action
-
     model_type = 0
-    TRAINING_TYPE = 1
+    TRAINING_TYPE = 2
 
     n = 5
     _blocks = [1 + i * (n + 1) for i in range(n - 1)] + \
