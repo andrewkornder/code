@@ -10,7 +10,7 @@ class Model:
     exploration = Constants.epsilon
 
     def __init__(self, total_states, total_actions, available_states, reward, start, goal,
-                 record_interval=0, training_type='random'):
+                 record_interval=None, training_type='random'):
         self.reward = reward
 
         self.states = available_states
@@ -21,7 +21,11 @@ class Model:
         self.state = start
 
         self.record = {}
-        self.record_training = max(0, record_interval)
+
+        if record_interval is not None:
+            self.record_training = max(0, record_interval)
+        else:
+            self.record_training = Constants.record_int
 
         self.train = lambda rounds, func=getattr(self, 'train_' + training_type): func(rounds)
 
@@ -67,6 +71,7 @@ class Model:
                     if Constants.progress:
                         print(f'\nfinished round {rnd} in {current_turn} turns')
                     break
+        return self
 
     def train_pure_random(self, rounds):
         for rnd in range(rounds):
@@ -78,6 +83,7 @@ class Model:
                 continue
 
             self.update_q(state, *choice(actions))
+        return self
 
     def train_pseudorandom(self, rounds):
         for rnd in range(rounds):
@@ -87,6 +93,7 @@ class Model:
 
             state = choice(self.states)
             self.update_q(state, *self.choose_action(state))
+        return self
 
     def start_round(self, i):
         if Constants.progress:

@@ -1,5 +1,8 @@
+import time
 from random import choice
 import numpy
+import pprint
+import time
 
 
 from colorsys import hsv_to_rgb
@@ -7,7 +10,9 @@ from math import exp
 
 
 np = numpy
+pprint = pprint.pprint
 choice = choice
+perf_counter = time.perf_counter
 
 
 def _create_gradient(v, _r):
@@ -35,7 +40,7 @@ class Constants:
     # model constants
     default_rounds = 3
     max_plays = 25
-    record_int = 0
+    record_int = 5
     training_options = 'games', 'pure_random', 'pseudorandom'
     progress = False
     allow_standing = False
@@ -56,6 +61,12 @@ class Constants:
     score_range = highest - lowest
 
     gradient = _create_gradient(score_values, score_range)
+
+    @classmethod
+    def set_hyper_params(cls, alpha, gamma, epsilon):
+        cls.alpha = alpha
+        cls.gamma = gamma
+        cls.epsilon = epsilon
 
 
 def manhattan_dist(a, b):
