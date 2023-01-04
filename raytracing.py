@@ -16,7 +16,6 @@ class Ray:
             self.y = self.y + dy
             self.z = self.z + dz
 
-            if
 
 class Object:
     def __init__(self, x, y, z, color):
@@ -34,6 +33,7 @@ class Poly:  # should all be triangles
         self.a, self.b, self.c = a, b, c
 
     def collide(self, ray):
+        pass
 
 
  
