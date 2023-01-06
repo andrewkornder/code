@@ -58,19 +58,24 @@ class Model:
                                                    - self.Q[state, action])
         
     def train_games(self, rounds):
-        for rnd in range(rounds):
-            self.start_round(rnd)
+        games = 0
+
+        while rounds > 0:
+            self.start_round(rounds)
             self.reset()
-                
+
             for current_turn in range(Constants.max_plays):  # play game
-                seed = self.Q[self.state, ] + np.random.randn(1, self.actions_n) * (1 / (2 * rnd + 2))
+                rounds -= 1
+
+                seed = self.Q[self.state, ] + np.random.randn(1, self.actions_n) * (1 / (2 * games + 2))
                 action = np.argmax(seed)
                 reward, finished = self.step(action, training=True)
 
                 if finished:
-                    if Constants.progress:
-                        print(f'\nfinished round {rnd} in {current_turn} turns')
                     break
+
+            games += 1
+
         return self
 
     def train_pure_random(self, rounds):

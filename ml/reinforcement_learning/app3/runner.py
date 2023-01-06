@@ -63,12 +63,15 @@ if __name__ == '__main__':
 
     _start = perf_counter()
 
-    scores = GridSearch(alpha=(0, 1), gamma=(0, 1), epsilon=(0, 1), test_length=9, grid=grid
-                               ).full_params(10 ** 3)
+    _gs = GridSearch(alpha=(0, 1), gamma=(0, 1), epsilon=(0, 1), test_length=16 + 1,
+                     grid=grid, training=Constants.training_options[0])
+    scores = _gs.full_params(10 ** 3)
 
-    params, score = max(scores.items(), key=lambda x: x[1])
-    print('\nalpha = %s\ngamma = %s\nepsilon = %s\nbest model = %s' % params)
-    print('converged at round {}\ntook {:.2f}s'.format(*score))
+    params, score = _gs.best_params
+
+    print(params)
+    print('\nalpha = {}\ngamma = {}\nepsilon = {}\nbest model = {}'.format(*params))
+    print((lambda s, t: f'converged at round {s}\ntook {t:0.2f}s')(*score))
 
     print('time spent training models %s' % (perf_counter() - _start))
 

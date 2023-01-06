@@ -1,4 +1,3 @@
-import time
 from random import choice
 import numpy
 import pprint
