@@ -16,8 +16,8 @@ class Maze(App):
             return
 
         rounds = self.get_rounds()
-        model = PathFinderModel.from_grid(self.grid, training_type=Constants.training_options[self.training]
-                                          ).train(rounds)
+        model = PathFinderModel.from_grid(self.grid, self.grid.reward,
+                                          training_type=Constants.training_options[self.training]).train(rounds)
 
         unique_paths = {}
         for i, path in model.record.items():
@@ -30,6 +30,8 @@ class Maze(App):
             print('failed to find path')
             return
 
+        r = {i: path if path[-1] != -1 else False for i, path in model.record.items()}
+        pprint(r)
         if path in unique_paths:
             print(f'Model({Constants.training_options[self.training]}) converged after {unique_paths[tuple(path)]} '
                   f'rounds out of {rounds} with a score of '

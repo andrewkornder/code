@@ -1,8 +1,5 @@
 from constants import *
 
-from random import uniform
-from functools import cache
-
 
 class Model:
     step_size = Constants.alpha
@@ -131,30 +128,7 @@ class PathFinderModel(Model):
                    cache(lambda s, a: matrix[s, a]), start, goal, **kwargs)
 
     @classmethod
-    def from_grid(cls, grid, **kwargs):
+    def from_grid(cls, grid, reward, **kwargs):
         n, blocks, walls, start, goal = grid.size, grid.blocks, grid.walls, grid.start, grid.goal
-
-        @cache
-        def reward(state, action):
-            if not Constants.allow_standing and state == action:
-                return Constants.illegal
-
-            sa = state, action
-            if any(block in sa for block in blocks):
-                return Constants.illegal
-
-            if sa in walls or (action, state) in walls:
-                return Constants.illegal
-
-            s, a = divmod(state, n), divmod(action, n)
-            legal = manhattan_dist(s, a) == 1
-            if not legal:
-                return Constants.illegal
-
-            if action == goal:
-                return Constants.goal
-
-            g = divmod(goal, n)
-            return Constants.positive if manhattan_dist(a, g) < manhattan_dist(s, g) else Constants.negative
-
-        return cls(n * n, n * n, [i for i in range(n * n) if i not in blocks], reward, start, goal, **kwargs)
+        return cls(n * n, n * n, [i for i in range(n * n) if i not in blocks],
+                   reward, start, goal, **kwargs)

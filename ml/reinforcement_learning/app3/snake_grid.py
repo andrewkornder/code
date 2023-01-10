@@ -1,33 +1,55 @@
 from constants import *
-from model import get_static_reward_func
+from apple import Apple
+from variable_goal_model import VariableGoalModel
 
 
-class Grid:
-    def __init__(self, parent, canvas, size, start, goal, blocks, walls,
-                 mouse_handler):
+class Snake:
+    def __init__(self, grid, loc):
+        self.grid = grid
+        self.positions = [loc]
+
+    @property
+    def head(self):
+        return self.positions[0]
+
+    def step(self, pos):
+        if pos == self.grid.apple:
+            self.positions.insert(0, pos)
+            return
+
+        self.positions = [pos, *self.positions[:-1]]
+
+
+class SnakeGrid:
+    def __init__(self, parent, canvas, size, start, blocks, walls,
+                 mouse_handler, apple_locations):
         self.parent = parent
+
         self.size = size
+        self.snake = Snake(self, start)
+        self.start, self.apple = start, Apple(**{'snake': self.snake, 'size': size, 'locations': apple_locations})
+        self.blocks, self.walls = map(list, (blocks, walls))
+        self.reward = get_variable_reward_func(size, walls, blocks)
 
-        self.start, self.goal = start, goal
-        self.walls, self.blocks = walls, blocks
+        self.canvas = self.config_canvas(canvas, mouse_handler)
 
-        self.reward = get_static_reward_func(size, walls, blocks, goal) if goal is not None else (lambda *_: 0)
-
-        self.mouse = mouse_handler
-
-        self.canvas = self.create_canvas(canvas)
         self.showing_moves, self.showing_numbers = False, False
         self.draw_grid()
 
-    def create_canvas(self, canvas):
+    def delete(self, *args): self.canvas.delete(*args)
+
+    def change_color(self, k, color):
+        self.canvas.itemconfigure(f'loc_{k}', fill=color)
+
+    def config_canvas(self, canvas, on_mouse):
         dim = self.size * Constants.size
 
         canvas.configure(width=dim, height=dim, background=Constants.bg)
         canvas.grid(row=0, column=0, rowspan=5)
 
-        canvas.bind('<ButtonPress>', lambda e: self.mouse(e.num, True, e.x, e.y))
-        canvas.bind('<Motion>', lambda e: self.mouse(-1, None, None, None))
-        canvas.bind('<ButtonRelease>', lambda e: self.mouse(e.num, False, e.x, e.y))
+        canvas.bind('<ButtonPress>', lambda e: on_mouse(e.num, True, e.x, e.y))
+        canvas.bind('<Motion>', lambda e: on_mouse(-1, None, None, None))
+        canvas.bind('<ButtonRelease>', lambda e: on_mouse(e.num, False, e.x, e.y))
 
         return canvas
 
@@ -37,7 +59,7 @@ class Grid:
                 return Constants.block_color
             if k == self.start:
                 return Constants.start_color
-            return Constants.goal_color if k == self.goal else Constants.bg
+            return Constants.goal_color if k == self.apple else Constants.bg
 
         self.delete('all')
 
@@ -61,12 +83,6 @@ class Grid:
             self.canvas.create_line(*a_p, *b_p, fill=Constants.wall_color, width=Constants.wall_width,
                                     tags=(f'wall_{a}x{b}', f'wall_{b}x{a}'))
 
-    def change_color(self, k, color):
-        self.canvas.itemconfigure(f'loc_{k}', fill=color)
-
-    def delete(self, tag):
-        self.canvas.delete(tag)
-
     def draw_nums(self):
         for r in range(self.size):
             for c in range(self.size):
@@ -81,7 +97,7 @@ class Grid:
             r1, c1 = divmod(j, self.size)
             self.canvas.create_rectangle(c1 * Constants.size, r1 * Constants.size,
                                          (c1 + 1) * Constants.size, (r1 + 1) * Constants.size,
-                                         fill=Constants.gradient[self.reward(k, j)], tags=('moves',))
+                                         fill=Constants.gradient[self.reward(k, j, self.apple)], tags=('moves',))
 
     def reset_drawings(self):
         if self.showing_moves:
@@ -92,24 +108,23 @@ class Grid:
         self.walls, self.blocks = [], []
         self.draw_grid()
 
-    def iterate_pos(self, k):
+    def set_start(self, k):
+        if k == self.apple:
+            return
+
         if k in self.blocks:
             return
 
         if k == self.start:
-            if self.goal is not None:
-                self.change_color(self.goal, Constants.bg)
-            self.start, self.goal, color = None, self.start, Constants.goal_color
-        elif k == self.goal:
-            self.goal, color = None, Constants.bg
-        else:
-            if self.start is not None:
-                self.change_color(self.start, Constants.bg)
-            self.start, color = k, Constants.start_color
-        self.change_color(k, color)
+            self.start = None
+            self.change_color(k, Constants.bg)
+            return
+
+        self.start = k
+        self.change_color(k, Constants.start_color)
 
     def create_block(self, k):
-        if k in (self.start, self.goal):
+        if k in (self.start, self.apple):
             return
 
         if k in self.blocks:
@@ -164,37 +179,26 @@ class Grid:
             self.blocks = reformat(self.blocks)
             self.walls = list(map(reformat, self.walls))
 
-            self.start, self.goal = reformat([self.start, self.goal])
+            self.start = reformat([self.start])
         elif diff < 0:
             self.blocks = trim(self.blocks)
             self.walls = [reformat(wall) for wall in self.walls if len(trim(wall, strict=True)) == 2]
 
-            self.start, self.goal = trim([self.start, self.goal], strict=False)
+            self.start = trim([self.start], strict=False)
 
         dim = size * Constants.size
         self.canvas.configure(width=dim, height=dim)
         self.canvas.master.geometry(f'{dim + Constants.size}x{dim}')
 
         self.size = self.parent.size = size
+        self.apple.set_size(size, align)
+
         self.draw_grid()
 
-    def get_legality_matrix(self):
-        s2 = self.size * self.size
 
-        arr = []
-        for state in range(s2):
-            moves = list(adjacent(self.size, state)) + [state]
-            arr.append([int(i in moves) for i in range(s2)])
-
-        arr = np.array(arr)
-        arr[:, self.goal] = Constants.goal
-
-        for a, b in self.walls:
-            arr[a, b] = 0
-            arr[b, a] = 0
-
-        for block in self.blocks:
-            arr[block] = 0
-            arr[:, block] = 0
-
-        return arr
+class SnakeModel(VariableGoalModel):
+    @classmethod
+    def from_grid(cls, grid, reward, **kwargs):
+        n, blocks, walls, start, goal = grid.size * grid.size, grid.blocks, grid.walls, grid.start, grid.apple
+        return cls(n, n, [i for i in range(n) if i not in blocks],
+                   reward, start, goal, **kwargs)

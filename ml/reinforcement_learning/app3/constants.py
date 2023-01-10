@@ -1,7 +1,9 @@
-from random import choice
+from random import choice, randint
 import numpy
 import pprint
 import time
+from functools import cache
+from random import uniform
 
 
 from colorsys import hsv_to_rgb
@@ -10,8 +12,9 @@ from math import exp
 
 np = numpy
 pprint = pprint.pprint
-choice = choice
+choice, randint, uniform = choice, randint, uniform
 perf_counter = time.perf_counter
+cache = cache
 
 
 def _create_gradient(v, _r):
@@ -39,7 +42,7 @@ class Constants:
     # model constants
     default_rounds = 3
     max_plays = 25
-    record_int = 5
+    record_int = 1
     training_options = 'games', 'pure_random', 'pseudorandom'
     progress = False
     allow_standing = False
@@ -94,3 +97,34 @@ def bounding(r, c):
 
 def intersection(size, a, b):
     return set(bounding(*divmod(a, size))).intersection(bounding(*divmod(b, size)))
+
+
+def get_static_reward_func(n, walls, blocks, goal):
+    _reward = get_variable_reward_func(n, walls, blocks)
+    return lambda _s, _a: _reward(_s, _a, goal)
+
+
+def get_variable_reward_func(n, walls, blocks):
+    def _reward(state, action, goal):
+        if not Constants.allow_standing and state == action:
+            return Constants.illegal
+
+        sa = state, action
+        if any(block in sa for block in blocks):
+            return Constants.illegal
+
+        if sa in walls or (action, state) in walls:
+            return Constants.illegal
+
+        s, a = divmod(state, n), divmod(action, n)
+        legal = manhattan_dist(s, a) == 1
+        if not legal:
+            return Constants.illegal
+
+        if action == goal:
+            return Constants.goal
+
+        g = divmod(goal, n)
+        return Constants.positive if manhattan_dist(a, g) < manhattan_dist(s, g) else Constants.negative
+
+    return _reward

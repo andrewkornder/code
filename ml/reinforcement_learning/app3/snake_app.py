@@ -1,48 +1,30 @@
 from constants import *
-from grid import Grid
+from snake_grid import SnakeGrid, SnakeModel
 
 from tkinter import Tk, Canvas, Button, Label, Scale, IntVar, StringVar
-from random import sample
 
 
-class App:
-    @classmethod
-    def random(cls, size, walls, blocks, start, goal, **kwargs):
-        s2 = size * size
+Constants.goal_color = 'red'
+Constants.start_color = 'orange'
 
-        def random_adjacent(k):
-            choices = []
-            r, c = divmod(k, size)
-            if r != 0:
-                choices.append(k - size)
-            if r != size - 1:
-                choices.append(k + size)
-            if c != 0:
-                choices.append(k - 1)
-            if c != size - 1:
-                choices.append(k + 1)
-            return choice(choices)
 
-        if start is None:
-            start = 0
-        elif start is True:
-            start = randint(0, s2 - 1)
+class SnakeApp:
+    def __init__(self, size, start=None, blocks=(), walls=(), apples=(), training=0):
+        self.keys = {
+            'a': lambda: self.grid.apple.next(),
+            'Left': lambda: self.change_training(-1),
+            'Right': lambda: self.change_training(1),
+            'Escape': lambda: self.grid.delete('path'),
+            'BackSpace': lambda: self.grid.reset_obstacles(),
+            'minus': lambda: self.grid.change_size(self.size - 1, align=1),
+            'equal': lambda: self.grid.change_size(self.size + 1, align=1),
+            **{str(i): lambda s=i: self.grid.change_size(s) for i in range(1, 10)}
+        }
 
-        if goal is None:
-            goal = s2 - 1
-        elif goal is True:
-            goal = randint(0, s2 - 1)
-
-        unique = [i for i in range(s2) if i not in (start, goal)]
-        return cls(size, start=start, goal=goal,
-                   blocks=sample(unique, int(blocks * s2)),
-                   walls=[(k, random_adjacent(k)) for k in sample(unique, int(walls * s2))], **kwargs)
-
-    def __init__(self, size, start=None, goal=None, blocks=None, walls=None, training=0):
         self.size = size
 
         self.training = training
-        self.root, self.grid, self.rounds, self.training_label = self.create_window(start, goal, walls, blocks)
+        self.root, self.grid, self.rounds, self.training_label = self.create_window(start, apples, walls, blocks)
 
         self.mouse_down = False
         self.mouse_start = None
@@ -55,14 +37,14 @@ class App:
             self.root.after(50, self.model)
         self.root.mainloop()
 
-    def create_window(self, start, goal, walls, blocks):
+    def create_window(self, start, apples, walls, blocks):
         dim = Constants.size * self.size
 
         root = Tk()
         root.geometry(f'{dim + Constants.size}x{dim}')
 
-        grid = Grid(self, Canvas(root), self.size, start, goal,
-                    blocks if blocks else [], walls if walls else [], self.mouse_handler)
+        grid = SnakeGrid(self, Canvas(root), self.size, start, blocks, walls, self.mouse_handler,
+                         apples)
 
         root.bind('<Return>', lambda *_: self.model())
         root.bind('<KeyPress>', lambda e: self.key_handler(e.keysym, True))
@@ -102,7 +84,7 @@ class App:
                     self.grid.create_wall(pos, self.mouse_start)
             elif button == 3:
                 if boolean:
-                    self.grid.iterate_pos(pos)
+                    self.grid.set_start(pos)
 
         else:  # handle mouse movement
             self.grid.reset_drawings()
@@ -119,29 +101,45 @@ class App:
             return
 
         if boolean:
-            if key == 'Left':
-                self.change_training(-1)
-                return
-            if key == 'Right':
-                self.change_training(1)
-                return
-            if key == 'Escape':
-                self.grid.delete('path')
-                return
-            if key == 'BackSpace':
-                self.grid.reset_obstacles()
-                return
-            if key == 'minus':
-                self.grid.change_size(self.size - 1, align=1)
-                return
-            if key == 'equal':
-                self.grid.change_size(self.size + 1, align=1)
-                return
-            if key in '123457689':
-                self.grid.change_size(int(key))
-                return
-
+            if key in self.keys:
+                self.keys[key]()
             print(f'{key} is not bound to any action')
+            return
 
     def model(self):
-        pass
+        if None in (self.grid.apple, self.grid.start):
+            return
+
+        rounds = self.get_rounds()
+        model = SnakeModel.from_grid(self.grid, self.grid.reward,
+                                     training_type=Constants.training_options[self.training]).train(rounds)
+        path = model.play_game()
+
+        if path[-1] == -1:
+            print('failed to find path')
+            return
+
+        self.draw_path(path)
+
+    def draw_path(self, path):
+        def draw_step():
+            canvas.delete('walk')
+
+            step = path.pop()
+            x, y = list(map(lambda i: i * Constants.size, divmod(step, self.size)))
+            canvas.create_rectangle(x, y, x + Constants.size, y + Constants.size,
+                                    fill=Constants.walk_color, tags=('walk',))
+
+            if path:
+                canvas.after(ms, draw_step())
+
+        path = path[::-1]
+        canvas = self.grid.canvas
+        ms = Constants.walk_time / len(path)
+
+        draw_step()
+
+
+if __name__ == '__main__':
+    app = SnakeApp(5, start=0)
+    app.run()
